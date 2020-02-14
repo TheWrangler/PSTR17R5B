@@ -1,0 +1,294 @@
+# mian clock from AD9914_1
+NET "clk" LOC = H1 | TNM_NET = clk;
+TIMESPEC TS_clk = PERIOD "clk" 7 ns HIGH 50%;
+NET "clk" IOSTANDARD = LVCMOS33;
+
+# sub clock from AD9914_2
+NET "clk_2" LOC = A9 | TNM_NET = clk_2;
+TIMESPEC TS_clk_2 = PERIOD "clk_2" 7 ns HIGH 50%;
+NET "clk_2" IOSTANDARD = LVCMOS33;
+
+########################################################
+# spi
+NET "spi_sclk" LOC = N17;
+NET "spi_din" LOC = K17;
+NET "spi_sclk" IOSTANDARD = LVCMOS33;
+NET "spi_din" IOSTANDARD = LVCMOS33;
+
+
+#########################################################
+# RF SWITCH
+NET "tr_p" LOC = P15;
+NET "tr_n" LOC = T15;
+NET "tr_p" IOSTANDARD = LVCMOS33;
+NET "tr_n" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# TX ATT.
+NET "tx_att[0]" LOC = C15;
+NET "tx_att[1]" LOC = C14;
+NET "tx_att[2]" LOC = C12;
+NET "tx_att[3]" LOC = A10;
+NET "tx_att[4]" LOC = C6;
+NET "tx_att[5]" LOC = G9;
+NET "tx_att[0]" IOSTANDARD = LVCMOS33;
+NET "tx_att[1]" IOSTANDARD = LVCMOS33;
+NET "tx_att[2]" IOSTANDARD = LVCMOS33;
+NET "tx_att[3]" IOSTANDARD = LVCMOS33;
+NET "tx_att[4]" IOSTANDARD = LVCMOS33;
+NET "tx_att[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# TX CHANNEL SWITCH
+NET "th" LOC = V14;
+NET "tv" LOC = V13;
+NET "th" IOSTANDARD = LVCMOS33;
+NET "tv" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL POWER CTRL
+NET "rx_ch_pwr_ctrl[0]" LOC = K16;
+NET "rx_ch_pwr_ctrl[1]" LOC = M16;
+NET "rx_ch_pwr_ctrl[2]" LOC = P16;
+NET "rx_ch_pwr_ctrl[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch_pwr_ctrl[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch_pwr_ctrl[2]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL 1 ATT.
+NET "rx_ch1_att[0]" LOC = L18;
+NET "rx_ch1_att[1]" LOC = N18;
+NET "rx_ch1_att[2]" LOC = P18;
+NET "rx_ch1_att[3]" LOC = T18;
+NET "rx_ch1_att[4]" LOC = T12;
+NET "rx_ch1_att[5]" LOC = U18;
+NET "rx_ch1_att[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_att[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_att[2]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_att[3]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_att[4]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_att[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL 2 ATT.
+NET "rx_ch2_att[0]" LOC = V11;
+NET "rx_ch2_att[1]" LOC = V10;
+NET "rx_ch2_att[2]" LOC = R11;
+NET "rx_ch2_att[3]" LOC = T8;
+NET "rx_ch2_att[4]" LOC = T7;
+NET "rx_ch2_att[5]" LOC = N6;
+NET "rx_ch2_att[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_att[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_att[2]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_att[3]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_att[4]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_att[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL 3 ATT.
+NET "rx_ch3_att[0]" LOC = U2;
+NET "rx_ch3_att[1]" LOC = T3;
+NET "rx_ch3_att[2]" LOC = T4;
+NET "rx_ch3_att[3]" LOC = U5;
+NET "rx_ch3_att[4]" LOC = P6;
+NET "rx_ch3_att[5]" LOC = P8;
+NET "rx_ch3_att[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_att[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_att[2]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_att[3]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_att[4]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_att[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL 1 PHASE.
+NET "rx_ch1_pha[0]" LOC = U17;
+NET "rx_ch1_pha[1]" LOC = E16;
+NET "rx_ch1_pha[2]" LOC = F17;
+NET "rx_ch1_pha[3]" LOC = G13;
+NET "rx_ch1_pha[4]" LOC = H17;
+NET "rx_ch1_pha[5]" LOC = K15;
+NET "rx_ch1_pha[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_pha[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_pha[2]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_pha[3]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_pha[4]" IOSTANDARD = LVCMOS33;
+NET "rx_ch1_pha[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL 2 PHASE.
+NET "rx_ch2_pha[0]" LOC = K12;
+NET "rx_ch2_pha[1]" LOC = L16;
+NET "rx_ch2_pha[2]" LOC = N15;
+NET "rx_ch2_pha[3]" LOC = M18;
+NET "rx_ch2_pha[4]" LOC = P17;
+NET "rx_ch2_pha[5]" LOC = T17;
+NET "rx_ch2_pha[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_pha[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_pha[2]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_pha[3]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_pha[4]" IOSTANDARD = LVCMOS33;
+NET "rx_ch2_pha[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL 3 PHASE.
+NET "rx_ch3_pha[0]" LOC = U8;
+NET "rx_ch3_pha[1]" LOC = V9;
+NET "rx_ch3_pha[2]" LOC = P11;
+NET "rx_ch3_pha[3]" LOC = V12;
+NET "rx_ch3_pha[4]" LOC = R15;
+NET "rx_ch3_pha[5]" LOC = U16;
+NET "rx_ch3_pha[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_pha[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_pha[2]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_pha[3]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_pha[4]" IOSTANDARD = LVCMOS33;
+NET "rx_ch3_pha[5]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# AD9914_1
+NET "master_reset_1" LOC = G1;
+NET "io_update_1" LOC = F1;
+NET "dctrl_1" LOC = V8;
+NET "dhold_1" LOC = V7;
+NET "dover_1" LOC = V6;
+NET "osk_1" LOC = V5;
+NET "dctrl_1" IOSTANDARD = LVCMOS33;
+NET "dhold_1" IOSTANDARD = LVCMOS33;
+NET "dover_1" IOSTANDARD = LVCMOS33;
+NET "io_update_1" IOSTANDARD = LVCMOS33;
+NET "master_reset_1" IOSTANDARD = LVCMOS33;
+NET "osk_1" IOSTANDARD = LVCMOS33;
+
+NET "p_pwd_1" LOC = C9;
+NET "p_wr_1" LOC = C5;
+NET "p_rd_1" LOC = D6;
+NET "p_wr_1" IOSTANDARD = LVCMOS33;
+NET "p_rd_1" IOSTANDARD = LVCMOS33;
+NET "p_pwd_1" IOSTANDARD = LVCMOS33;
+
+NET "function_select_1[3]" LOC = L2;
+NET "function_select_1[2]" LOC = M3;
+NET "function_select_1[1]" LOC = K6;
+NET "function_select_1[0]" LOC = P3;
+NET "function_select_1[3]" IOSTANDARD = LVCMOS33;
+NET "function_select_1[2]" IOSTANDARD = LVCMOS33;
+NET "function_select_1[1]" IOSTANDARD = LVCMOS33;
+NET "function_select_1[0]" IOSTANDARD = LVCMOS33;
+
+NET "profile_select_1[2]" LOC = L4;
+NET "profile_select_1[1]" LOC = P2;
+NET "profile_select_1[0]" LOC = R5;
+NET "profile_select_1[2]" IOSTANDARD = LVCMOS33;
+NET "profile_select_1[1]" IOSTANDARD = LVCMOS33;
+NET "profile_select_1[0]" IOSTANDARD = LVCMOS33;
+
+NET "p_addr_1[7]" LOC = J3;
+NET "p_addr_1[6]" LOC = J7;
+NET "p_addr_1[5]" LOC = G6;
+NET "p_addr_1[4]" LOC = G3;
+NET "p_addr_1[3]" LOC = E3;
+NET "p_addr_1[2]" LOC = D2;
+NET "p_addr_1[1]" LOC = C2;
+NET "p_addr_1[0]" LOC = P4;
+NET "p_addr_1[7]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[6]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[5]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[4]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[3]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[2]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[1]" IOSTANDARD = LVCMOS33;
+NET "p_addr_1[0]" IOSTANDARD = LVCMOS33;
+
+NET "p_data_1[7]" LOC = L1;
+NET "p_data_1[6]" LOC = K1;
+NET "p_data_1[5]" LOC = J1;
+NET "p_data_1[4]" LOC = R3;
+NET "p_data_1[3]" LOC = E1;
+NET "p_data_1[2]" LOC = D1;
+NET "p_data_1[1]" LOC = C1;
+NET "p_data_1[0]" LOC = L3;
+NET "p_data_1[7]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[6]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[5]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[4]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[3]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[2]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[1]" IOSTANDARD = LVCMOS33;
+NET "p_data_1[0]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# AD9914_2
+NET "master_reset_2" LOC = A11;
+NET "io_update_2" LOC = A12;
+NET "dctrl_2" LOC = B2;
+NET "dhold_2" LOC = B3;
+NET "dover_2" LOC = F4;
+NET "osk_2" LOC = F5;
+NET "dctrl_2" IOSTANDARD = LVCMOS33;
+NET "dhold_2" IOSTANDARD = LVCMOS33;
+NET "dover_2" IOSTANDARD = LVCMOS33;
+NET "io_update_2" IOSTANDARD = LVCMOS33;
+NET "master_reset_2" IOSTANDARD = LVCMOS33;
+NET "osk_2" IOSTANDARD = LVCMOS33;
+
+NET "p_pwd_2" LOC = H13;
+NET "p_wr_2" LOC = E11;
+NET "p_rd_2" LOC = G14;
+NET "p_wr_2" IOSTANDARD = LVCMOS33;
+NET "p_rd_2" IOSTANDARD = LVCMOS33;
+NET "p_pwd_2" IOSTANDARD = LVCMOS33;
+
+NET "function_select_2[3]" LOC = K13;
+NET "function_select_2[2]" LOC = J16;
+NET "function_select_2[1]" LOC = J13;
+NET "function_select_2[0]" LOC = B16;
+NET "function_select_2[3]" IOSTANDARD = LVCMOS33;
+NET "function_select_2[2]" IOSTANDARD = LVCMOS33;
+NET "function_select_2[1]" IOSTANDARD = LVCMOS33;
+NET "function_select_2[0]" IOSTANDARD = LVCMOS33;
+
+NET "profile_select_2[2]" LOC = G16;
+NET "profile_select_2[1]" LOC = D14;
+NET "profile_select_2[0]" LOC = C17;
+NET "profile_select_2[2]" IOSTANDARD = LVCMOS33;
+NET "profile_select_2[1]" IOSTANDARD = LVCMOS33;
+NET "profile_select_2[0]" IOSTANDARD = LVCMOS33;
+
+NET "p_addr_2[7]" LOC = C18;
+NET "p_addr_2[6]" LOC = D18;
+NET "p_addr_2[5]" LOC = E18;
+NET "p_addr_2[4]" LOC = F18;
+NET "p_addr_2[3]" LOC = G18;
+NET "p_addr_2[2]" LOC = F11;
+NET "p_addr_2[1]" LOC = F12;
+NET "p_addr_2[0]" LOC = C8;
+NET "p_addr_2[7]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[6]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[5]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[4]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[3]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[2]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[1]" IOSTANDARD = LVCMOS33;
+NET "p_addr_2[0]" IOSTANDARD = LVCMOS33;
+
+NET "p_data_2[7]" LOC = A6;
+NET "p_data_2[6]" LOC = A7;
+NET "p_data_2[5]" LOC = A8;
+NET "p_data_2[4]" LOC = B8;
+NET "p_data_2[3]" LOC = A13;
+NET "p_data_2[2]" LOC = A14;
+NET "p_data_2[1]" LOC = A15;
+NET "p_data_2[0]" LOC = A16;
+NET "p_data_2[7]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[6]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[5]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[4]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[3]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[2]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[1]" IOSTANDARD = LVCMOS33;
+NET "p_data_2[0]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# TRIG
+NET "trig" LOC = U13;
+NET "trig" IOSTANDARD = LVCMOS33;

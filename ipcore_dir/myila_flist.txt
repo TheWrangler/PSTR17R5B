@@ -1,0 +1,19 @@
+# Output products list for <myila>
+_xmsgs\pn_parser.xmsgs
+myila.asy
+myila.cdc
+myila.constraints\myila.ucf
+myila.constraints\myila.xdc
+myila.gise
+myila.ncf
+myila.ngc
+myila.sym
+myila.ucf
+myila.v
+myila.veo
+myila.xco
+myila.xdc
+myila.xise
+myila_flist.txt
+myila_readme.txt
+myila_xmdf.tcl
