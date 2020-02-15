@@ -22,7 +22,7 @@ $f_{SYS}=f_{REF}/24$
 数字斜坡发生器关键参数包括上、下限频率调谐字$FTW_l$、$FTW_u$，正、负向累计速率$RATE_l$、$RATE_u$，正、负向累加步进$STEP_l$、$STEP_u$。其中，频率调谐字计算过程为：
 + 求$f$与$f_{REF}$的最大公约数$Y$
 + 计算$M=f/Y$，$N=f_{REF}/Y$
-+ $FTW=M \times 2^{32}$/N
++ $FTW=M \times 2^{32}/N$
 
 累加步进$STEP=\vartriangle f \times f_{SYS}/2^{32}$，累加速率$RATE=\vartriangle t \times f_{SYS}$。
 
