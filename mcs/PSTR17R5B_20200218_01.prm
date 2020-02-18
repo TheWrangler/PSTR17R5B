@@ -1,0 +1,17 @@
+PROMGEN: Xilinx Prom Generator P.20131013
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+promgen -w -p mcs -c FF -o F:\PSTR17R5B\mcs//PSTR17R5B_20200218_01.mcs -s 4096 -u 0000 F:/PSTR17R5B/top.bit -spi 
+
+PROM F:\PSTR17R5B\mcs\PSTR17R5B_20200218_01.prm map: Tue Feb 18 12:40:52 2020
+
+Calculating PROM checksum with fill value ff
+
+Format        Mcs86 (32-bit)
+Size          4096K
+PROM start    0000:0000
+PROM end      003f:ffff
+PROM checksum 33cc222d
+
+        Addr1        Addr2                     Date File(s)
+    0000:0000    000c:3bcd     Feb 18 12:39:19 2020 F:/PSTR17R5B/top.bit

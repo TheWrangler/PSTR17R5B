@@ -122,25 +122,25 @@ module ad9914_ctrl
 	assign busy = busy_reg;
 	assign finish = finish_reg;
 
-	reg [31 : 0] sfr [3 : 0] = {32'h00_05_31_20,32'h00_00_19_1c,32'h00_04_29_00,32'h00_01_02_00};//SFR4、SFR3、SFR2、SFR1
+	reg [31 : 0] sfr [3 : 0] = {32'h00_05_31_20,32'h00_00_19_1c,32'h00_04_29_00,32'h00_01_03_00};//SFR4、SFR3、SFR2、SFR1
 	//reg [31 : 0] sfr [3 : 0] = {32'h00_05_31_20,32'h00_00_19_1c,32'h00_01_43_00,32'h00_04_29_00};//SFR4、SFR3、SFR1、SFR2
 	//reg [7 : 0] sfr_addr[3 : 0] = {8'h03,8'h02,8'h00,8'h01};
 
-	// reg [31 : 0] lower_limit_reg = 32'd1105322465;//1000MHz+/-125MHz,step=10KHz
-	// reg [31 : 0] upper_limit_reg = 32'd1421128884;
-	// reg [31 : 0] positive_step_reg = 32'd12632;
-	// reg [15 : 0] positive_rate_reg = 32'h0004_0004;//count with sysclk/24
+	reg [31 : 0] lower_limit_reg = 32'd1105322465;//1000MHz+/-125MHz,step=10KHz
+	reg [31 : 0] upper_limit_reg = 32'd1421128884;
+	reg [31 : 0] positive_step_reg = 32'd12632;
+	reg [15 : 0] positive_rate_reg = 32'h0001_0001;//count with sysclk/24
 
 	// reg [31 : 0] lower_limit_reg = 32'd1108480530;//1002.5MHz+/-125MHz,step=10KHz
 	// reg [31 : 0] upper_limit_reg = 32'd1424286948;
 	// reg [31 : 0] positive_step_reg = 32'd12632;
 	// reg [15 : 0] positive_rate_reg = 32'h0004_0004;//count with sysclk/24
 
-	reg [31 : 0] lower_limit_reg = 32'h0000_0000;
-	reg [31 : 0] upper_limit_reg = 32'h0000_0000;
-	reg [31 : 0] positive_step_reg = 32'h0000_0000;//fixed freq and no re-sweep when 0
-	reg [15 : 0] positive_rate_reg = 16'h0000;
-	reg [31 : 0] resweep_period_reg = 32'h0000_0000;
+	// reg [31 : 0] lower_limit_reg = 32'h0000_0000;
+	// reg [31 : 0] upper_limit_reg = 32'h0000_0000;
+	// reg [31 : 0] positive_step_reg = 32'h0000_0000;//fixed freq and no re-sweep when 0
+	// reg [15 : 0] positive_rate_reg = 16'h0000;
+	 reg [31 : 0] resweep_period_reg = 32'h0000_0000;
 	
 	reg [7 : 0] fsm_state_cur = 0;
 	reg [31 : 0] delay_count = 0;
@@ -303,48 +303,65 @@ module ad9914_ctrl
 				end
 			end
 
-			13 : begin
-				if(p_finish && (!p_res)) begin
-					osk_trig_enable <= 1;
+			//ps:Amplitude Scale Factor 0
+			13 : begin 
+				if(p_finish) begin
+					reg_wvar_reg <= 32'h0f_ff_00_00;
+					reg_base_addr_reg <= 8'h0c;
+					reg_byte_num_reg <= 4;
+					p_load_reg <= 1;
 					fsm_state_cur <= 14;
 				end
 			end
-			
+			14 : begin
+				if(p_busy) begin
+					p_load_reg <= 0;
+					fsm_state_cur <= 15;
+				end
+			end
+
+			15 : begin
+				if(p_finish && (!p_res)) begin
+					osk_trig_enable <= 1;
+					fsm_state_cur <= 16;
+				end
+			end
+
 			//enable sweep
-			14 : begin 
+			16 : begin 
 				if(p_finish) begin
 					dctrl_reg <= 1;
 					reg_wvar_reg <= sfr[1] | 32'h00_08_00_00;
 					reg_base_addr_reg <= 8'h01;
 					reg_byte_num_reg <= 4;
 					p_load_reg <= 1;
-					fsm_state_cur <= 15;
+					fsm_state_cur <= 17;
 				end
 			end
-			15 : begin
+			17 : begin
 				if(p_busy) begin
 					p_load_reg <= 0;
-					fsm_state_cur <= 16;
+					fsm_state_cur <= 18;
 				end
 			end
-			16 : begin
+			18 : begin
 				if(p_finish) begin
 					busy_reg <= 0;
 					finish_reg <= 1;
 					resweep_reg <= 0;
 					dctrl_reg <= 0;
 					delay_count <= 0;
-					fsm_state_cur <= 17;
+					fsm_state_cur <= 19;
 				end
 			end
-			17 : begin
+			19 : begin
 				delay_count <= delay_count + 1;
 				if(update)
 					fsm_state_cur <= 0;
 				else if((delay_count > resweep_period_reg) && (!fixed_freq_enable)) begin
 					resweep_reg <= 1;
 					resweep_state <= 1;
-					fsm_state_cur <= 14;
+					fsm_state_cur <= 16;
 				end
 			end
 		endcase
