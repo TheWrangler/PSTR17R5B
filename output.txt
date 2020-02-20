@@ -1,7 +1,7 @@
 Storage Target: SPI Flash Single FPGA
 32M
 FF
-PSTR17R5B_20200218_04.mcs
+PSTR17R5B_20200220_01.mcs
 F:/PSTR17R5B/mcs
 
 MCS

@@ -140,7 +140,7 @@ module ad9914_ctrl
 	// reg [31 : 0] upper_limit_reg = 32'h0000_0000;
 	// reg [31 : 0] positive_step_reg = 32'h0000_0000;//fixed freq and no re-sweep when 0
 	// reg [15 : 0] positive_rate_reg = 16'h0000;
-	 reg [31 : 0] resweep_period_reg = 32'h0000_0000;
+	reg [31 : 0] resweep_period_reg = 32'h0000_0000;
 	
 	reg [7 : 0] fsm_state_cur = 0;
 	reg [31 : 0] delay_count = 0;
@@ -197,7 +197,7 @@ module ad9914_ctrl
 					//delay_count <= 0;
 					//master_reset_reg <= 1;
 
-					fixed_freq_enable <= (positive_rate == 0) ? 1 : 0;
+					fixed_freq_enable <= (positive_step == 0) ? 1 : 0;
 					
 					fsm_state_cur <= 3;
 				end
@@ -417,7 +417,7 @@ module ad9914_ctrl
 	end
 	assign initsweep_osk_trig = initsweep_osk_trig_enable ? ~dover : 0;
 
-	assign osk = resweep_state ? resweep_osk_trig : initsweep_osk_trig;
+	assign osk = (resweep_state ? resweep_osk_trig : initsweep_osk_trig) | fixed_freq_enable;
 	assign trig = osk;
 
 	// wire [35:0] CONTROL0;

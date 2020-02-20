@@ -320,8 +320,8 @@ module top
     //////////////////////////////////////////////////////////////////
     // TV/TH
     // mode=11,switch when falling-edge of trig asserted 
-    reg tv_reg = 1;
-    reg th_reg = 0;
+    reg tv_reg = 0;
+    reg th_reg = 1;
     assign tv = tv_reg;
     assign th = th_reg;
     always @ (posedge ad9914_trig_1) begin
@@ -330,8 +330,8 @@ module top
             th_reg <= tv_reg;
         end
         else begin
-            tv_reg <= 1'b1;
-            th_reg <= 1'b0;
+            tv_reg <= 1'b0;
+            th_reg <= 1'b1;
         end
     end
 
