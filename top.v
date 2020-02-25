@@ -30,13 +30,16 @@ module top
     //RF Switch 
     output tr_p,
     output tr_n,
+    output tr,
+    output lo,
+
     //tx att.
     output [5:0] tx_att,
     //tx channel switch
-    output th,
     output tv,
     //rx power ctrl
     output [2:0] rx_ch_pwr_ctrl,
+    output [2:0] rx_ch_ctrl,
     //rx chanel att.
     output [5:0] rx_ch1_att,
     output [5:0] rx_ch2_att,
@@ -102,7 +105,7 @@ module top
     wire [31:0] depack_sweep_step;
     wire [15:0] depack_sweep_rate;
     wire [31:0] depack_resweep_period;
-    wire [1:0] depack_mode;
+    wire [2:0] depack_mode;
     wire depack_rf_switch;
     wire [7:0] depack_tx_att;
     wire [2:0] depack_rx_ch_pwr_ctrl;
@@ -112,6 +115,7 @@ module top
     wire [7:0] depack_rx_ch1_pha;
     wire [7:0] depack_rx_ch2_pha;
     wire [7:0] depack_rx_ch3_pha;
+    wire [31:0] depack_ct_period;
 
     depack depack_inst
     (
@@ -142,7 +146,8 @@ module top
         .rx_ch3_att(depack_rx_ch3_att),
         .rx_ch1_pha(depack_rx_ch1_pha),
         .rx_ch2_pha(depack_rx_ch2_pha),
-        .rx_ch3_pha(depack_rx_ch3_pha)
+        .rx_ch3_pha(depack_rx_ch3_pha),
+        .ct_period(depack_ct_period)
     );
     ////////////////////////////////////////////////////////////
 
@@ -154,10 +159,6 @@ module top
     ///////////////////////////////////////////////////////////
     //tx att.
     assign tx_att = depack_tx_att[5:0];
-
-    ///////////////////////////////////////////////////////////
-    //tv/th mode
-    //
 
     ///////////////////////////////////////////////////////////
     //rx power ctrl
@@ -250,6 +251,8 @@ module top
     wire [7:0] p_data_in_2;
     wire [7:0] p_data_out_2;
     wire p_data_tri_select_2;
+
+    wire osk_2_temp;
     ad9914_ctrl ad9914_ctrl_inst2
 	(
 		.clk(clk_2),
@@ -268,7 +271,7 @@ module top
 		.trig(ad9914_trig_2),
         .resweep(),
 
-		.osk(osk_2),
+		.osk(osk_2_temp),
 		.dover(dover_2),
 		.dhold(dhold_2),
 		.io_update(io_update_2),
@@ -317,32 +320,29 @@ module top
         end
     endgenerate
 
-    //////////////////////////////////////////////////////////////////
-    // TV/TH
-    // mode=11,switch when falling-edge of trig asserted 
-    reg tv_reg = 0;
-    reg th_reg = 1;
-    assign tv = tv_reg;
-    assign th = th_reg;
-    always @ (posedge ad9914_trig_1) begin
-        if (depack_mode == 2'b11) begin
-            tv_reg <= ~tv_reg;
-            th_reg <= tv_reg;
-        end
-        else begin
-            tv_reg <= 1'b0;
-            th_reg <= 1'b1;
-        end
-    end
+    work_flow work_flow_inst
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .ct_period(depack_ct_period),
+        .tv_mode(depack_mode[1:0]),
+        .ad9914_update_2(ad9914_update_2),
+        .ad9914_osk_temp(osk_2_temp),
+        .ad9914_trig_1(ad9914_trig_1),
+        .ad9914_trig_2(ad9914_trig_2),
+        .rx_ch_pwr_ctrl(depack_rx_ch_pwr_ctrl),
+
+        .ad9914_osk_2(osk_2),
+        .tr(tr),
+        .lo(lo),
+        .tv(tv),
+        .rx_ch_ctrl(rx_ch_ctrl)
+    );
 
     ////////////////////////////////////////////////////////////////
     // trig
     assign trig = ad9914_trig_1;
-
-    ////////////////////////////////////////////////////////////////
-    // CT
-    //when CT enabled, switch when falling-edge of trig asserted
-
 
     /////////////////////////////////////////////////////////////////
     // main progress
@@ -369,18 +369,19 @@ module top
                 end
                 1 : begin
                     ad9914_update_1_reg <= 1;
-                    ad9914_update_2_reg <= 1;
+                    if(depack_mode[2] == 1'b1)
+                        ad9914_update_2_reg <= 1;
                     main_proc_sta <= 2;
                 end
                 2 : begin
-                    if(ad9914_busy_1 && ad9914_busy_2) begin
+                    if(ad9914_busy_1 && (ad9914_busy_2 || (~depack_mode[2]))) begin
                         ad9914_update_1_reg <= 0;
                         ad9914_update_2_reg <= 0;
                         main_proc_sta <= 3;
                     end
                 end
                 3 : begin
-                    if(ad9914_finish_1 && ad9914_finish_2)
+                    if(ad9914_finish_1 && (ad9914_finish_2 || (~depack_mode[2])))
                         main_proc_sta <= 4;
                 end
                 4 : begin

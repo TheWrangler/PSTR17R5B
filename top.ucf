@@ -39,11 +39,16 @@ NET "tx_att[4]" IOSTANDARD = LVCMOS33;
 NET "tx_att[5]" IOSTANDARD = LVCMOS33;
 
 #########################################################
-# TX CHANNEL SWITCH
-NET "th" LOC = V14;
+# TX CHANNEL POWER SWITCH
 NET "tv" LOC = V13;
-NET "th" IOSTANDARD = LVCMOS33;
 NET "tv" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# TX CHANNEL SWITCH
+NET "tr" LOC = V14;
+NET "lo" LOC = T11;
+NET "tr" IOSTANDARD = LVCMOS33;
+NET "lo" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RX CHANNEL POWER CTRL
@@ -53,6 +58,15 @@ NET "rx_ch_pwr_ctrl[2]" LOC = P16;
 NET "rx_ch_pwr_ctrl[0]" IOSTANDARD = LVCMOS33;
 NET "rx_ch_pwr_ctrl[1]" IOSTANDARD = LVCMOS33;
 NET "rx_ch_pwr_ctrl[2]" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# RX CHANNEL CTRL
+NET "rx_ch_ctrl[0]" LOC = L6;
+NET "rx_ch_ctrl[1]" LOC = K4;
+NET "rx_ch_ctrl[2]" LOC = L5;
+NET "rx_ch_ctrl[0]" IOSTANDARD = LVCMOS33;
+NET "rx_ch_ctrl[1]" IOSTANDARD = LVCMOS33;
+NET "rx_ch_ctrl[2]" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RX CHANNEL 1 ATT.
