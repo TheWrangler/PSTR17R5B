@@ -21,43 +21,44 @@
 //WARNNING:When use ad9914 sync_clk as clock source,do not reset AD9914 by set MASTER_RESET HIGH!!!
 
 module ad9914_ctrl
-	#(
-		parameter [7 : 0] MASTER_RESET_DELAY_NUM = 10
-	)
-	(
-		input clk,
-		input rst,
+#(
+	parameter [7 : 0] MASTER_RESET_DELAY_NUM = 10
+)
+(
+	input clk,
+	input rst,
 
-		input update,
-		input [31 : 0] lower_limit,
-		input [31 : 0] upper_limit,
-		input [31 : 0] positive_step,
-		input [15 : 0] positive_rate,
-		input [31 : 0] resweep_period,
+	input update,
+	input [31 : 0] lower_limit,
+	input [31 : 0] upper_limit,
+	input [31 : 0] positive_step,
+	input [15 : 0] positive_rate,
+	input [31 : 0] resweep_period,
 
-		output busy,
-		output finish,
+	output busy,
+	output finish,
 
-		output trig,
-		output resweep,
+	output trig,
+	output pre_trig,
+	output resweep,
 
-		output osk,
-		input dover,
-		output dhold,
-		output io_update,
-		output master_reset,
-		output dctrl,
-		output [2 : 0] profile_select,
-		output [3 : 0] function_select,
+	output osk,
+	input dover,
+	output dhold,
+	output io_update,
+	output master_reset,
+	output dctrl,
+	output [2 : 0] profile_select,
+	output [3 : 0] function_select,
 
-		output p_pwd,
-		output p_rd,
-		output p_wr,
-		output [7 : 0] p_addr,
-		input [7 : 0] p_data_in,
-		output [7 : 0] p_data_out,
-		output p_data_tri_select
-	);
+	output p_pwd,
+	output p_rd,
+	output p_wr,
+	output [7 : 0] p_addr,
+	input [7 : 0] p_data_in,
+	output [7 : 0] p_data_out,
+	output p_data_tri_select
+);
 
 	//ad9914_reg_wr
 	wire p_load;
@@ -111,11 +112,15 @@ module ad9914_ctrl
 	reg dctrl_reg = 0;
 	assign dctrl = dctrl_reg;
 
+	reg pre_trig_reg = 0;
+	assign pre_trig = pre_trig_reg;
+
 	reg master_reset_reg = 0;
 	assign master_reset = master_reset_reg;
 
-	reg resweep_reg = 0;
-	assign resweep = resweep_reg;
+	reg resweep_state = 0;
+	//reg resweep_reg = 0;
+	assign resweep = resweep_state;
 	
 	reg busy_reg = 0;
 	reg finish_reg = 1;
@@ -148,7 +153,6 @@ module ad9914_ctrl
 
 	reg fixed_freq_enable = 0;
 	reg osk_trig_enable = 0;
-	reg resweep_state = 0;
 	
 	always @ (posedge clk) begin
 		if(!rst) begin
@@ -165,6 +169,7 @@ module ad9914_ctrl
 			//delay_count <= 0;
 			//master_reset_reg <= 1;
 			dctrl_reg <= 0;
+			pre_trig_reg <= 0;
 
 			fixed_freq_enable <= 0;
 			osk_trig_enable <= 0;
@@ -176,7 +181,7 @@ module ad9914_ctrl
 			//lock parameter and reset
 			0 : begin
 				dctrl_reg <= 0;
-
+				pre_trig_reg <= 0;
 				osk_trig_enable <= 0;
 				resweep_state <= 0;
 				reg_index <= 0;
@@ -328,7 +333,8 @@ module ad9914_ctrl
 			end
 
 			//enable sweep
-			16 : begin 
+			16 : begin
+				pre_trig_reg <= 0; 
 				if(p_finish) begin
 					dctrl_reg <= 1;
 					reg_wvar_reg <= sfr[1] | 32'h00_08_00_00;
@@ -348,7 +354,6 @@ module ad9914_ctrl
 				if(p_finish) begin
 					busy_reg <= 0;
 					finish_reg <= 1;
-					resweep_reg <= 0;
 					dctrl_reg <= 0;
 					delay_count <= 0;
 					fsm_state_cur <= 19;
@@ -359,10 +364,11 @@ module ad9914_ctrl
 				if(update)
 					fsm_state_cur <= 0;
 				else if((delay_count > resweep_period_reg) && (!fixed_freq_enable)) begin
-					resweep_reg <= 1;
 					resweep_state <= 1;
 					fsm_state_cur <= 16;
 				end
+				else if(delay_count > resweep_period_reg - 32'd40)
+					pre_trig_reg <= 1;
 			end
 		endcase
 	end

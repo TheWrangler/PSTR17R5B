@@ -18,10 +18,10 @@ NET "spi_din" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RF SWITCH
-NET "tr_p" LOC = P15;
-NET "tr_n" LOC = T15;
-NET "tr_p" IOSTANDARD = LVCMOS33;
-NET "tr_n" IOSTANDARD = LVCMOS33;
+NET "tr_pwr_p" LOC = P15;
+NET "tr_pwr_n" LOC = T15;
+NET "tr_pwr_p" IOSTANDARD = LVCMOS33;
+NET "tr_pwr_n" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # TX ATT.
@@ -42,6 +42,11 @@ NET "tx_att[5]" IOSTANDARD = LVCMOS33;
 # TX CHANNEL POWER SWITCH
 NET "tv" LOC = V13;
 NET "tv" IOSTANDARD = LVCMOS33;
+
+#########################################################
+# T BITE
+NET "t_bite" LOC = R7;
+NET "t_bite" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # TX CHANNEL SWITCH

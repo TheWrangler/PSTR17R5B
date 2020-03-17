@@ -28,10 +28,11 @@ module top
     input spi_din,
 
     //RF Switch 
-    output tr_p,
-    output tr_n,
+    output tr_pwr_p,
+    output tr_pwr_n,
     output tr,
     output lo,
+    output t_bite,
 
     //tx att.
     output [5:0] tx_att,
@@ -149,12 +150,6 @@ module top
         .rx_ch3_pha(depack_rx_ch3_pha),
         .ct_period(depack_ct_period)
     );
-    ////////////////////////////////////////////////////////////
-
-    ////////////////////////////////////////////////////////////
-    //RF switch
-    assign tr_p = depack_rf_switch;
-    assign tr_n = ~depack_rf_switch;
 
     ///////////////////////////////////////////////////////////
     //tx att.
@@ -182,6 +177,7 @@ module top
     wire ad9914_busy_1;
     wire ad9914_finish_1;
     wire ad9914_trig_1;
+    wire ad9914_pre_trig_1;
     wire [7:0] p_data_in_1;
     wire [7:0] p_data_out_1;
     wire p_data_tri_select_1;
@@ -202,6 +198,7 @@ module top
 		.finish(ad9914_finish_1),
 
 		.trig(ad9914_trig_1),
+        .pre_trig(ad9914_pre_trig_1),
         .resweep(resweep_1),
 
 		.osk(osk_1),
@@ -269,6 +266,7 @@ module top
 		.finish(ad9914_finish_2),
 
 		.trig(ad9914_trig_2),
+        .pre_trig(),
         .resweep(),
 
 		.osk(osk_2_temp),
@@ -320,6 +318,9 @@ module top
         end
     endgenerate
 
+    //////////////////////////////////////////////////////////
+    // work flow process
+    wire tr_pwr;
     work_flow work_flow_inst
     (
         .clk(clk),
@@ -327,18 +328,23 @@ module top
 
         .ct_period(depack_ct_period),
         .tv_mode(depack_mode[1:0]),
+        .ad9914_update_1(ad9914_update_1),
         .ad9914_update_2(ad9914_update_2),
-        .ad9914_osk_temp(osk_2_temp),
+        .ad9914_osk_2_temp(osk_2_temp),
         .ad9914_trig_1(ad9914_trig_1),
-        .ad9914_trig_2(ad9914_trig_2),
+        .ad9914_pre_trig_1(ad9914_pre_trig_1),
         .rx_ch_pwr_ctrl(depack_rx_ch_pwr_ctrl),
 
         .ad9914_osk_2(osk_2),
         .tr(tr),
+        .tr_pwr(tr_pwr),
         .lo(lo),
         .tv(tv),
         .rx_ch_ctrl(rx_ch_ctrl)
     );
+    assign tr_pwr_p = tr_pwr & depack_rf_switch;
+    assign tr_pwr_n = ~tr_pwr_p;
+    assign t_bite = ~tr;
 
     ////////////////////////////////////////////////////////////////
     // trig
@@ -368,27 +374,31 @@ module top
                         main_proc_sta <= 1;
                 end
                 1 : begin
+                    if(ad9914_finish_1 && ad9914_finish_2)
+                        main_proc_sta <= 2;
+                end
+                2 : begin
                     ad9914_update_1_reg <= 1;
                     if(depack_mode[2] == 1'b1)
                         ad9914_update_2_reg <= 1;
-                    main_proc_sta <= 2;
+                    main_proc_sta <= 3;
                 end
-                2 : begin
+                3 : begin
                     if(ad9914_busy_1 && (ad9914_busy_2 || (~depack_mode[2]))) begin
                         ad9914_update_1_reg <= 0;
                         ad9914_update_2_reg <= 0;
-                        main_proc_sta <= 3;
+                        main_proc_sta <= 4;
                     end
                 end
-                3 : begin
-                    if(ad9914_finish_1 && (ad9914_finish_2 || (~depack_mode[2])))
-                        main_proc_sta <= 4;
-                end
                 4 : begin
-                    depack_load_reg <= 1;
-                    main_proc_sta <= 5;
+                    if(ad9914_finish_1 && ad9914_finish_2)
+                        main_proc_sta <= 5;
                 end
                 5 : begin
+                    depack_load_reg <= 1;
+                    main_proc_sta <= 6;
+                end
+                6 : begin
                     if(!depack_ready) begin
                         depack_load_reg <= 0;
                         main_proc_sta <= 0;
@@ -398,32 +408,34 @@ module top
         end
     end
 
-    wire [35:0] CONTROL0;
-	wire [99:0] TRIG0;
-	assign TRIG0[0] = depack_ready;
-	assign TRIG0[4:1] = main_proc_sta;
-	assign TRIG0[5] = depack_load_reg;
-	assign TRIG0[6] = ad9914_update_1;
-	assign TRIG0[7] = ad9914_update_1;
-	assign TRIG0[8] = ad9914_busy_1;
-	assign TRIG0[9] = ad9914_busy_2;
-    assign TRIG0[10] = ad9914_finish_1;
-    assign TRIG0[11] = ad9914_finish_1;
-    assign TRIG0[43:12] = depack_ftw_lower_1;
-    assign TRIG0[75:44] = depack_resweep_period;
-    assign TRIG0[91:76] = depack_sweep_rate;
-    assign TRIG0[93:92] = depack_mode;
-    assign TRIG0[96:94] = depack_rx_ch_pwr_ctrl;
-    assign TRIG0[97] = trig;
+    // wire [35:0] CONTROL0;
+	// wire [99:0] TRIG0;
+	// assign TRIG0[0] = ad9914_update_1_reg;
+	// assign TRIG0[4:1] = main_proc_sta;
+	// assign TRIG0[5] = depack_load_reg;
+	// assign TRIG0[6] = ad9914_update_1;
+	// assign TRIG0[7] = ad9914_update_1;
+	// assign TRIG0[8] = ad9914_busy_1;
+	// assign TRIG0[9] = ad9914_busy_2;
+    // assign TRIG0[10] = ad9914_finish_1;
+    // assign TRIG0[11] = ad9914_finish_1;
+    // assign TRIG0[43:12] = depack_ftw_lower_1;
+    // assign TRIG0[75:44] = depack_resweep_period;
+    // assign TRIG0[91:76] = depack_sweep_rate;
+    // assign TRIG0[94:92] = depack_mode;
+    // assign TRIG0[95] = tr_pwr;
+    // assign TRIG0[96] = tr;
+    // assign TRIG0[97] = tv;
+    // assign TRIG0[98] = trig;
 
-	myila myila_inst (
-		.CONTROL(CONTROL0), // INOUT BUS [35:0]
-		.CLK(clk), // IN
-		.TRIG0(TRIG0) // IN BUS [99:0]
-	);
+	// myila myila_inst (
+	// 	.CONTROL(CONTROL0), // INOUT BUS [35:0]
+	// 	.CLK(clk), // IN
+	// 	.TRIG0(TRIG0) // IN BUS [99:0]
+	// );
 
-	myicon myicon_inst (
-    	.CONTROL0(CONTROL0) // INOUT BUS [35:0]
-	);
+	// myicon myicon_inst (
+    // 	.CONTROL0(CONTROL0) // INOUT BUS [35:0]
+	// );
 
 endmodule
