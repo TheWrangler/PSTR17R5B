@@ -149,7 +149,7 @@ module work_flow
     ////////////////////////////////////////////////////////////
     // osk_2,rx_ch_ctrl
     assign ad9914_osk_2 = ct_enable ? ad9914_osk_2_temp : 1'b0;
-    assign rx_ch_ctrl = ct_enable ? rx_ch_pwr_ctrl : 3'b000;
+    assign rx_ch_ctrl = ct_enable ? {~rx_ch_pwr_ctrl[2], ~rx_ch_pwr_ctrl[1],~rx_ch_pwr_ctrl[0]}: 3'b111;
 
     wire [35:0] CONTROL0;
 	wire [99:0] TRIG0;

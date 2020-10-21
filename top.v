@@ -41,10 +41,13 @@ module top
     //rx power ctrl
     output [2:0] rx_ch_pwr_ctrl,
     output [2:0] rx_ch_ctrl,
+
     //rx chanel att.
-    output [5:0] rx_ch1_att,
-    output [5:0] rx_ch2_att,
-    output [5:0] rx_ch3_att,
+    output [2:0] scl,
+    inout [2:0] sda,
+    output [2:0] a0,
+    output [2:0] a1,
+
     //rx channel pha
     output [5:0] rx_ch1_pha,
     output [5:0] rx_ch2_pha,
@@ -161,9 +164,82 @@ module top
 
     ///////////////////////////////////////////////////////////
     //rx channel att.
-    assign rx_ch1_att = depack_rx_ch1_att[5:0];
-    assign rx_ch2_att = depack_rx_ch2_att[5:0];
-    assign rx_ch3_att = depack_rx_ch3_att[5:0];
+    wire [2:0] ds3502_load;
+    wire [2:0] ds3502_busy;
+    wire [2:0] ds3502_sda_i;
+    wire [2:0] ds3502_sda_o;
+    wire [2:0] sda_io_ctrl;
+
+    ds3502 ds3502_inst_0
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .load(depack_ready),
+        .reg_addr(0),
+        .reg_var(depack_rx_ch1_att),
+        .busy(ds3502_busy[0]),
+        
+        .a({a1[0],a0[0]}),
+        .scl(scl[0]),
+        .sda_i(ds3502_sda_i[0]),
+        .sda_o(ds3502_sda_o[0]),
+        .sda_io_ctrl(sda_io_ctrl[0])//i-1,o-0
+    );
+
+    ds3502 ds3502_inst_1
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .load(depack_ready),
+        .reg_addr(0),
+        .reg_var(depack_rx_ch2_att),
+        .busy(ds3502_busy[1]),
+        
+        .a({a1[1],a0[1]}),
+        .scl(scl[1]),
+        .sda_i(ds3502_sda_i[1]),
+        .sda_o(ds3502_sda_o[1]),
+        .sda_io_ctrl(sda_io_ctrl[1])//i-1,o-0
+    );
+
+    ds3502 ds3502_inst_2
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .load(depack_ready),
+        .reg_addr(0),
+        .reg_var(depack_rx_ch3_att),
+        .busy(ds3502_busy[2]),
+        
+        .a({a1[2],a0[2]}),
+        .scl(scl[2]),
+        .sda_i(ds3502_sda_i[2]),
+        .sda_o(ds3502_sda_o[2]),
+        .sda_io_ctrl(sda_io_ctrl[2])//i-1,o-0
+    );
+
+    genvar ii;
+    generate 
+        for(ii=0;ii<2;ii=ii+1) begin : SDA_IO_IOBUF_MODULE_INSTANCED
+            IOBUF
+            #(
+                .DRIVE(12), // Specify the output drive strength
+                .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE"
+                .IOSTANDARD("DEFAULT"), // Specify the I/O standard
+                .SLEW("SLOW") // Specify the output slew rate
+            )
+            IOBUF_inst
+            (
+                .I(ds3502_sda_o[ii]),
+                .O(ds3502_sda_i[ii]),
+                .T(sda_io_ctrl[ii]),
+                .IO(sda[ii])
+            );
+        end
+    endgenerate
 
     ///////////////////////////////////////////////////////////
     //rx channel pha

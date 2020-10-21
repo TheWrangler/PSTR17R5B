@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+Max Top 5 critical clocks will be reported. For rest user needs to refer to Detailed report
+*******************************************************************************************-->
+<report_table display_priority="2" name="Timing Summary">
+<report_link name="Detailed report">
+<data>F:\PSTR17R5B\synlog\top_fpga_mapper.srr</data>
+<title>##### START OF TIMING REPORT #####[</title>
+</report_link>
+<row>
+<data>Clock Name</data>
+<data>Req Freq</data>
+<data>Est Freq</data>
+<data>Slack</data>
+</row>
+<row>
+<data>myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock</data>
+<data>1.0 MHz</data>
+<data>118.9 MHz</data>
+<data>991.587</data>
+</row>
+<row>
+<data>myicon|U0/iUPDATE_OUT_inferred_clock</data>
+<data>1.0 MHz</data>
+<data>733.6 MHz</data>
+<data>998.637</data>
+</row>
+<row>
+<data>top|clk</data>
+<data>1.0 MHz</data>
+<data>99.5 MHz</data>
+<data>989.948</data>
+</row>
+<row>
+<data>top|clk_2</data>
+<data>1.0 MHz</data>
+<data>193.0 MHz</data>
+<data>994.819</data>
+</row>
+<row>
+<data>System</data>
+<data>1.0 MHz</data>
+<data>202.8 MHz</data>
+<data>995.068</data>
+</row>
+</report_table>

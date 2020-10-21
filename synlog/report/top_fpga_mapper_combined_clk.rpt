@@ -1,0 +1,25 @@
+
+
+#### START OF CLOCK OPTIMIZATION REPORT #####[
+
+3 non-gated/non-generated clock tree(s) driving 2250 clock pin(s) of sequential element(s)
+2 gated/generated clock tree(s) driving 2 clock pin(s) of sequential element(s)
+0 instances converted, 2 sequential instances remain driven by gated/generated clocks
+
+=================================================================================================== Non-Gated/Non-Generated Clocks ===================================================================================================
+Clock Tree ID     Driving Element                                                                                                                     Drive Element Type     Fanout     Sample Instance                               
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0003       clk                                                                                                                                 port                   1659       main_proc_sta[0]                              
+@K:CKID0004       clk_2                                                                                                                               port                   413        ad9914_ctrl_inst2.reg_wvar_reg[0]             
+@K:CKID0005       work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG     BUFG                   178        work_flow_inst.myicon_inst.U0/U_ICON/U_TDO_reg
+======================================================================================================================================================================================================================================
+================================================================================================================================================================================ Gated/Generated Clocks ================================================================================================================================================================================
+Clock Tree ID     Driving Element                                                                              Drive Element Type     Fanout     Sample Instance                                                  Explanation                                                                                                                                                           
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0001       work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_S6.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS     BSCAN_SPARTAN6         1          work_flow_inst.myicon_inst.U0/U_ICON/U_iDATA_CMD                 Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements                                        
+@K:CKID0002       work_flow_inst.myicon_inst.U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE                      LUT4                   1          work_flow_inst.myila_inst.U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC     Multiple clocks on instance from nets U0/U_ICON/U_CTRL_OUT/iDATA_VALID, U0/U_ICON/iCOMMAND_SEL[9], U0/U_ICON/iCORE_ID_SEL[0], U0/U_ICON/U_CTRL_OUT/iCOMMAND_GRP_SEL[0]
+========================================================================================================================================================================================================================================================================================================================================================================================
+
+
+##### END OF CLOCK OPTIMIZATION REPORT ######]
+

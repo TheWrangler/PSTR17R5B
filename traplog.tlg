@@ -1,0 +1,16 @@
+@N: CD630 :".\gentmp5803a09632":4:7:4:9|Synthesizing work.top.gen 
+@N: CD630 :"syng0a09632":106:7:106:12|Synthesizing work.cmp_eq.cell_level 
+@W: CD796 :"syng0a09632":129:11:129:18|Bit 2 of signal data_tmp is undriven. Possible simulation mismatch as initial value or default value is ignored. To avoid simulation mismatches, explicitly drive this bit. 
+@W: CD796 :"syng0a09632":129:11:129:18|Bit 3 of signal data_tmp is undriven. Possible simulation mismatch as initial value or default value is ignored. To avoid simulation mismatches, explicitly drive this bit. 
+@W: CD796 :"syng0a09632":129:11:129:18|Bit 4 of signal data_tmp is undriven. Possible simulation mismatch as initial value or default value is ignored. To avoid simulation mismatches, explicitly drive this bit. 
+@W: CD796 :"syng0a09632":129:11:129:18|Bit 5 of signal data_tmp is undriven. Possible simulation mismatch as initial value or default value is ignored. To avoid simulation mismatches, explicitly drive this bit. 
+@W: CD796 :"syng0a09632":129:11:129:18|Bit 6 of signal data_tmp is undriven. Possible simulation mismatch as initial value or default value is ignored. To avoid simulation mismatches, explicitly drive this bit. 
+@W: CD796 :"syng0a09632":129:11:129:18|Bit 7 of signal data_tmp is undriven. Possible simulation mismatch as initial value or default value is ignored. To avoid simulation mismatches, explicitly drive this bit. 
+@N: CD630 :"syng0a09632":41:7:41:24|Synthesizing work.eq_element_twobits.eqn 
+@N: CD630 :"D:\Synopsys\fpga_H201303\lib\xilinx\unisim.vhd":13751:10:13751:16|Synthesizing unisim.muxcy_l.syn_black_box 
+Post processing for unisim.muxcy_l.syn_black_box
+Post processing for work.eq_element_twobits.eqn
+@N: CD630 :"syng0a09632":8:7:8:16|Synthesizing work.eq_element.eqn 
+Post processing for work.eq_element.eqn
+Post processing for work.cmp_eq.cell_level
+Post processing for work.top.gen

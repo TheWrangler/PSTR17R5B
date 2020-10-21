@@ -1,0 +1,5 @@
+CKID0001:@|S:work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_S6.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS@|E:work_flow_inst.myicon_inst.U0/U_ICON/U_iDATA_CMD@|F:@syn_sample_clock_path==CKID0001@|M:ClockId0001
+CKID0002:@|S:work_flow_inst.myicon_inst.U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE@|E:work_flow_inst.myila_inst.U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC@|F:@syn_sample_clock_path==CKID0002@|M:ClockId0002
+CKID0003:@|S:clk@|E:main_proc_sta[0]@|F:@syn_sample_clock_path==CKID0003@|M:ClockId0003
+CKID0004:@|S:clk_2@|E:ad9914_ctrl_inst2.reg_wvar_reg[0]@|F:@syn_sample_clock_path==CKID0004@|M:ClockId0004
+CKID0005:@|S:work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG@|E:work_flow_inst.myicon_inst.U0/U_ICON/U_TDO_reg@|F:@syn_sample_clock_path==CKID0005@|M:ClockId0005

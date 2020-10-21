@@ -1,0 +1,29 @@
+## --------------------------------------------------
+Synopsys ISE to Synplify Project Converter, Build 1486R, Feb 25 2013 21:14:31
+
+Run at Apr 14 2020 23:59:58
+
+Command-line arguments:
+ -iise F:\PSTR17R5B\PSTR17R5B.xise -osynprj F:\PSTR17R5B\synplify\PSTR17R5B.prj -prod_type pro -log F:\PSTR17R5B\synplify\rev_1\ise2syn.log 
+
+@W: WARN: Environment variable XILINX not set! Conversion may not complete correctly.
+Working directory: F:\PSTR4R70(A)\synplify\
+
+Conversion settings: 
+ Input project file: F:\PSTR17R5B\PSTR17R5B.xise
+ Output synplify file: F:\PSTR17R5B\synplify\PSTR17R5B.prj
+ Log file: F:\PSTR17R5B\synplify\rev_1\ise2syn.log
+ Target product type: pro
+ Environment variables: 
+  XILINX: 
+  XILINX_EDK: 
+
+@I: INFO: Reading conversion template ise2syn.xml
+@I: INFO: Reading ISE project file F:\PSTR17R5B\PSTR17R5B.xise
+@I: INFO: ISE project file read successfully F:\PSTR17R5B\PSTR17R5B.xise
+@W: WARN: Unable to identify ISE version from ISE installation path 
+@W: WARN: Skipping version incompatibility identification!
+@I: INFO: Reading ISE project options
+@E: ERROR: Unable to locate Xilinx TCL shell! Check if environment variable XILINX points to a valid XILINX installation.
+
+Conversion stopped with error!

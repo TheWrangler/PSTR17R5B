@@ -1,0 +1,5 @@
+@E: CG342 :"F:\PSTR17R5B\ds3502.v":53:12:53:14|Expecting target variable, found sda -- possible misspelling
+@E: CS187 :"F:\PSTR17R5B\ds3502.v":303:0:303:8|Expecting endmodule
+@E: CG342 :"F:\PSTR17R5B\ds3502.v":53:12:53:14|Expecting target variable, found sda -- possible misspelling
+@E: CS187 :"F:\PSTR17R5B\ds3502.v":303:0:303:8|Expecting endmodule
+

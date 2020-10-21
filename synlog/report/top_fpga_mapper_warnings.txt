@@ -1,0 +1,11 @@
+@W: MT462 :|Net work_flow_inst.myicon_inst.CONTROL0[13] appears to be an unidentified clock source. Assuming default frequency. 
+@W: MO197 :|FSM register fsm_state_cur[10] removed due to constant propagation
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[3],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[2]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[1],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[0]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[3],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[2]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[1],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[0]
+@W: MT246 :|Blackbox BSCAN_SPARTAN6 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
+@W: MT420 |Found inferred clock top|clk with period 1000.00ns. Please declare a user-defined clock on object "p:clk"
+@W: MT420 |Found inferred clock top|clk_2 with period 1000.00ns. Please declare a user-defined clock on object "p:clk_2"
+@W: MT420 |Found inferred clock myicon|U0/iUPDATE_OUT_inferred_clock with period 1000.00ns. Please declare a user-defined clock on object "n:work_flow_inst.myicon_inst.U0/iUPDATE_OUT"
+@W: MT420 |Found inferred clock myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock with period 1000.00ns. Please declare a user-defined clock on object "n:work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/iDRCK_LOCAL"

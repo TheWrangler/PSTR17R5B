@@ -1,0 +1,69 @@
+
+
+##### START OF TIMING REPORT #####[
+# Timing Report written on Sun Jun 21 19:47:05 2020
+#
+
+
+Top view:               top
+Requested Frequency:    1.0 MHz
+Wire load mode:         top
+Paths requested:        0
+Constraint File(s):    F:\PSTR17R5B\top.sdc
+                       
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+
+
+
+Performance Summary 
+*******************
+
+
+Worst slack in design: -1.452
+
+                                                                 Requested     Estimated     Requested     Estimated                 Clock        Clock              
+Starting Clock                                                   Frequency     Frequency     Period        Period        Slack       Type         Group              
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock     1.0 MHz       118.9 MHz     1000.000      8.414         991.587     inferred     Inferred_clkgroup_1
+myicon|U0/iUPDATE_OUT_inferred_clock                             1.0 MHz       733.6 MHz     1000.000      1.363         998.637     inferred     Inferred_clkgroup_2
+top|clk                                                          1.0 MHz       99.5 MHz      1000.000      10.052        989.948     inferred     Inferred_clkgroup_0
+top|clk_2                                                        1.0 MHz       193.0 MHz     1000.000      5.181         994.819     inferred     Inferred_clkgroup_3
+System                                                           1.0 MHz       1.0 MHz       1000.000      1001.453      -1.452      system       system_clkgroup    
+=====================================================================================================================================================================
+
+
+
+Clock Relationships
+*******************
+
+Clocks                                                                                                                      |    rise  to  rise    |    fall  to  fall   |    rise  to  fall   |    fall  to  rise  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Starting                                                      Ending                                                        |  constraint  slack   |  constraint  slack  |  constraint  slack  |  constraint  slack 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+System                                                        myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  0.000       -1.453  |  No paths    -      |  No paths    -      |  0.000       -0.402
+top|clk                                                       top|clk                                                       |  0.000       0.288   |  No paths    -      |  No paths    -      |  No paths    -     
+top|clk                                                       myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -     
+top|clk                                                       top|clk_2                                                     |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -     
+myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  System                                                        |  0.000       2.398   |  No paths    -      |  No paths    -      |  No paths    -     
+myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  top|clk                                                       |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -     
+myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  0.000       0.312   |  No paths    -      |  No paths    -      |  No paths    -     
+myicon|U0/iUPDATE_OUT_inferred_clock                          myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -     
+myicon|U0/iUPDATE_OUT_inferred_clock                          myicon|U0/iUPDATE_OUT_inferred_clock                          |  0.000       0.839   |  No paths    -      |  No paths    -      |  No paths    -     
+top|clk_2                                                     top|clk                                                       |  Diff grp    -       |  No paths    -      |  No paths    -      |  No paths    -     
+top|clk_2                                                     top|clk_2                                                     |  0.000       0.599   |  No paths    -      |  No paths    -      |  No paths    -     
+====================================================================================================================================================================================================================
+ Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
+       'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
+
+
+
+Interface Information 
+*********************
+
+No IO constraint found
+
+
+##### END OF TIMING REPORT #####]
+

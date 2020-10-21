@@ -1,0 +1,26 @@
+#1000 define_clock {p:clk} -name {top|clk} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_0} -rise {0.000000} -fall {500.000000}
+#1001 define_clock {n:work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/iDRCK_LOCAL} -name {myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {I . . . 
+#1002 define_clock {n:work_flow_inst.myicon_inst.U0/iUPDATE_OUT} -name {myicon|U0/iUPDATE_OUT_inferred_clock} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_2} -rise {0.000000} -fall {500. . . . 
+#1003 define_clock {p:clk_2} -name {top|clk_2} -ref_rise {0.000000} -ref_fall {500.000000} -uncertainty {0.000000} -period {1000.000000} -clockgroup {Inferred_clkgroup_3} -rise {0.000000} -fall {500.000000}
+define_attribute {i:work_flow_inst.myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_S6.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS}  {syn_noprune} 1
+define_attribute {i:work_flow_inst.myicon_inst}  {syn_noprune} 1
+define_attribute {i:work_flow_inst}  {syn_noprune} 1
+define_attribute {i:depack_inst}  {syn_noprune} 1
+define_attribute {i:SDA_IO_IOBUF_MODULE_INSTANCED[0].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:SDA_IO_IOBUF_MODULE_INSTANCED[1].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[6].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[1].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[2].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[7].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[0].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[5].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[4].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk1[3].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[3].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[0].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[6].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[5].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[1].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[7].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[2].IOBUF_inst}  {syn_noprune} 1
+define_attribute {i:genblk2[4].IOBUF_inst}  {syn_noprune} 1

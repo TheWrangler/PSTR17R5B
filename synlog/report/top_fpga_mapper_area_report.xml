@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- *************************************************************************************
+FILE DESCRIPTION
+The file contains the area information from mapper to be displayed as part of the summary report.
+*******************************************************************************************-->
+<report_table display_priority="1" name="Area Summary">
+<report_link name="Detailed report">
+<data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_resourceusage.rpt</data>
+</report_link>
+<report_link name="Hierarchical Area report">
+<data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_hier_area_report.xml</data>
+</report_link>
+<parameter tooltip="Total I/O ports used" name="I/O ports">
+<data>117</data>
+</parameter>
+<parameter tooltip="Total Non I/O Register bits used" name="Non I/O Register bits">
+<data>2040 (5%)</data>
+</parameter>
+<parameter tooltip="Total I/O Register bits used" name="I/O Register bits">
+<data>0</data>
+</parameter>
+<parameter tooltip="Total Block Rams used" name="Block Rams">
+<data>7 (52)</data>
+</parameter>
+<parameter tooltip="Total DSP48s used" name="DSP48s">
+<data>3 (38)</data>
+</parameter>
+<parameter tooltip="Total LUTs used" name="LUTs">
+<data>1561 (9%)</data>
+</parameter>
+</report_table>

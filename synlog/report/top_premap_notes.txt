@@ -1,0 +1,9 @@
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":48:4:48:9|Removing sequential instance busy of view:PrimLib.sdffrse(prim) in hierarchy view:work.ds3502_ds3502_inst_0(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":48:4:48:9|Removing sequential instance busy of view:PrimLib.sdffrse(prim) in hierarchy view:work.ds3502_ds3502_inst_1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":48:4:48:9|Removing sequential instance busy of view:PrimLib.sdffrse(prim) in hierarchy view:work.ds3502_ds3502_inst_2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":48:4:48:9|Removing sequential instance sda_o of view:PrimLib.sdffse(prim) in hierarchy view:work.ds3502_ds3502_inst_2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":48:4:48:9|Removing sequential instance sda_io_ctrl of view:PrimLib.sdffre(prim) in hierarchy view:work.ds3502_ds3502_inst_2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":48:4:48:9|Removing sequential instance i2c_addr_temp[7:4] of view:PrimLib.dffe(prim) in hierarchy view:work.ds3502_ds3502_inst_2(verilog) because there are no references to its outputs 
+@N: BN225 |Writing default property annotation file F:\PSTR17R5B\top.sap.

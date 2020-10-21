@@ -1,0 +1,156 @@
+Selecting top level module top
+@N: CG364 :"F:\PSTR17R5B\pwr_rst.v":21:7:21:13|Synthesizing module pwr_rst
+
+@N: CG364 :"F:\PSTR17R5B\ipcore_dir\myfifo.v":39:7:39:12|Synthesizing module myfifo
+
+@W: CG146 :"F:\PSTR17R5B\ipcore_dir\myfifo.v":39:7:39:12|Creating black box for empty module myfifo
+
+@N: CG364 :"F:\PSTR17R5B\spi_slave_r.v":3:7:3:17|Synthesizing module spi_slave_r
+
+@N: CG364 :"F:\PSTR17R5B\depack.v":21:7:21:12|Synthesizing module depack
+
+@N: CG364 :"F:\PSTR17R5B\parallel_wr.v":21:7:21:17|Synthesizing module parallel_wr
+
+@N: CG364 :"F:\PSTR17R5B\ad9914_reg_wr.v":21:7:21:19|Synthesizing module ad9914_reg_wr
+
+@W: CL189 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Register bit reg_base_addr_reg[0] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Register bit reg_base_addr_reg[1] is always 0, optimizing ...
+@W: CL279 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Pruning register bits 1 to 0 of reg_base_addr_reg[7:0] 
+
+@N: CG364 :"F:\PSTR17R5B\ad9914_ctrl.v":23:7:23:17|Synthesizing module ad9914_ctrl
+
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":130:14:130:16|No assignment to sfr_0_
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":130:14:130:16|No assignment to sfr_1_
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":130:14:130:16|No assignment to sfr_2_
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":130:14:130:16|No assignment to sfr_3_
+@N: CG364 :"F:\PSTR17R5B\ipcore_dir\myila.v":21:7:21:11|Synthesizing module myila
+
+@N: CG364 :"F:\PSTR17R5B\ipcore_dir\myicon.v":21:7:21:12|Synthesizing module myicon
+
+@N: CG364 :"F:\PSTR17R5B\work_flow.v":21:7:21:15|Synthesizing module work_flow
+
+@W: CL169 :"F:\PSTR17R5B\work_flow.v":61:4:61:9|Pruning register ct_fsm_sta[5:0] 
+
+@N: CG364 :"F:\PSTR17R5B\top.v":21:7:21:9|Synthesizing module top
+
+@N: CG364 :"D:\Synopsys\fpga_H201303\lib\xilinx\unisim.v":13332:7:13332:11|Synthesizing module IOBUF
+
+@N: CL201 :"F:\PSTR17R5B\top.v":363:4:363:9|Trying to extract state machine for register main_proc_sta
+Extracted state machine for register main_proc_sta
+State machine has 7 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+   0101
+   0110
+@W: CL249 :"F:\PSTR17R5B\top.v":363:4:363:9|Initial value is not supported on state machine main_proc_sta
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":86:4:86:9|Register bit tv_sw_count[4] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":86:4:86:9|Register bit tv_sw_count[5] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":86:4:86:9|Register bit tv_sw_count[6] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":86:4:86:9|Register bit tv_sw_count[7] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":118:4:118:9|Register bit tr_pwr_off_count[5] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":118:4:118:9|Register bit tr_pwr_off_count[6] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\work_flow.v":118:4:118:9|Register bit tr_pwr_off_count[7] is always 0, optimizing ...
+@W: CL279 :"F:\PSTR17R5B\work_flow.v":118:4:118:9|Pruning register bits 7 to 5 of tr_pwr_off_count[7:0] 
+
+@W: CL279 :"F:\PSTR17R5B\work_flow.v":86:4:86:9|Pruning register bits 7 to 4 of tv_sw_count[7:0] 
+
+@W: CL156 :"F:\PSTR17R5B\work_flow.v":155:13:155:17|*Input TRIG0[99:0] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Register bit reg_byte_num_reg[0] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Register bit reg_byte_num_reg[1] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Register bit reg_byte_num_reg[3] is always 0, optimizing ...
+@W: CL260 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Pruning register bit 3 of reg_byte_num_reg[3:0] 
+
+@W: CL279 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Pruning register bits 1 to 0 of reg_byte_num_reg[3:0] 
+
+@N: CL201 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Trying to extract state machine for register fsm_state_cur
+Extracted state machine for register fsm_state_cur
+State machine has 19 reachable states with original encodings of:
+   00000000
+   00000001
+   00000011
+   00000100
+   00000101
+   00000110
+   00000111
+   00001000
+   00001001
+   00001010
+   00001011
+   00001100
+   00001101
+   00001110
+   00001111
+   00010000
+   00010001
+   00010010
+   00010011
+@W: CL249 :"F:\PSTR17R5B\ad9914_ctrl.v":157:1:157:6|Initial value is not supported on state machine fsm_state_cur
+@N: CL201 :"F:\PSTR17R5B\ad9914_ctrl.v":385:1:385:6|Trying to extract state machine for register initsweep_osk_trig_sta
+Extracted state machine for register initsweep_osk_trig_sta
+State machine has 5 reachable states with original encodings of:
+   0000
+   0001
+   0010
+   0011
+   0100
+@W: CL249 :"F:\PSTR17R5B\ad9914_ctrl.v":385:1:385:6|Initial value is not supported on state machine initsweep_osk_trig_sta
+@N: CL201 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Trying to extract state machine for register fsm_state_cur
+Extracted state machine for register fsm_state_cur
+State machine has 10 reachable states with original encodings of:
+   00000000
+   00000001
+   00000010
+   00000011
+   00000100
+   00000101
+   00000110
+   00000111
+   00001000
+   00001001
+@W: CL249 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Initial value is not supported on state machine fsm_state_cur
+@W: CL246 :"F:\PSTR17R5B\ad9914_reg_wr.v":30:20:30:32|Input port bits 7 to 6 of reg_base_addr[7:0] are unused
+
+@N: CL201 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Trying to extract state machine for register fsm_state_cur
+Extracted state machine for register fsm_state_cur
+State machine has 9 reachable states with original encodings of:
+   00000000
+   00000001
+   00000010
+   00000011
+   00000100
+   00000101
+   00000110
+   00000111
+   00001000
+@W: CL249 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Initial value is not supported on state machine fsm_state_cur
+@N: CL134 :"F:\PSTR17R5B\depack.v":122:4:122:9|Found RAM cmd[0], depth=42, width=8
+@N: CL201 :"F:\PSTR17R5B\depack.v":122:4:122:9|Trying to extract state machine for register sta_cur
+Extracted state machine for register sta_cur
+State machine has 14 reachable states with original encodings of:
+   00000
+   00001
+   00010
+   00011
+   00100
+   00101
+   00110
+   00111
+   01000
+   01001
+   01010
+   01011
+   01100
+   01101
+@W: CL249 :"F:\PSTR17R5B\depack.v":122:4:122:9|Initial value is not supported on state machine sta_cur
+@N: CL201 :"F:\PSTR17R5B\spi_slave_r.v":37:1:37:6|Trying to extract state machine for register sta_cur
+Extracted state machine for register sta_cur
+State machine has 5 reachable states with original encodings of:
+   00000
+   00001
+   00010
+   00011
+   00100
+@W: CL249 :"F:\PSTR17R5B\spi_slave_r.v":37:1:37:6|Initial value is not supported on state machine sta_cur

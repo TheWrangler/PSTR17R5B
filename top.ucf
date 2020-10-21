@@ -75,48 +75,36 @@ NET "rx_ch_ctrl[2]" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RX CHANNEL 1 ATT.
-NET "rx_ch1_att[0]" LOC = L18;
-NET "rx_ch1_att[1]" LOC = N18;
-NET "rx_ch1_att[2]" LOC = P18;
-NET "rx_ch1_att[3]" LOC = T18;
-NET "rx_ch1_att[4]" LOC = T12;
-NET "rx_ch1_att[5]" LOC = U18;
-NET "rx_ch1_att[0]" IOSTANDARD = LVCMOS33;
-NET "rx_ch1_att[1]" IOSTANDARD = LVCMOS33;
-NET "rx_ch1_att[2]" IOSTANDARD = LVCMOS33;
-NET "rx_ch1_att[3]" IOSTANDARD = LVCMOS33;
-NET "rx_ch1_att[4]" IOSTANDARD = LVCMOS33;
-NET "rx_ch1_att[5]" IOSTANDARD = LVCMOS33;
+NET "scl[0]" LOC = U18;
+NET "sda[0]" LOC = T12;
+NET "a0[0]" LOC = P18;
+NET "a1[0]" LOC = T18;
+NET "scl[0]" IOSTANDARD = LVCMOS33;
+NET "sda[0]" IOSTANDARD = LVCMOS33;
+NET "a0[0]" IOSTANDARD = LVCMOS33;
+NET "a1[0]" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RX CHANNEL 2 ATT.
-NET "rx_ch2_att[0]" LOC = V11;
-NET "rx_ch2_att[1]" LOC = V10;
-NET "rx_ch2_att[2]" LOC = R11;
-NET "rx_ch2_att[3]" LOC = T8;
-NET "rx_ch2_att[4]" LOC = T7;
-NET "rx_ch2_att[5]" LOC = N6;
-NET "rx_ch2_att[0]" IOSTANDARD = LVCMOS33;
-NET "rx_ch2_att[1]" IOSTANDARD = LVCMOS33;
-NET "rx_ch2_att[2]" IOSTANDARD = LVCMOS33;
-NET "rx_ch2_att[3]" IOSTANDARD = LVCMOS33;
-NET "rx_ch2_att[4]" IOSTANDARD = LVCMOS33;
-NET "rx_ch2_att[5]" IOSTANDARD = LVCMOS33;
+NET "scl[0]" LOC = N6;
+NET "sda[0]" LOC = T7;
+NET "a0[0]" LOC = R11;
+NET "a1[0]" LOC = T8;
+NET "scl[1]" IOSTANDARD = LVCMOS33;
+NET "sda[1]" IOSTANDARD = LVCMOS33;
+NET "a0[1]" IOSTANDARD = LVCMOS33;
+NET "a1[1]" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RX CHANNEL 3 ATT.
-NET "rx_ch3_att[0]" LOC = U2;
-NET "rx_ch3_att[1]" LOC = T3;
-NET "rx_ch3_att[2]" LOC = T4;
-NET "rx_ch3_att[3]" LOC = U5;
-NET "rx_ch3_att[4]" LOC = P6;
-NET "rx_ch3_att[5]" LOC = P8;
-NET "rx_ch3_att[0]" IOSTANDARD = LVCMOS33;
-NET "rx_ch3_att[1]" IOSTANDARD = LVCMOS33;
-NET "rx_ch3_att[2]" IOSTANDARD = LVCMOS33;
-NET "rx_ch3_att[3]" IOSTANDARD = LVCMOS33;
-NET "rx_ch3_att[4]" IOSTANDARD = LVCMOS33;
-NET "rx_ch3_att[5]" IOSTANDARD = LVCMOS33;
+NET "scl[2]" LOC = P8;
+NET "sda[2]" LOC = P6;
+NET "a0[2]" LOC = T4;
+NET "a1[2]" LOC = U5;
+NET "scl[2]" IOSTANDARD = LVCMOS33;
+NET "sda[2]" IOSTANDARD = LVCMOS33;
+NET "a0[2]" IOSTANDARD = LVCMOS33;
+NET "a1[2]" IOSTANDARD = LVCMOS33;
 
 #########################################################
 # RX CHANNEL 1 PHASE.
