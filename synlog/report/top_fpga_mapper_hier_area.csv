@@ -1,0 +1,17 @@
+
+. Module name, LUTS, REGISTERS, SYNC RAMS, MULT18x18/MULT18x18S
+. top, 1334, 1896, 7, 3
+.	. ad9914_ctrl_ad9914_ctrl_inst1, 368, 412, 0, 1
+.	.	. ad9914_reg_wr_ad9914_reg_wr_inst, 187, 183, 0, 0
+.	.	.	. parallel_wr_parallel_wr_inst, 62, 55, 0, 0
+.	. ad9914_ctrl_ad9914_ctrl_inst2, 360, 412, 0, 1
+.	.	. ad9914_reg_wr_ad9914_reg_wr_inst_0, 187, 183, 0, 0
+.	.	.	. parallel_wr_parallel_wr_inst_0, 65, 55, 0, 0
+.	. depack, 321, 406, 1, 0
+.	.	. myfifo, 24, 26, 1, 0
+.	.	.	. blk_mem_gen_generic_cstr_U0_xst_fifo_generator_gconvfifo_rf_grf_rf_gntv_or_sync_fifo_mem_gbm_gbmg_gbmga_ngecc_bmg_gnativebmg_native_blk_mem_gen_valid_cstr, 0, 0, 1, 0
+.	.	. spi_slave_r, 116, 21, 0, 0
+.	. myicon, 71, 28, 0, 0
+.	. myila, 142, 566, 6, 0
+.	. pwr_rst, 35, 27, 0, 0
+.	. work_flow, 37, 36, 0, 1

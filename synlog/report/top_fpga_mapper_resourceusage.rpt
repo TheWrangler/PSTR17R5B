@@ -1,0 +1,74 @@
+---------------------------------------
+Resource Usage Report for top 
+
+Mapping to part: xc6slx25csg324-2
+Cell usage:
+BSCAN_SPARTAN6  1 use
+DSP48A1         3 uses
+FD              423 uses
+FDC             9 uses
+FDCE            16 uses
+FDE             801 uses
+FDP             202 uses
+FDR             81 uses
+FDRE            354 uses
+FDS             10 uses
+GND             15 uses
+LDC             1 use
+MUXCY           12 uses
+MUXCY_L         320 uses
+MUXF5           2 uses
+MUXF6           1 use
+MUXF7           73 uses
+MUXF8           34 uses
+RAM64X1S        8 uses
+RAMB16BWER      6 uses
+RAMB8BWER       1 use
+VCC             15 uses
+XORCY           205 uses
+LUT1            159 uses
+LUT2            198 uses
+LUT3            163 uses
+LUT4            223 uses
+LUT5            244 uses
+LUT6            345 uses
+LUT6_2            2 uses
+
+I/O ports: 122
+I/O primitives: 122
+IBUF           4 uses
+IBUFG          2 uses
+IOBUF          16 uses
+OBUF           100 uses
+
+BUFG           3 uses
+
+SRL primitives:
+SRLC16E        20 uses
+SRLC32E        65 uses
+SRL16          100 uses
+SRL16E         1 use
+
+I/O Register bits:                  0
+Register bits not including I/Os:   1896 (5%)
+Latch bits not including I/Os:      1 (0%)
+
+RAM/ROM usage summary
+Single Port Rams (RAM64X1S): 8
+Occupied Block RAM sites (RAMB36) : 7 of 52 (13%)
+
+
+DSP48s: 3 of 38 (7%)
+
+Global Clock Buffers: 3 of 16 (18%)
+
+
+Mapping Summary:
+Total  LUTs: 1358 (7%)
+
+Distribution of All Consumed LUTs = SRL + RAM + LUT1 + LUT2 + LUT3 + LUT4 + LUT5 + LUT6 + LUT6_2- HLUTNM/2 
+Distribution of All Consumed Luts 1358 = 186 + 8 + 159 + 198 + 163 + 223 + 244 + 345 + 2- 340/2 
+
+
+ Number of unique control sets:              133
+

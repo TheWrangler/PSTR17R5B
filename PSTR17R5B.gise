@@ -22,11 +22,12 @@
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="PSTR17R5B.xise"/>
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_SYNPLIFY_MISC" xil_pn:name="top.sdc" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_NCD" xil_pn:name="top_guide.ncd" xil_pn:origination="imported"/>
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1582620683" xil_pn:in_ck="3400848023675725975" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1582620682">
+    <transform xil_pn:end_ts="1603266993" xil_pn:in_ck="3400848023675725975" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1603266993">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>

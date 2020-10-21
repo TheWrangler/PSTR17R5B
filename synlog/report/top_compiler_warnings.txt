@@ -1,0 +1,26 @@
+@W: CG424 :"F:\PSTR17R5B\ad9914_ctrl.v":125:29:125:92|Initial values on multi-dimensional variables not yet implemented.
+@W: CG424 :"F:\PSTR17R5B\ad9914_ctrl.v":125:29:125:92|Initial values on multi-dimensional variables not yet implemented.
+@W: CG146 :"F:\PSTR17R5B\ipcore_dir\myfifo.v":39:7:39:12|Creating black box for empty module myfifo
+@W: CL189 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Register bit reg_base_addr_reg[0] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Register bit reg_base_addr_reg[1] is always 0, optimizing ...
+@W: CL279 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Pruning register bits 1 to 0 of reg_base_addr_reg[7:0] 
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":125:14:125:16|No assignment to sfr_0_
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":125:14:125:16|No assignment to sfr_1_
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":125:14:125:16|No assignment to sfr_2_
+@W: CG133 :"F:\PSTR17R5B\ad9914_ctrl.v":125:14:125:16|No assignment to sfr_3_
+@W: CL249 :"F:\PSTR17R5B\top.v":357:4:357:9|Initial value is not supported on state machine main_proc_sta
+@W: CL156 :"F:\PSTR17R5B\top.v":402:13:402:17|*Input TRIG0[99:0] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL249 :"F:\PSTR17R5B\work_flow.v":53:4:53:9|Initial value is not supported on state machine ct_fsm_sta
+@W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Register bit reg_byte_num_reg[0] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Register bit reg_byte_num_reg[1] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Register bit reg_byte_num_reg[3] is always 0, optimizing ...
+@W: CL260 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Pruning register bit 3 of reg_byte_num_reg[3:0] 
+@W: CL279 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Pruning register bits 1 to 0 of reg_byte_num_reg[3:0] 
+@W: CL249 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Initial value is not supported on state machine fsm_state_cur
+@W: CL249 :"F:\PSTR17R5B\ad9914_ctrl.v":379:1:379:6|Initial value is not supported on state machine initsweep_osk_trig_sta
+@W: CL249 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Initial value is not supported on state machine fsm_state_cur
+@W: CL246 :"F:\PSTR17R5B\ad9914_reg_wr.v":30:20:30:32|Input port bits 7 to 6 of reg_base_addr[7:0] are unused
+@W: CL249 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Initial value is not supported on state machine fsm_state_cur
+@W: CL249 :"F:\PSTR17R5B\depack.v":122:4:122:9|Initial value is not supported on state machine sta_cur
+@W: CL249 :"F:\PSTR17R5B\spi_slave_r.v":37:1:37:6|Initial value is not supported on state machine sta_cur
+

@@ -1,0 +1,53 @@
+@N: MF248 |Running in 64-bit mode.
+@N: MF666 |Clock conversion enabled 
+@N: FX493 |Applying initial value "00000000" on instance depack_inst.spi_slave_r_inst.d_reg[7:0] 
+@N: FX493 |Applying initial value "00" on instance depack_inst.spi_slave_r_inst.sclk_edge[1:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rdata_reg[7:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_wdata_reg[7:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_addr_reg[7:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.wdata_reg[7:0] 
+@N: FX493 |Applying initial value "01010100101101001011010010110100" on instance ad9914_ctrl_inst2.upper_limit_reg[31:0] 
+@N: FX493 |Applying initial value "00000000000000000000000000000000" on instance ad9914_ctrl_inst2.resweep_period_reg[31:0] 
+@N: FX493 |Applying initial value "00000000000000000011000101011000" on instance ad9914_ctrl_inst2.positive_step_reg[31:0] 
+@N: FX493 |Applying initial value "0000000000000001" on instance ad9914_ctrl_inst2.positive_rate_reg[15:0] 
+@N: FX493 |Applying initial value "01000001111000011110000111100001" on instance ad9914_ctrl_inst2.lower_limit_reg[31:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rdata_reg[7:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_wdata_reg[7:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_addr_reg[7:0] 
+@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.wdata_reg[7:0] 
+@N: FX493 |Applying initial value "01010100101101001011010010110100" on instance ad9914_ctrl_inst2.upper_limit_reg[31:0] 
+@N: FX493 |Applying initial value "00000000000000000000000000000000" on instance ad9914_ctrl_inst2.resweep_period_reg[31:0] 
+@N: FX493 |Applying initial value "00000000000000000011000101011000" on instance ad9914_ctrl_inst2.positive_step_reg[31:0] 
+@N: FX493 |Applying initial value "0000000000000001" on instance ad9914_ctrl_inst2.positive_rate_reg[15:0] 
+@N: FX493 |Applying initial value "01000001111000011110000111100001" on instance ad9914_ctrl_inst2.lower_limit_reg[31:0] 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance resweep_reg of view:PrimLib.dffre(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance resweep_reg of view:PrimLib.dffre(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: MF179 :"f:\pstr17r5b\depack.v":176:27:176:45|Found 8 bit by 8 bit '==' comparator, 'un1_cmd\[41\]'
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[7] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":219:24:219:58|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_0_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":220:28:220:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_1_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":221:28:221:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_2_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":222:28:222:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_3_'
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[7] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":219:24:219:58|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_0_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":220:28:220:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_1_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":221:28:221:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_2_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":222:28:222:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_3_'
+@N: MF179 :"f:\pstr17r5b\work_flow.v":75:23:75:54|Found 32 bit by 32 bit '==' comparator, 'ct_fsm_sta17'
+@N: FX430 |Found 1 global buffers instantiated by user 
+@N: BN362 :"f:\pstr17r5b\depack.v":122:4:122:9|Removing sequential instance depack_inst.crc_err_reg of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: FX103 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Instance "ad9914_ctrl_inst1.busy_reg_1_sqmuxa_i_i_a2_0_a2" with "145" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Instance "ad9914_ctrl_inst2.busy_reg_1_sqmuxa_i_i_a2_0_a2" with "145" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Instance "pwr_rst_inst.rst_reg" with "242" loads has been replicated "2" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":122:4:122:9|Instance "depack_inst.byte_index[3]" with "114" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":122:4:122:9|Instance "depack_inst.byte_index[4]" with "148" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":122:4:122:9|Instance "depack_inst.byte_index[5]" with "129" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX164 |The option to pack flops in the IOB has not been specified 
+@N: FX623 |Packing into LUT62
+@N: MT535 |Writing timing correlation to file F:\PSTR17R5B\top_ctd.txt 
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
+@N: MT320 |Timing report estimates place and route data. Please look at the place and route timing report for final timing.
+@N: MT322 |Clock constraints cover only FF-to-FF paths associated with the clock.
