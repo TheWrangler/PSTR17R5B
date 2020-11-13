@@ -37,19 +37,22 @@ module depack
     output [31:0] ftw_upper_2,
     output [31:0] sweep_step,
     output [15:0] sweep_rate,
-    output [31:0] resweep_period,
+    output [15:0] pulse_period,//us
+    output [23:0] resweep_period,//us
     output [2:0] mode,
     output rf_switch,
-    output [7:0] tx_att,
-    output [2:0] rx_ch_pwr_ctrl,
+    output [5:0] tx_att,
     output [7:0] rx_ch1_att,
     output [7:0] rx_ch2_att,
     output [7:0] rx_ch3_att,
     output [7:0] rx_ch1_pha,
     output [7:0] rx_ch2_pha,
     output [7:0] rx_ch3_pha,
-    output [31:0] ct_period
+    output [31:0] ct_period,//ms
+    output [31:0] ys_period //us
 );
+
+    localparam cmd_frame_size = 46;
 
     wire fifo_rst = ~rst;
     wire fifo_wr_en;
@@ -89,7 +92,7 @@ module depack
         .sdin(spi_din)
     );
 
-    reg [7:0] cmd [41:0];
+    reg [7:0] cmd [45:0];
     
     assign ftw_lower_1 = {cmd[2],cmd[3],cmd[4],cmd[5]};
     assign ftw_upper_1 = {cmd[6],cmd[7],cmd[8],cmd[9]};
@@ -97,11 +100,11 @@ module depack
     assign ftw_upper_2 = {cmd[14],cmd[15],cmd[16],cmd[17]};
     assign sweep_step = {cmd[18],cmd[19],cmd[20],cmd[21]};
     assign sweep_rate = {cmd[22],cmd[23]};
-    assign resweep_period = {cmd[24],cmd[25],cmd[26],cmd[27]};
-    assign mode = cmd[29][2:0];
-    assign rf_switch = cmd[29][3];
-    assign tx_att = cmd[28];
-    assign rx_ch_pwr_ctrl = cmd[30][2:0];
+    assign pulse_period = {cmd[24],cmd[25]};
+    assign resweep_period = {cmd[26],cmd[27],cmd[28]};
+    assign mode = cmd[30][2:0];
+    assign rf_switch = cmd[30][3];
+    assign tx_att = cmd[29];
     assign rx_ch1_att = cmd[31];
     assign rx_ch2_att = cmd[32];
     assign rx_ch3_att = cmd[33];
@@ -109,6 +112,7 @@ module depack
     assign rx_ch2_pha = cmd[35];
     assign rx_ch3_pha = cmd[36];
     assign ct_period = {cmd[37],cmd[38],cmd[39],cmd[40]};
+    assign ys_period = {cmd[41],cmd[42],cmd[43],cmd[44]};
 
     reg crc_err_reg = 0;
     reg ready_reg = 0;
@@ -150,7 +154,7 @@ module depack
                     sta_cur <= 5;
                 end
                 5 : begin
-                    if(byte_index != 6'h2a) 
+                    if(byte_index != cmd_frame_size) 
                         sta_cur <= 1;
                     else begin
                         byte_index <= 0;
@@ -170,10 +174,10 @@ module depack
                     sta_cur <= 8;
                 end
                 8 : begin
-                    if(byte_index != 6'h29)
+                    if(byte_index != cmd_frame_size-1)
                         sta_cur <= 6;
                     else begin
-                        if(acc_res != cmd[41]) begin
+                        if(acc_res != cmd[cmd_frame_size-1]) begin
                             crc_err_reg <= 1;
                             byte_index <= 0;
                             sta_cur <= 9;
@@ -184,7 +188,7 @@ module depack
                         end
                     end
                 end
-                9 : begin//删除第一个字节
+                9 : begin//删除到只剩一个字节
                     cmd[byte_index] <= cmd[byte_index+1];
                     sta_cur <= 10;
                 end
@@ -193,7 +197,7 @@ module depack
                     sta_cur <= 11;
                 end
                 11 : begin
-                    if(byte_index != 8'h29) 
+                    if(byte_index != cmd_frame_size-1) 
                         sta_cur <= 9;
                     else sta_cur <= 1;
                 end
@@ -226,8 +230,8 @@ module depack
 
     // assign TRIG0[34] = spi_sclk;
     // assign TRIG0[35] = spi_din;
-    // assign TRIG0[67:36] = {cmd[34],cmd[35],cmd[36],cmd[37]};
-    // assign TRIG0[99:68] = {cmd[0],cmd[1],cmd[38],cmd[39]};
+    // assign TRIG0[67:36] = {cmd[10],cmd[11],cmd[12],cmd[13]};
+    // assign TRIG0[99:68] = {cmd[0],cmd[1],cmd[24],cmd[25]};
     
 
 	// myila myila_inst (

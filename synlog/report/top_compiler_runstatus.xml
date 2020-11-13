@@ -14,11 +14,11 @@ The file contains the job information from compiler to be displayed as part of t
   </job_status>
 <job_info> 
 			<info name="Notes">
-  <data>34</data>
+  <data>36</data>
   <report_link name="more"><data>F:\PSTR17R5B\synlog\report\top_compiler_notes.txt</data></report_link>
   </info>
 			<info name="Warnings">
-  <data>25</data>
+  <data>843</data>
   <report_link name="more"><data>F:\PSTR17R5B\synlog\report\top_compiler_warnings.txt</data></report_link>
   </info>
 			<info name="Errors">
@@ -35,7 +35,7 @@ The file contains the job information from compiler to be displayed as part of t
   <data>-</data>
   </info>
 			<info name="Date &amp;Time">
-  <data type="timestamp">1603266997</data>
+  <data type="timestamp">1605277505</data>
   </info>
 			</job_info>
 </job_run_status>

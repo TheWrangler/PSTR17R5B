@@ -14,22 +14,24 @@
 @N: CG364 :"F:\PSTR17R5B\ipcore_dir\myfifo.v":39:7:39:12|Synthesizing module myfifo
 @N: CG364 :"F:\PSTR17R5B\spi_slave_r.v":3:7:3:17|Synthesizing module spi_slave_r
 @N: CG364 :"F:\PSTR17R5B\depack.v":21:7:21:12|Synthesizing module depack
+@N: CG364 :"F:\PSTR17R5B\prf_gen.v":21:7:21:13|Synthesizing module prf_gen
+@N: CG364 :"F:\PSTR17R5B\work_flow.v":21:7:21:15|Synthesizing module work_flow
+@N: CG364 :"F:\PSTR17R5B\cmd_update.v":21:7:21:16|Synthesizing module cmd_update
+@N: CL177 :"F:\PSTR17R5B\cmd_update.v":91:4:91:9|Sharing sequential element rx_att_load.
+@N: CG364 :"F:\PSTR17R5B\ds3502.v":21:7:21:12|Synthesizing module ds3502
 @N: CG364 :"F:\PSTR17R5B\parallel_wr.v":21:7:21:17|Synthesizing module parallel_wr
 @N: CG364 :"F:\PSTR17R5B\ad9914_reg_wr.v":21:7:21:19|Synthesizing module ad9914_reg_wr
 @N: CG364 :"F:\PSTR17R5B\ad9914_ctrl.v":23:7:23:17|Synthesizing module ad9914_ctrl
-@N: CG364 :"F:\PSTR17R5B\work_flow.v":21:7:21:15|Synthesizing module work_flow
 @N: CG364 :"F:\PSTR17R5B\ipcore_dir\myila.v":21:7:21:11|Synthesizing module myila
 @N: CG364 :"F:\PSTR17R5B\ipcore_dir\myicon.v":21:7:21:12|Synthesizing module myicon
 @N: CG364 :"F:\PSTR17R5B\top.v":21:7:21:9|Synthesizing module top
 @N: CG364 :"D:\Synopsys\fpga_H201303\bin\..\lib\xilinx\unisim.v":13332:7:13332:11|Synthesizing module IOBUF
-@N: CL201 :"F:\PSTR17R5B\top.v":357:4:357:9|Trying to extract state machine for register main_proc_sta
-@N: CL201 :"F:\PSTR17R5B\work_flow.v":53:4:53:9|Trying to extract state machine for register ct_fsm_sta
-@N: CL201 :"F:\PSTR17R5B\ad9914_ctrl.v":153:1:153:6|Trying to extract state machine for register fsm_state_cur
-@N: CL201 :"F:\PSTR17R5B\ad9914_ctrl.v":379:1:379:6|Trying to extract state machine for register initsweep_osk_trig_sta
-@N: CL201 :"F:\PSTR17R5B\ad9914_reg_wr.v":114:4:114:9|Trying to extract state machine for register fsm_state_cur
+@N: CL201 :"F:\PSTR17R5B\ad9914_ctrl.v":154:1:154:6|Trying to extract state machine for register fsm_state_cur
+@N: CL201 :"F:\PSTR17R5B\ad9914_reg_wr.v":115:4:115:9|Trying to extract state machine for register fsm_state_cur
 @N: CL201 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Trying to extract state machine for register fsm_state_cur
-@N: CL134 :"F:\PSTR17R5B\depack.v":122:4:122:9|Found RAM cmd[0], depth=42, width=8
-@N: CL201 :"F:\PSTR17R5B\depack.v":122:4:122:9|Trying to extract state machine for register sta_cur
+@N: CL201 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Trying to extract state machine for register state_cur
+@N: CL134 :"F:\PSTR17R5B\depack.v":126:4:126:9|Found RAM cmd[0], depth=46, width=8
+@N: CL201 :"F:\PSTR17R5B\depack.v":126:4:126:9|Trying to extract state machine for register sta_cur
 @N: CL201 :"F:\PSTR17R5B\spi_slave_r.v":37:1:37:6|Trying to extract state machine for register sta_cur
 @N|Running in 64-bit mode
 

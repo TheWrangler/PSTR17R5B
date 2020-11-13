@@ -27,28 +27,41 @@ module top
     input spi_sclk,
     input spi_din,
 
-    //RF Switch 
-    output tr_p,
-    output tr_n,
-    output tr,
-    output lo,
+    //控制发射开关和供电开关
+    output rf_switch,
+    output rf_power_p,
+    output rf_power_n,
 
-    //tx att.
-    output [5:0] tx_att,
-    //tx channel switch
-    output tv,
-    //rx power ctrl
+
+    //空馈/校准控制，0-校准，1-空馈
+    output ct_switch,
+
+    //tv/th切换，1-tv,0-th
+    output tvh,
+
+    //接收通道供电控制
     output [2:0] rx_ch_pwr_ctrl,
+    //接收通道控制
     output [2:0] rx_ch_ctrl,
-    //rx chanel att.
-    output [5:0] rx_ch1_att,
-    output [5:0] rx_ch2_att,
-    output [5:0] rx_ch3_att,
-    //rx channel pha
+
+    //发射衰减
+    output [5:0] tx_att,
+
+    //接收通道增益
+    // output [5:0] rx_ch1_att,
+    // output [5:0] rx_ch2_att,
+    // output [5:0] rx_ch3_att,
+    output [2:0] a1,
+    output [2:0] a0,
+    output [2:0] rx_att_scl,
+    inout [2:0] rx_att_sda,
+   
+    //接收通道移相
     output [5:0] rx_ch1_pha,
     output [5:0] rx_ch2_pha,
     output [5:0] rx_ch3_pha,
-    //trig
+
+    //触发信号输出
     output trig,
 
     //ad9914_1
@@ -65,7 +78,7 @@ module top
     output p_rd_1,
     output p_wr_1,
     output [7 : 0] p_addr_1,
-    inout [7 : 0] p_data_1,
+    inout [15 : 0] p_data_1,
 
     //ad9914_2
     output osk_2,
@@ -81,7 +94,7 @@ module top
     output p_rd_2,
     output p_wr_2,
     output [7 : 0] p_addr_2,
-    inout [7 : 0] p_data_2
+    inout [15 : 0] p_data_2
 );
 
     ///////////////////////////////////////////////////////////
@@ -104,11 +117,11 @@ module top
     wire [31:0] depack_ftw_upper_2;
     wire [31:0] depack_sweep_step;
     wire [15:0] depack_sweep_rate;
-    wire [31:0] depack_resweep_period;
+    wire [15:0] depack_pulse_period;
+    wire [15:0] depack_resweep_period;
     wire [2:0] depack_mode;
     wire depack_rf_switch;
-    wire [7:0] depack_tx_att;
-    wire [2:0] depack_rx_ch_pwr_ctrl;
+    wire [5:0] depack_tx_att;
     wire [7:0] depack_rx_ch1_att;
     wire [7:0] depack_rx_ch2_att;
     wire [7:0] depack_rx_ch3_att;
@@ -116,6 +129,7 @@ module top
     wire [7:0] depack_rx_ch2_pha;
     wire [7:0] depack_rx_ch3_pha;
     wire [31:0] depack_ct_period;
+    wire [31:0] depack_ys_period;
 
     depack depack_inst
     (
@@ -136,95 +150,279 @@ module top
         .ftw_upper_2(depack_ftw_upper_2),
         .sweep_step(depack_sweep_step),
         .sweep_rate(depack_sweep_rate),
+        .pulse_period(depack_pulse_period),
         .resweep_period(depack_resweep_period),
         .mode(depack_mode),
         .rf_switch(depack_rf_switch),
         .tx_att(depack_tx_att),
-        .rx_ch_pwr_ctrl(depack_rx_ch_pwr_ctrl),
         .rx_ch1_att(depack_rx_ch1_att),
         .rx_ch2_att(depack_rx_ch2_att),
         .rx_ch3_att(depack_rx_ch3_att),
         .rx_ch1_pha(depack_rx_ch1_pha),
         .rx_ch2_pha(depack_rx_ch2_pha),
         .rx_ch3_pha(depack_rx_ch3_pha),
-        .ct_period(depack_ct_period)
+        .ct_period(depack_ct_period),
+        .ys_period(depack_ys_period)
     );
-    ////////////////////////////////////////////////////////////
+
+    ///////////////////////////////////////////////////////////////
+    wire update_cmd;
+    wire [31:0] pulse_clock_num;
+    wire [31:0] sweep_clock_num;
+    wire [31:0] ys_clock_num;
+    wire [31:0] ct_clock_num;
+    wire tr;
+    wire [1:0] tr_edge;
+    wire prf;
+    wire [1:0] prf_edge;
+    wire ct;
+    prf_gen prf_gen_inst
+    (
+        .clk(clk),
+        .rst(rst),
+        .update(update_cmd),
+        .pulse_clock_num(pulse_clock_num),//脉冲宽度时钟周期数
+        .sweep_clock_num(sweep_clock_num),//扫频周期时钟周期数
+        .ys_clock_num(ys_clock_num),   //触发延时时钟周期数
+        .ct_clock_num(ct_clock_num),   //校准时间时钟周期数
+        .tr(tr),
+        .tr_edge(tr_edge),
+        .prf(prf),
+        .prf_edge(prf_edge),
+        .ct(ct)
+    );
+
+    assign pulse_clock_num = {16'h0000,depack_pulse_period} * 3400 / 24;
+    assign sweep_clock_num = {16'h0000,depack_resweep_period} * 3400 / 24;
+    assign ys_clock_num = depack_ys_period * 3400 / 24;
+    assign ct_clock_num = depack_ct_period * 3400 * 1000 / 24;
+    assign trig = tr;
 
     ////////////////////////////////////////////////////////////
-    //RF switch
-    assign tr_p = depack_rf_switch;
-    assign tr_n = ~depack_rf_switch;
+    work_flow work_flow_inst
+    (
+        .clk(clk),
+        .rst(rst),
 
-    ///////////////////////////////////////////////////////////
-    //tx att.
-    assign tx_att = depack_tx_att[5:0];
+        .tr(tr),
+        .prf(prf),
 
-    ///////////////////////////////////////////////////////////
-    //rx power ctrl
-    assign rx_ch_pwr_ctrl = depack_rx_ch_pwr_ctrl;
+        .cmd_ready(depack_ready),
+        .cmd_ready_clear(depack_load),
+        .update_cmd(update_cmd)
+    );
 
-    ///////////////////////////////////////////////////////////
-    //rx channel att.
-    assign rx_ch1_att = depack_rx_ch1_att[5:0];
-    assign rx_ch2_att = depack_rx_ch2_att[5:0];
-    assign rx_ch3_att = depack_rx_ch3_att[5:0];
+    ////////////////////////////////////////////////////////////
+    wire ad9914_sweep;
+    wire ad9914_load;
+    wire [31:0] ftw_lower_1;
+    wire [31:0] ftw_upper_1;
+    wire [31:0] ftw_lower_2;
+    wire [31:0] ftw_upper_2;
+    wire [31:0] sweep_step;
+    wire [15:0] sweep_rate;
+    wire [7:0] rx_ch1_att;
+    wire [7:0] rx_ch2_att;
+    wire [7:0] rx_ch3_att;
+    wire rf_power;
+    wire rx_att_load;
+    cmd_update cmd_update_inst
+    (
+        .clk(clk),
+        .rst(rst),
+        .update_cmd(update_cmd),
 
-    ///////////////////////////////////////////////////////////
-    //rx channel pha
-    assign rx_ch1_pha = depack_rx_ch1_pha[5:0];
-    assign rx_ch2_pha = depack_rx_ch2_pha[5:0];
-    assign rx_ch3_pha = depack_rx_ch3_pha[5:0];
+        .tr_edge(tr_edge),
+        .prf_edge(prf_edge),
+        .ct(ct),
+
+        .depack_ftw_lower_1(depack_ftw_lower_1),
+        .depack_ftw_upper_1(depack_ftw_upper_1),
+        .depack_ftw_lower_2(depack_ftw_lower_2),
+        .depack_ftw_upper_2(depack_ftw_upper_2),
+        .depack_sweep_step(depack_sweep_step),
+        .depack_sweep_rate(depack_sweep_rate),
+
+        .depack_mode(depack_mode),
+        .depack_rf_switch(depack_rf_switch),
+        .depack_tx_att(depack_tx_att),
+        .depack_rx_ch1_att(depack_rx_ch1_att),
+        .depack_rx_ch2_att(depack_rx_ch2_att),
+        .depack_rx_ch3_att(depack_rx_ch3_att),
+        .depack_rx_ch1_pha(depack_rx_ch1_pha),
+        .depack_rx_ch2_pha(depack_rx_ch2_pha),
+        .depack_rx_ch3_pha(depack_rx_ch3_pha),
+
+
+        //ad9914参数加载和扫频
+        .ad9914_load(ad9914_load),
+        .ad9914_sweep(ad9914_sweep),
+
+        //控制发射开关和供电开关
+        .rf_switch(rf_switch),
+        .rf_power(rf_power),
+        
+        //空馈/校准控制，0-校准，1-空馈
+        .ct_switch(ct_switch),
+
+        //tv/th切换，1-tv,0-th
+        .tvh(tvh),
+
+        //接收通道供电控制
+        .rx_ch_pwr_ctrl(rx_ch_pwr_ctrl),
+        .rx_ch_ctrl(rx_ch_ctrl),
+
+        //发射衰减
+        .tx_att(tx_att),
+
+        //接收通道增益
+        .rx_ch1_att(rx_ch1_att),
+        .rx_ch2_att(rx_ch2_att),
+        .rx_ch3_att(rx_ch3_att),
+        .rx_att_load(rx_att_load),
+
+        //接收通道移相
+        .rx_ch1_pha(rx_ch1_pha),
+        .rx_ch2_pha(rx_ch2_pha),
+        .rx_ch3_pha(rx_ch3_pha),
+
+        .ftw_lower_1(ftw_lower_1),
+        .ftw_upper_1(ftw_upper_1),
+        .ftw_lower_2(ftw_lower_2),
+        .ftw_upper_2(ftw_upper_2),
+        .sweep_step(sweep_step),
+        .sweep_rate(sweep_rate)
+    );
+
+    assign rf_power_p = rf_power;
+    assign rf_power_n = ~rf_power;
 
     //////////////////////////////////////////////////////////
+    wire [2:0] sda_o;
+    wire [2:0] sda_i;
+    wire [2:0] sda_io_select;
+    ds3502 ds3502_inst1
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .load(rx_att_load),
+        .r(rx_ch1_att),
+        .busy(),
+
+        .a1(a1[0]),
+        .a0(a0[0]),
+
+        .scl(rx_att_scl[0]),
+        .sda_o(sda_o[0]),
+        .sda_i(sda_i[0]),
+        .sda_io_select(sda_io_select[0])
+    );
+
+    ds3502 ds3502_inst2
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .load(rx_att_load),
+        .r(rx_ch2_att),
+        .busy(),
+
+        .a1(a1[1]),
+        .a0(a0[1]),
+
+        .scl(rx_att_scl[1]),
+        .sda_o(sda_o[1]),
+        .sda_i(sda_i[1]),
+        .sda_io_select(sda_io_select[1])
+    );
+
+    ds3502 ds3502_inst3
+    (
+        .clk(clk),
+        .rst(rst),
+
+        .load(rx_att_load),
+        .r(rx_ch3_att),
+        .busy(),
+
+        .a1(a1[2]),
+        .a0(a0[2]),
+
+        .scl(rx_att_scl[2]),
+        .sda_o(sda_o[2]),
+        .sda_i(sda_i[2]),
+        .sda_io_select(sda_io_select[2])
+    );
+
+    genvar i;
+    generate 
+        for(i=0;i<2;i=i+1) begin
+            IOBUF
+            #(
+                .DRIVE(12), // Specify the output drive strength
+                .IBUF_LOW_PWR("TRUE"),  // Low Power - "TRUE", High Performance = "FALSE"
+                .IOSTANDARD("DEFAULT"), // Specify the I/O standard
+                .SLEW("SLOW") // Specify the output slew rate
+            )
+            IOBUF_inst
+            (
+                .I(sda_o[i]),
+                .O(sda_i[i]),
+                .T(sda_io_select[i]),
+                .IO(rx_att_sda[i])
+            );
+        end
+    endgenerate
+    //////////////////////////////////////////////////////////
     //ad9914_1
-    wire ad9914_update_1;
     wire ad9914_busy_1;
     wire ad9914_finish_1;
-    wire ad9914_trig_1;
-    wire [7:0] p_data_in_1;
-    wire [7:0] p_data_out_1;
+    wire [15:0] p_data_in_1;
+    wire [15:0] p_data_out_1;
     wire p_data_tri_select_1;
-    wire resweep_1;
+
     ad9914_ctrl ad9914_ctrl_inst1
 	(
 		.clk(clk),
-		.rst(rst),
+        .rst(rst),
 
-		.update(ad9914_update_1),
-		.lower_limit(depack_ftw_lower_1),
-		.upper_limit(depack_ftw_upper_1),
-		.positive_step(depack_sweep_step),
-		.positive_rate(depack_sweep_rate),
-		.resweep_period(depack_resweep_period),
+        //input update,
+        .set(ad9914_load),
+        .sweep(ad9914_sweep),
+        .sweep_edge(1),//1-positive sweep,0-negitive sweep
+        .lower_limit(ftw_lower_1),
+        .upper_limit(ftw_upper_1),
+        .positive_step(sweep_step),
+        .negitive_step(), 
+        .positive_rate(sweep_rate),
+        .negitive_rate(),
+        .att(0),
 
-		.busy(ad9914_busy_1),
-		.finish(ad9914_finish_1),
+        .busy(ad9914_busy_1),
+        .finish(ad9914_finish_1),
 
-		.trig(ad9914_trig_1),
-        .resweep(resweep_1),
+        .dover(dover_1),
+        .dhold(dhold_1),
+        .io_update(io_update_1),
+        .master_reset(master_reset_1),
+        .dctrl(dctrl_1),
+        .profile_select(profile_select_1),
+        .function_select(function_select_1),
 
-		.osk(osk_1),
-		.dover(dover_1),
-		.dhold(dhold_1),
-		.io_update(io_update_1),
-		.master_reset(master_reset_1),
-		.dctrl(dctrl_1),
-		.profile_select(profile_select_1),
-		.function_select(function_select_1),
-
-		.p_pwd(p_pwd_1),
-		.p_rd(p_rd_1),
-		.p_wr(p_wr_1),
-		.p_addr(p_addr_1),
-		.p_data_in(p_data_in_1),
-		.p_data_out(p_data_out_1),
-		.p_data_tri_select(p_data_tri_select_1)
+        .p_pwd(p_pwd_1),
+        .p_rd(p_rd_1),
+        .p_wr(p_wr_1),
+        .p_addr(p_addr_1),
+        .p_data_in(p_data_in_1),
+        .p_data_out(p_data_out_1),
+        .p_data_tri_select(p_data_tri_select_1)
 	);
 
-	genvar i;
+    assign osk_1 = tr;
+
     generate 
-        for(i=0;i<8;i=i+1) begin
+        for(i=0;i<16;i=i+1) begin
             IOBUF
             #(
                 .DRIVE(12), // Specify the output drive strength
@@ -244,65 +442,52 @@ module top
 
     //////////////////////////////////////////////////////////////
     //ad9914_2
-    wire ad9914_update_2;
     wire ad9914_busy_2;
     wire ad9914_finish_2;
-    wire ad9914_trig_2;
-    wire [7:0] p_data_in_2;
-    wire [7:0] p_data_out_2;
+    wire [15:0] p_data_in_2;
+    wire [15:0] p_data_out_2;
     wire p_data_tri_select_2;
 
-    wire osk_2_temp;
-    ad9914_ctrl ad9914_ctrl_inst2
+     ad9914_ctrl ad9914_ctrl_inst2
 	(
 		.clk(clk_2),
-		.rst(rst),
+        .rst(rst),
 
-		.update(ad9914_update_2),
-		.lower_limit(depack_ftw_lower_2),
-		.upper_limit(depack_ftw_upper_2),
-		.positive_step(depack_sweep_step),
-		.positive_rate(depack_sweep_rate),
-		.resweep_period(depack_resweep_period),
+        //input update,
+        .set(ad9914_load),
+        .sweep(ad9914_sweep),
+        .sweep_edge(1),//1-positive sweep,0-negitive sweep
+        .lower_limit(ftw_lower_2),
+        .upper_limit(ftw_upper_2),
+        .positive_step(sweep_step),
+        .negitive_step(), 
+        .positive_rate(sweep_rate),
+        .negitive_rate(),
+        .att(0),
 
-		.busy(ad9914_busy_2),
-		.finish(ad9914_finish_2),
+        .busy(ad9914_busy_2),
+        .finish(ad9914_finish_2),
 
-		.trig(ad9914_trig_2),
-        .resweep(),
+        .dover(dover_2),
+        .dhold(dhold_2),
+        .io_update(io_update_2),
+        .master_reset(master_reset_2),
+        .dctrl(dctrl_2),
+        .profile_select(profile_select_2),
+        .function_select(function_select_2),
 
-		.osk(osk_2_temp),
-		.dover(dover_2),
-		.dhold(dhold_2),
-		.io_update(io_update_2),
-		.master_reset(master_reset_2),
-		.dctrl(dctrl_2),
-		.profile_select(profile_select_2),
-		.function_select(function_select_2),
-
-		.p_pwd(p_pwd_2),
-		.p_rd(p_rd_2),
-		.p_wr(p_wr_2),
-		.p_addr(p_addr_2),
-		.p_data_in(p_data_in_2),
-		.p_data_out(p_data_out_2),
-		.p_data_tri_select(p_data_tri_select_2)
+        .p_pwd(p_pwd_2),
+        .p_rd(p_rd_2),
+        .p_wr(p_wr_2),
+        .p_addr(p_addr_2),
+        .p_data_in(p_data_in_2),
+        .p_data_out(p_data_out_2),
+        .p_data_tri_select(p_data_tri_select_2)
 	);
-
-    // assign dctrl_2 = 0;
-    // assign dhold_2 = 0;
-    // assign p_addr_2 = 0;
-    // assign osk_2 = 0;
-    // assign p_pwd_2 = 0;
-    // assign function_select_2 = 0;
-    // assign profile_select_2 = 0;
-    // assign p_rd_2 = 0;
-    // assign p_wr_2 = 0;
-    // assign io_update_2 = 0;
-    // assign master_reset_2 = 0;
+    assign osk_2 = tr;
 
     generate 
-        for(i=0;i<8;i=i+1) begin
+        for(i=0;i<16;i=i+1) begin
             IOBUF
             #(
                 .DRIVE(12), // Specify the output drive strength
@@ -320,101 +505,24 @@ module top
         end
     endgenerate
 
-    work_flow work_flow_inst
-    (
-        .clk(clk),
-        .rst(rst),
-
-        .ct_period(depack_ct_period),
-        .tv_mode(depack_mode[1:0]),
-        .ad9914_update_2(ad9914_update_2),
-        .ad9914_osk_temp(osk_2_temp),
-        .ad9914_trig_1(ad9914_trig_1),
-        .ad9914_trig_2(ad9914_trig_2),
-        .rx_ch_pwr_ctrl(depack_rx_ch_pwr_ctrl),
-
-        .ad9914_osk_2(osk_2),
-        .tr(tr),
-        .lo(lo),
-        .tv(tv),
-        .rx_ch_ctrl(rx_ch_ctrl)
-    );
+    
 
     ////////////////////////////////////////////////////////////////
-    // trig
-    assign trig = ad9914_trig_1;
-
-    /////////////////////////////////////////////////////////////////
-    // main progress
-    reg depack_load_reg = 0;
-    reg ad9914_update_1_reg = 0;
-    reg ad9914_update_2_reg = 0;
-    assign depack_load = depack_load_reg;
-    assign ad9914_update_1 = ad9914_update_1_reg;
-    assign ad9914_update_2 = ad9914_update_2_reg;
-
-    reg [3:0] main_proc_sta = 0;
-    always @ (posedge clk) begin
-        if(!rst) begin 
-            depack_load_reg <= 0;
-            ad9914_update_1_reg <= 0;
-            ad9914_update_2_reg <= 0;
-            main_proc_sta <= 0;
-        end
-        else begin
-            case (main_proc_sta)
-                0 : begin
-                    if(depack_ready)
-                        main_proc_sta <= 1;
-                end
-                1 : begin
-                    ad9914_update_1_reg <= 1;
-                    if(depack_mode[2] == 1'b1)
-                        ad9914_update_2_reg <= 1;
-                    main_proc_sta <= 2;
-                end
-                2 : begin
-                    if(ad9914_busy_1 && (ad9914_busy_2 || (~depack_mode[2]))) begin
-                        ad9914_update_1_reg <= 0;
-                        ad9914_update_2_reg <= 0;
-                        main_proc_sta <= 3;
-                    end
-                end
-                3 : begin
-                    if(ad9914_finish_1 && (ad9914_finish_2 || (~depack_mode[2])))
-                        main_proc_sta <= 4;
-                end
-                4 : begin
-                    depack_load_reg <= 1;
-                    main_proc_sta <= 5;
-                end
-                5 : begin
-                    if(!depack_ready) begin
-                        depack_load_reg <= 0;
-                        main_proc_sta <= 0;
-                    end
-                end
-            endcase
-        end
-    end
-
     wire [35:0] CONTROL0;
 	wire [99:0] TRIG0;
-	assign TRIG0[0] = depack_ready;
-	assign TRIG0[4:1] = main_proc_sta;
-	assign TRIG0[5] = depack_load_reg;
-	assign TRIG0[6] = ad9914_update_1;
-	assign TRIG0[7] = ad9914_update_1;
-	assign TRIG0[8] = ad9914_busy_1;
-	assign TRIG0[9] = ad9914_busy_2;
-    assign TRIG0[10] = ad9914_finish_1;
-    assign TRIG0[11] = ad9914_finish_1;
-    assign TRIG0[43:12] = depack_ftw_lower_1;
-    assign TRIG0[75:44] = depack_resweep_period;
-    assign TRIG0[91:76] = depack_sweep_rate;
-    assign TRIG0[93:92] = depack_mode;
-    assign TRIG0[96:94] = depack_rx_ch_pwr_ctrl;
-    assign TRIG0[97] = trig;
+
+	assign TRIG0[7:0] = {ct,prf,tr,update_cmd,depack_crc_err,depack_load,depack_ready};
+    assign TRIG0[14:8] = {rx_ch_ctrl,rf_power_p,rf_switch,ct_switch,tvh};
+    assign TRIG0[20:15] = {ad9914_finish_2,ad9914_finish_1,ad9914_busy_2,ad9914_busy_1,ad9914_sweep,ad9914_load};
+    assign TRIG0[28:21] = {dctrl_2,io_update_2,dover_2,osk_2,dctrl_1,io_update_1,dover_1,osk_1};
+    assign TRIG0[60:29] = ftw_lower_1;
+    //assign TRIG0[60:29] = ftw_upper_1;
+    //assign TRIG0[60:29] = sweep_step;
+    assign TRIG0[68:61] = p_addr_1;
+    assign TRIG0[84:69] = p_data_out_1;
+    assign TRIG0[87:85] = depack_mode;
+    assign TRIG0[93:88] = rx_ch1_att;
+    assign TRIG0[99:94] = rx_ch3_pha;
 
 	myila myila_inst (
 		.CONTROL(CONTROL0), // INOUT BUS [35:0]

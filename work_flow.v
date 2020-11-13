@@ -23,77 +23,29 @@ module work_flow
     input clk,
     input rst,
 
-    input [31:0] ct_period,
-    input [1:0] tv_mode,
-    input ad9914_update_2,
-    input ad9914_osk_temp,
-    input ad9914_trig_1,
-    input ad9914_trig_2,
-    input [2:0] rx_ch_pwr_ctrl,
+    input tr,
+    input prf,
 
-    output ad9914_osk_2,
-    output tr,
-    output lo,
-    output tv,
-    output [2:0] rx_ch_ctrl
+    input cmd_ready,
+    output reg cmd_ready_clear,
+    output reg update_cmd
 );
 
-    ////////////////////////////////////////////////////////////////
-    // CT work flow
-    //when CT enabled, enable dds2,sweep ct_period then disable osk2
-    reg ct_enable = 1'b0;
-    assign ad9914_osk_2 = ct_enable ? ad9914_osk_temp : 1'b0;
-    assign tr = ct_enable ? 1'b1 : 1'b0;
-    assign lo = ct_enable ? 1'b1 : 1'b0;
-    assign rx_ch_ctrl = ct_enable ? 3'b000 : rx_ch_pwr_ctrl;
-
-    reg [31:0] ct_delay_count = 32'h0000_0000;
-    reg [31:0] ct_period_reg;
-    reg [5:0] ct_fsm_sta = 0;
+    //在tr和prf同时1低电平时更新指令
     always @ (posedge clk) begin
         if(!rst) begin
-            ct_enable <= 1'b0;
-            ct_fsm_sta <= 0;
+            cmd_ready_clear <= 1'b0;
+            update_cmd <= 1'b0;
+        end
+        else if(tr == 1'b0 && prf == 1'b0 && update_cmd == 1'b0) begin
+            if(cmd_ready) begin
+                cmd_ready_clear <= 1'b1;
+                update_cmd <= 1'b1;
+            end
         end
         else begin
-            case (ct_fsm_sta)
-                0 : begin
-                    if(ad9914_update_2) begin
-                        ct_enable <= 1'b1;
-                        ct_period_reg <= ct_period;
-                        ct_fsm_sta <= 1;
-                    end
-                end
-                1 : begin
-                    if(ad9914_trig_2) begin
-                        ct_delay_count <= 0;
-                        ct_fsm_sta <= 2;
-                    end
-                end
-                2 : begin
-                    ct_delay_count <= ct_delay_count + 1'b1;
-                    if(ct_delay_count == ct_period_reg) 
-                        ct_fsm_sta <= 3;
-                end
-                3 : begin
-                    ct_enable <= 1'b0;
-                    ct_fsm_sta <= 1'b0;
-                end
-            endcase
-        end
-    end
-
-    //////////////////////////////////////////////////////////////////
-    // TV/TH
-    // mode=11,switch when posedge-edge of trig asserted 
-    reg tv_reg = 1;
-    assign tv = tv_reg;
-    always @ (posedge ad9914_trig_1) begin
-        if (tv_mode == 2'b11) begin
-            tv_reg <= ~tv_reg;
-        end
-        else begin
-            tv_reg <= 1'b0;
+            cmd_ready_clear <= 1'b0;
+            update_cmd <= 1'b0;
         end
     end
 

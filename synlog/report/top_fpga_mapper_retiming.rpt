@@ -1,0 +1,19 @@
+
+		#####  BEGIN RETIMING REPORT  #####
+
+Retiming summary : 1 registers retimed to 6
+
+Original and Pipelined registers replaced by retiming :
+		cmd_update_inst.mode_0[1]
+
+New registers created by retiming :
+		cmd_update_inst.mode_ret
+		cmd_update_inst.mode_ret_1
+		cmd_update_inst.mode_ret_3
+		cmd_update_inst.mode_ret_4
+		cmd_update_inst.mode_ret_5
+		work_flow_inst.update_cmd_ret_1
+
+
+		#####   END RETIMING REPORT  #####
+

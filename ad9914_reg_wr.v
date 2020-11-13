@@ -19,50 +19,51 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module ad9914_reg_wr
-    #(
-        parameter IO_UPDATE_DELAY_NUM = 2
-    )
-    (
-		input clk,
-        input rst,
+// #(
+//     parameter IO_UPDATE_DELAY_NUM = 2
+// )
+(
+    input clk,
+    input rst,
 
-        input load,
-        input [7:0] reg_base_addr,
-        input [31:0] reg_wvar,
-        output [31:0] reg_rvar,
-        input [3:0] reg_byte_num,
-        output res,
-        output busy,
-        output finish,
+    input load,
+    input [7:0] reg_base_addr,
+    input [31:0] reg_wvar,
+    output [31:0] reg_rvar,
+    input [3:0] reg_byte_num,
+    output res,//0-no err,1-write & read verify failed
+    output busy,
+    output finish,
 
-        output io_update,
-		
-        //parallel port
-        output p_pwd,//1-16bit,0-8bit
-        output p_wr,
-        output p_rd,
-		output [7 : 0] p_addr,
-		output [7 : 0] p_wdata,
-        input [7 : 0] p_rdata,
-        output data_tri_select
+    input read_back_disable,
+    //output io_update,
+    
+    //parallel port
+    output p_pwd,//1-16bit,0-8bit
+    output p_wr,
+    output p_rd,
+    output [7 : 0] p_addr,
+    output [15 : 0] p_wdata,
+    input [15 : 0] p_rdata,
+    output data_tri_select
 
-        //only for debug
-        //output debug_trig
-    );
+    //only for debug
+    //output debug_trig
+);
 
     //parallel port
     wire p_load;
     wire p_wr_cmd;
     wire [7 : 0] addr;
-    wire [7 : 0] wdata;
-    wire [7 : 0] rdata;
+    wire [15 : 0] wdata;
+    wire [15 : 0] rdata;
     wire p_busy;
     wire p_finish;
 
     reg p_load_reg = 0;
     reg p_wr_cmd_reg = 0;
     reg [7 : 0] addr_reg = 0;
-    reg [7 : 0] wdata_reg = 0;
+    reg [15 : 0] wdata_reg = 0;
 
     assign p_load = p_load_reg;
     assign p_wr_cmd = p_wr_cmd_reg;
@@ -95,21 +96,21 @@ module ad9914_reg_wr
 
     //
     reg [7:0] reg_base_addr_reg = 0;
-    reg [7:0] reg_wvar_reg [3:0];
-    reg [7:0] reg_rvar_reg [3:0];
+    reg [15:0] reg_wvar_reg [1:0];
+    reg [15:0] reg_rvar_reg [1:0];
     reg [3:0] reg_byte_num_reg = 0;
     reg res_reg = 0;
     reg busy_reg = 0;
     reg finish_reg = 1;
-    reg io_update_reg = 0;
-    assign reg_rvar = {reg_rvar_reg[3],reg_rvar_reg[2],reg_rvar_reg[1],reg_rvar_reg[0]};
+    //reg io_update_reg = 0;
+    assign reg_rvar = {reg_rvar_reg[1],reg_rvar_reg[0]};
     assign res = res_reg;
     assign busy =busy_reg;
     assign finish = finish_reg;
-    assign io_update = io_update_reg;
+    //assign io_update = io_update_reg;
     
 	reg [7 : 0] fsm_state_cur = 0;
-	reg [15 : 0] delay_count = 0;
+	//reg [15 : 0] delay_count = 0;
 	reg [7 : 0] reg_index = 0;
     always @ (posedge clk) begin
 		if(!rst) begin
@@ -120,8 +121,6 @@ module ad9914_reg_wr
 
             reg_rvar_reg[0] <= 0;
             reg_rvar_reg[1] <= 0;
-            reg_rvar_reg[2] <= 0;
-            reg_rvar_reg[3] <= 0;
 
             res_reg <= 0;
             busy_reg <= 0;
@@ -129,21 +128,20 @@ module ad9914_reg_wr
 
             reg_index <= 0;
 
-			io_update_reg <= 0;
+			//io_update_reg <= 0;
 			
 			fsm_state_cur <= 0;
 		end
 		else begin
             case(fsm_state_cur)
                 0:	begin
+                    reg_index <= 0;
 				    fsm_state_cur <= 1;
                 end
                 1 : begin
                     if(load) begin
-                        reg_wvar_reg[0] <= reg_wvar[7:0];
-					    reg_wvar_reg[1] <= reg_wvar[15:8];
-					    reg_wvar_reg[2] <= reg_wvar[23:16];
-					    reg_wvar_reg[3] <= reg_wvar[31:24];
+                        reg_wvar_reg[0] <= reg_wvar[15:0];
+					    reg_wvar_reg[1] <= reg_wvar[31:16];
 
                         reg_base_addr_reg <= (reg_base_addr << 2);
                         reg_byte_num_reg <= reg_byte_num - 1;
@@ -159,7 +157,7 @@ module ad9914_reg_wr
                 2 : begin 
                     if(p_finish) begin
                         wdata_reg <= reg_wvar_reg[reg_index];
-                        addr_reg <= reg_base_addr_reg + reg_index;
+                        addr_reg <= reg_base_addr_reg + (reg_index << 1) + 1;
                         p_wr_cmd_reg <= 0;
                         p_load_reg <= 1;
                         fsm_state_cur <= 3;
@@ -170,29 +168,37 @@ module ad9914_reg_wr
                         p_load_reg <= 0;
                         reg_index <= reg_index + 1;
                         if(reg_index == reg_byte_num_reg)
-                            fsm_state_cur <= 4;
+                            fsm_state_cur <= 5;
                         else fsm_state_cur <= 2;
                     end
                 end
-                4 : begin
-                    if(p_finish) begin
-                        delay_count <= 16'd0;
-                        io_update_reg <= 1;
-                        fsm_state_cur <= 5;
-                    end
-                end
+                // 4 : begin
+                //     if(p_finish) begin
+                //         delay_count <= 16'd0;
+                //         io_update_reg <= 1;
+                //         fsm_state_cur <= 5;
+                //     end
+                // end
                 5 : begin
-                    delay_count <= delay_count + 16'd1;
-                    if(delay_count == IO_UPDATE_DELAY_NUM) begin
-                        io_update_reg <= 0;
-                        reg_index <= 0;
-                        fsm_state_cur <= 6;
-                    end
+                    //delay_count <= delay_count + 16'd1;
+                    //if(delay_count == IO_UPDATE_DELAY_NUM) begin
+                        //io_update_reg <= 0;
+                        if(read_back_disable) begin
+                            busy_reg <= 0;
+                            finish_reg <= 1;
+                            res_reg <= 0;
+                            fsm_state_cur <= 0;
+                        end
+                        else begin
+                            reg_index <= 0;
+                            fsm_state_cur <= 6;
+                        end
+                    //end
                 end
                 //read
                 6 : begin
                     if(p_finish) begin
-                        addr_reg <= reg_base_addr_reg + reg_index;
+                        addr_reg <= reg_base_addr_reg + (reg_index << 1) + 1;
                         p_wr_cmd_reg <= 1;
                         p_load_reg <= 1;
                         fsm_state_cur <= 7;
@@ -217,9 +223,7 @@ module ad9914_reg_wr
                     busy_reg <= 0;
                     finish_reg <= 1;
                     if((reg_wvar_reg[0] == reg_rvar_reg[0])
-                        && (reg_wvar_reg[1] == reg_rvar_reg[1])
-                        && (reg_wvar_reg[2] == reg_rvar_reg[2])
-                        && (reg_wvar_reg[3] == reg_rvar_reg[3]))
+                        && (reg_wvar_reg[1] == reg_rvar_reg[1]))
                         res_reg <= 0;
                     else res_reg <= 1;
                     reg_index <= 0;

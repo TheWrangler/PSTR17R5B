@@ -19,12 +19,14 @@ $DRCTL$为累加控制信号，当为逻辑高时，数字斜坡发生器进行�
 
 $f_{SYS}=f_{REF}/24$
 
+一般的，$f_{REF}=3400MHz$。
+
 数字斜坡发生器关键参数包括上、下限频率调谐字$FTW_l$、$FTW_u$，正、负向累计速率$RATE_l$、$RATE_u$，正、负向累加步进$STEP_l$、$STEP_u$。其中，频率调谐字计算过程为：
 + 求$f$与$f_{REF}$的最大公约数$Y$
 + 计算$M=f/Y$，$N=f_{REF}/Y$
 + $FTW=M \times 2^{32}/N$
 
-累加步进$STEP=\vartriangle f \times f_{SYS}/2^{32}$，累加速率$RATE=\vartriangle t \times f_{SYS}$。
+累加步进$STEP=\vartriangle f \times 2^{32}/f_{REF}$，累加速率$RATE=\vartriangle t \times f_{SYS}$。
 
 以上参数均通过AD9914的并行或串行接口写入对应寄存器。在通过并行接口写入寄存器时，在写入完成后，必须置$IO\_UPDATE$为逻辑高后，数据才从接口缓冲区写入寄存器。
 # 验证与测试

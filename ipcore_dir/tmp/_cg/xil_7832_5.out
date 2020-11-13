@@ -1,0 +1,12 @@
+SET_PARAMETER use_unused_bscan false
+SET_PARAMETER number_control_ports 1
+SET_PARAMETER component_name myicon
+SET_PARAMETER enable_jtag_bufg true
+SET_PARAMETER constraint_type external
+SET_PARAMETER use_softbscan false
+SET_PARAMETER use_ext_bscan false
+SET_PARAMETER user_scan_chain USER1
+SET_PARAMETER example_design false
+SET_ERROR_CODE 2
+SET_ERROR_MSG  CANCEL: Customization cancelled.
+SET_ERROR_TEXT Finished initializing IP model.	

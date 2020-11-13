@@ -20,11 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 module parallel_wr
     #(
-		parameter [15 : 0] MAIN_CLOCK_PERIOD = 7,
-        parameter [15 : 0] RD_DELAY_CLOCK_PERIOD = 40,
-        parameter [15 : 0] WR_DELAY_CLOCK_PERIOD = 20,
+		parameter [15 : 0] MAIN_CLOCK_PERIOD = 8,
+        parameter [15 : 0] RD_DELAY_CLOCK_PERIOD = 8/*40*/,
+        parameter [15 : 0] WR_DELAY_CLOCK_PERIOD = 8/*20*/,
 		parameter [3 : 0] ADDR_WIDTH = 8,
-		parameter [5 : 0] DATA_WIDTH = 8
+		parameter [5 : 0] DATA_WIDTH = 16
 	)
     (
         input rst,
@@ -56,7 +56,7 @@ module parallel_wr
     assign busy = busy_reg;
 	assign finish = finish_reg;
 
-    assign pwd = 0;
+    assign pwd = 1;
 
     reg wr_reg = 1;
     reg rd_reg = 1;
@@ -119,20 +119,18 @@ module parallel_wr
                 //read
                 3 : begin
                     delay_count <= delay_count + 16'd1;
-                    if(delay_count == RD_DELAY_CLOCK_NUM) begin
+                    if(delay_count >= RD_DELAY_CLOCK_NUM) begin
                         rdata_reg <= p_rdata;
-                        fsm_state_cur <= 4;
+                        rd_reg <= 1; 
+                        delay_count <= 0;
+                        fsm_state_cur <= 5;
                     end
-                end
-                4 : begin
-                    rd_reg <= 1; 
-                    delay_count <= 0;
-                    fsm_state_cur <= 5;
                 end
                 5 : begin
                     delay_count <= delay_count + 16'd1;
-                    if(delay_count == RD_DELAY_CLOCK_NUM) begin
+                    if(delay_count >= RD_DELAY_CLOCK_NUM) begin
                         busy_reg <= 1'b0;
+                        delay_count <= 16'd0;
 	                    finish_reg <= 1'b1;
                         fsm_state_cur <= 0;
                     end
@@ -140,18 +138,17 @@ module parallel_wr
                 //write
                 6 : begin
                     delay_count <= delay_count + 16'd1;
-                    if(delay_count == WR_DELAY_CLOCK_NUM)
+                    if(delay_count >= WR_DELAY_CLOCK_NUM) begin
+                        wr_reg <= 1; 
+                        delay_count <= 0;
                         fsm_state_cur <= 7;
+                    end
                 end 
                 7 : begin
-                    wr_reg <= 1; 
-                    delay_count <= 0;
-                    fsm_state_cur <= 8;
-                end
-                8 : begin
                     delay_count <= delay_count + 16'd1;
-                    if(delay_count == WR_DELAY_CLOCK_NUM) begin
+                    if(delay_count >= WR_DELAY_CLOCK_NUM) begin
                         busy_reg <= 1'b0;
+                        delay_count <= 16'd0;
 	                    finish_reg <= 1'b1;
                         fsm_state_cur <= 0;
                     end

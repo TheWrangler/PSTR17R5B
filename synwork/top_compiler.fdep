@@ -1,4 +1,4 @@
-#OPTIONS:"|-mixedhdl|-layerid|0|-top|top|-hasedforngc|-dspmac|-pqdpadd|-primux|-fixsmult|-sdff_counter|-infer_seqShift|-verification_mode|0|-nram|-divnmod|-loadunimacro|-I|F:\\PSTR17R5B\\|-I|D:\\Synopsys\\fpga_H201303\\lib|-v2001|-devicelib|D:\\Synopsys\\fpga_H201303\\lib\\xilinx\\unisim_m10i.v|-devicelib|D:\\Synopsys\\fpga_H201303\\lib\\xilinx\\unisim.v|-encrypt|-pro|-ll|2000|-compiler_compatible|-ui|-fid2|-ram|-sharing|on|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
+#OPTIONS:"|-mixedhdl|-layerid|0|-top|top|-hasedforngc|-dspmac|-pqdpadd|-primux|-fixsmult|-sdff_counter|-infer_seqShift|-verification_mode|0|-nram|-divnmod|-loadunimacro|-I|F:\\PSTR17R5B\\|-I|D:\\Synopsys\\fpga_H201303\\lib|-v2001|-devicelib|D:\\Synopsys\\fpga_H201303\\lib\\xilinx\\unisim_m10i.v|-devicelib|D:\\Synopsys\\fpga_H201303\\lib\\xilinx\\unisim.v|-encrypt|-pro|-ll|2000|-compiler_compatible|-ui|-fid2|-ram|-sharing|on|-autosm|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work|-lib|work"
 #CUR:"D:\\Synopsys\\fpga_H201303\\bin64\\c_ver.exe":1362063086
 #CUR:"D:\\Synopsys\\fpga_H201303\\lib\\xilinx\\unisim_m10i.v":1361803430
 #CUR:"D:\\Synopsys\\fpga_H201303\\lib\\xilinx\\unisim.v":1361803430
@@ -7,17 +7,20 @@
 #CUR:"D:\\Synopsys\\fpga_H201303\\lib\\vlog\\scemi_pipes.svh":1361803524
 #CUR:"D:\\Synopsys\\fpga_H201303\\lib\\vlog\\hypermods.v":1361803524
 #CUR:"D:\\Synopsys\\fpga_H201303\\bin\\..\\lib\\xilinx\\unisim.v":1361803430
-#CUR:"F:\\PSTR17R5B\\parallel_wr.v":1579521482
+#CUR:"F:\\PSTR17R5B\\parallel_wr.v":1596652033
 #CUR:"F:\\PSTR17R5B\\spi_slave_r.v":1580486100
 #CUR:"F:\\PSTR17R5B\\ipcore_dir\\myfifo.v":1580959082
-#CUR:"F:\\PSTR17R5B\\ad9914_reg_wr.v":1579623252
-#CUR:"F:\\PSTR17R5B\\work_flow.v":1603266622
+#CUR:"F:\\PSTR17R5B\\ad9914_reg_wr.v":1596719765
+#CUR:"F:\\PSTR17R5B\\work_flow.v":1605109541
 #CUR:"F:\\PSTR17R5B\\pwr_rst.v":1579435602
+#CUR:"F:\\PSTR17R5B\\prf_gen.v":1605111300
 #CUR:"F:\\PSTR17R5B\\ipcore_dir\\myila.v":1580959318
 #CUR:"F:\\PSTR17R5B\\ipcore_dir\\myicon.v":1580959384
-#CUR:"F:\\PSTR17R5B\\depack.v":1582617090
-#CUR:"F:\\PSTR17R5B\\ad9914_ctrl.v":1603266622
-#CUR:"F:\\PSTR17R5B\\top.v":1603266622
+#CUR:"F:\\PSTR17R5B\\ds3502.v":1605276759
+#CUR:"F:\\PSTR17R5B\\depack.v":1605107927
+#CUR:"F:\\PSTR17R5B\\cmd_update.v":1605025482
+#CUR:"F:\\PSTR17R5B\\ad9914_ctrl.v":1605103228
+#CUR:"F:\\PSTR17R5B\\top.v":1605276899
 0			"D:\Synopsys\fpga_H201303\bin\..\lib\xilinx\unisim.v" verilog
 1			"F:\PSTR17R5B\parallel_wr.v" verilog
 2			"F:\PSTR17R5B\spi_slave_r.v" verilog
@@ -25,11 +28,14 @@
 4			"F:\PSTR17R5B\ad9914_reg_wr.v" verilog
 5			"F:\PSTR17R5B\work_flow.v" verilog
 6			"F:\PSTR17R5B\pwr_rst.v" verilog
-7			"F:\PSTR17R5B\ipcore_dir\myila.v" verilog
-8			"F:\PSTR17R5B\ipcore_dir\myicon.v" verilog
-9			"F:\PSTR17R5B\depack.v" verilog
-10			"F:\PSTR17R5B\ad9914_ctrl.v" verilog
-11			"F:\PSTR17R5B\top.v" verilog
+7			"F:\PSTR17R5B\prf_gen.v" verilog
+8			"F:\PSTR17R5B\ipcore_dir\myila.v" verilog
+9			"F:\PSTR17R5B\ipcore_dir\myicon.v" verilog
+10			"F:\PSTR17R5B\ds3502.v" verilog
+11			"F:\PSTR17R5B\depack.v" verilog
+12			"F:\PSTR17R5B\cmd_update.v" verilog
+13			"F:\PSTR17R5B\ad9914_ctrl.v" verilog
+14			"F:\PSTR17R5B\top.v" verilog
 #Dependency Lists(Uses List)
 0 -1
 1 -1
@@ -40,28 +46,37 @@
 6 -1
 7 -1
 8 -1
-9 3 2
-10 4
-11 6 9 10 5
+9 -1
+10 -1
+11 3 2
+12 -1
+13 4
+14 6 11 7 5 12 10 13
 #Dependency Lists(Users Of)
 0 -1
 1 4
-2 9
-3 9
-4 10
-5 11
-6 11
-7 -1
+2 11
+3 11
+4 13
+5 14
+6 14
+7 14
 8 -1
-9 11
-10 11
-11 -1
+9 -1
+10 14
+11 14
+12 14
+13 14
+14 -1
 #Design Unit to File Association
-module work top 11
-module work ad9914_ctrl 10
-module work depack 9
-module work myicon 8
-module work myila 7
+module work top 14
+module work ad9914_ctrl 13
+module work cmd_update 12
+module work depack 11
+module work ds3502 10
+module work myicon 9
+module work myila 8
+module work prf_gen 7
 module work pwr_rst 6
 module work work_flow 5
 module work ad9914_reg_wr 4

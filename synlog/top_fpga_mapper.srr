@@ -22,48 +22,61 @@ Reading Xilinx I/O pad type table from file <D:\Synopsys\fpga_H201303\lib\xilinx
 Reading Xilinx Rocket I/O parameter type table from file <D:\Synopsys\fpga_H201303\lib\xilinx\gttype.txt> 
 
 
-Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 141MB peak: 144MB)
+Starting Optimization and Mapping (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h:00m:00s; Memory used current: 144MB peak: 146MB)
 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[3] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[4] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[6] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[8] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[12] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[13] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[3] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[4] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[6] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[8] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[12] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing sequential instance negitive_step_reg[13] of view:PrimLib.dffse(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
 
 Available hyper_sources - for debug and ip models
 	None Found
 
 @N: FX493 |Applying initial value "00000000" on instance depack_inst.spi_slave_r_inst.d_reg[7:0] 
 @N: FX493 |Applying initial value "00" on instance depack_inst.spi_slave_r_inst.sclk_edge[1:0] 
-@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rdata_reg[7:0] 
-@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_wdata_reg[7:0] 
+@N: FX493 |Applying initial value "0000000000000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rdata_reg[15:0] 
+@N: FX493 |Applying initial value "0000000000000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_wdata_reg[15:0] 
 @N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_addr_reg[7:0] 
-@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.wdata_reg[7:0] 
+@N: FX493 |Applying initial value "0000000000000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.wdata_reg[15:0] 
 @N: FX493 |Applying initial value "01010100101101001011010010110100" on instance ad9914_ctrl_inst2.upper_limit_reg[31:0] 
-@N: FX493 |Applying initial value "00000000000000000000000000000000" on instance ad9914_ctrl_inst2.resweep_period_reg[31:0] 
 @N: FX493 |Applying initial value "00000000000000000011000101011000" on instance ad9914_ctrl_inst2.positive_step_reg[31:0] 
-@N: FX493 |Applying initial value "0000000000000001" on instance ad9914_ctrl_inst2.positive_rate_reg[15:0] 
 @N: FX493 |Applying initial value "01000001111000011110000111100001" on instance ad9914_ctrl_inst2.lower_limit_reg[31:0] 
-@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rdata_reg[7:0] 
-@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_wdata_reg[7:0] 
+@N: FX493 |Applying initial value "00000000000000010000000000000001" on instance ad9914_ctrl_inst2.rate_reg[31:0] 
+@N: FX493 |Applying initial value "0000000000000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rdata_reg[15:0] 
+@N: FX493 |Applying initial value "0000000000000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_wdata_reg[15:0] 
 @N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.p_addr_reg[7:0] 
-@N: FX493 |Applying initial value "00000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.wdata_reg[7:0] 
+@N: FX493 |Applying initial value "0000000000000000" on instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.wdata_reg[15:0] 
 @N: FX493 |Applying initial value "01010100101101001011010010110100" on instance ad9914_ctrl_inst2.upper_limit_reg[31:0] 
-@N: FX493 |Applying initial value "00000000000000000000000000000000" on instance ad9914_ctrl_inst2.resweep_period_reg[31:0] 
 @N: FX493 |Applying initial value "00000000000000000011000101011000" on instance ad9914_ctrl_inst2.positive_step_reg[31:0] 
-@N: FX493 |Applying initial value "0000000000000001" on instance ad9914_ctrl_inst2.positive_rate_reg[15:0] 
 @N: FX493 |Applying initial value "01000001111000011110000111100001" on instance ad9914_ctrl_inst2.lower_limit_reg[31:0] 
+@N: FX493 |Applying initial value "00000000000000010000000000000001" on instance ad9914_ctrl_inst2.rate_reg[31:0] 
+@N: FX493 |Applying initial value "000" on instance cmd_update_inst.rx_ch_pwr_ctrl_temp[2:0] 
+@W: MT462 :"f:\pstr17r5b\cmd_update.v":122:11:126:30|Net cmd_update_inst.rx_ch_ctrl10 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"f:\pstr17r5b\cmd_update.v":122:11:126:30|Net cmd_update_inst.un1_rx_ch_ctrl8_1 appears to be an unidentified clock source. Assuming default frequency. 
 @W: MT462 :|Net myicon_inst.CONTROL0[13] appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"f:\pstr17r5b\ad9914_ctrl.v":420:15:420:89|Net ad9914_ctrl_inst1.osk appears to be an unidentified clock source. Assuming default frequency. 
-@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance resweep_reg of view:PrimLib.dffre(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance resweep_reg of view:PrimLib.dffre(prim) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
-@A: BN291 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Boundary register resweep_reg packed into a complex cell. To disable register packing, set syn_keep=1 on net between register and complex cell. 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance reg_temp[7:0] of view:PrimLib.dffe(prim) in hierarchy view:work.ds3502_ds3502_inst3(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance reg_var[0] of view:PrimLib.dffe(prim) in hierarchy view:work.ds3502_ds3502_inst3(verilog) because there are no references to its outputs 
 
-Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 143MB peak: 144MB)
+Finished RTL optimizations (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 146MB peak: 148MB)
 
-Encoding state machine main_proc_sta[5:0] (view:work.top(verilog))
-original code -> new code
-   0000 -> 000001
-   0001 -> 000010
-   0010 -> 000100
-   0011 -> 001000
-   0100 -> 010000
-   0101 -> 100000
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[3] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[4] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[5] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[3] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[4] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[5] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
 Encoding state machine sta_cur[13:0] (view:work.depack(verilog))
 original code -> new code
    00000 -> 0000
@@ -80,8 +93,8 @@ original code -> new code
    01011 -> 1011
    01100 -> 1100
    01101 -> 1101
-@N:"f:\pstr17r5b\depack.v":122:4:122:9|Found counter in view:work.depack(verilog) inst byte_index[5:0]
-@N: MF179 :"f:\pstr17r5b\depack.v":176:27:176:45|Found 8 bit by 8 bit '==' comparator, 'un1_cmd\[41\]'
+@N:"f:\pstr17r5b\depack.v":126:4:126:9|Found counter in view:work.depack(verilog) inst byte_index[5:0]
+@N: MF179 :"f:\pstr17r5b\depack.v":180:27:180:59|Found 8 bit by 8 bit '==' comparator, 'un1_cmd\[45\]'
 Encoding state machine sta_cur[4:0] (view:work.spi_slave_r(verilog))
 original code -> new code
    00000 -> 00001
@@ -89,149 +102,248 @@ original code -> new code
    00010 -> 00100
    00011 -> 01000
    00100 -> 10000
-Encoding state machine initsweep_osk_trig_sta[4:0] (view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog))
+@N:"f:\pstr17r5b\prf_gen.v":46:4:46:9|Found counter in view:work.prf_gen(verilog) inst prf_delay_count[31:0]
+@N:"f:\pstr17r5b\prf_gen.v":46:4:46:9|Found counter in view:work.prf_gen(verilog) inst tr_delay_count[31:0]
+@N:"f:\pstr17r5b\prf_gen.v":103:4:103:9|Found counter in view:work.prf_gen(verilog) inst ct_delay_count[31:0]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[31],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[30]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[30],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[29]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[29],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[28]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[31],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[28]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[30],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[28]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[29],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[28]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[28],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[28]
+@N: BN362 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing sequential instance pulse_clock_num_reg[28] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.prf_gen(verilog) because there are no references to its outputs 
+Encoding state machine state_cur[22:0] (view:work.ds3502_ds3502_inst1(verilog))
 original code -> new code
-   0000 -> 000
-   0001 -> 001
-   0010 -> 010
-   0011 -> 011
-   0100 -> 100
-Encoding state machine fsm_state_cur[18:0] (view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog))
+   00000000 -> 00000000000000000000001
+   00000001 -> 00000000000000000000010
+   00000010 -> 00000000000000000000100
+   00000011 -> 00000000000000000001000
+   00000100 -> 00000000000000000010000
+   00000101 -> 00000000000000000100000
+   00000110 -> 00000000000000001000000
+   00000111 -> 00000000000000010000000
+   00001000 -> 00000000000000100000000
+   00001001 -> 00000000000001000000000
+   00001010 -> 00000000000010000000000
+   00001011 -> 00000000000100000000000
+   00001100 -> 00000000001000000000000
+   00001101 -> 00000000010000000000000
+   00001110 -> 00000000100000000000000
+   00001111 -> 00000001000000000000000
+   00010000 -> 00000010000000000000000
+   00010001 -> 00000100000000000000000
+   00010010 -> 00001000000000000000000
+   00010011 -> 00010000000000000000000
+   00010100 -> 00100000000000000000000
+   00010101 -> 01000000000000000000000
+   00010110 -> 10000000000000000000000
+@N:"f:\pstr17r5b\ds3502.v":54:4:54:9|Found counter in view:work.ds3502_ds3502_inst1(verilog) inst bit_count[7:0]
+@N:"f:\pstr17r5b\ds3502.v":54:4:54:9|Found counter in view:work.ds3502_ds3502_inst1(verilog) inst delay_num[31:0]
+Encoding state machine state_cur[22:0] (view:work.ds3502_ds3502_inst2(verilog))
 original code -> new code
-   00000000 -> 0000000000000000001
-   00000001 -> 0000000000000000010
-   00000011 -> 0000000000000000100
-   00000100 -> 0000000000000001000
-   00000101 -> 0000000000000010000
-   00000110 -> 0000000000000100000
-   00000111 -> 0000000000001000000
-   00001000 -> 0000000000010000000
-   00001001 -> 0000000000100000000
-   00001010 -> 0000000001000000000
-   00001011 -> 0000000010000000000
-   00001100 -> 0000000100000000000
-   00001101 -> 0000001000000000000
-   00001110 -> 0000010000000000000
-   00001111 -> 0000100000000000000
-   00010000 -> 0001000000000000000
-   00010001 -> 0010000000000000000
-   00010010 -> 0100000000000000000
-   00010011 -> 1000000000000000000
-@N:"f:\pstr17r5b\ad9914_ctrl.v":379:1:379:6|Found counter in view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) inst initsweep_osk_trig_delay_count[7:0]
-@N:"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Found counter in view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) inst delay_count[31:0]
-@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[7] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) because there are no references to its outputs 
-Encoding state machine fsm_state_cur[9:0] (view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog))
+   00000000 -> 00000000000000000000001
+   00000001 -> 00000000000000000000010
+   00000010 -> 00000000000000000000100
+   00000011 -> 00000000000000000001000
+   00000100 -> 00000000000000000010000
+   00000101 -> 00000000000000000100000
+   00000110 -> 00000000000000001000000
+   00000111 -> 00000000000000010000000
+   00001000 -> 00000000000000100000000
+   00001001 -> 00000000000001000000000
+   00001010 -> 00000000000010000000000
+   00001011 -> 00000000000100000000000
+   00001100 -> 00000000001000000000000
+   00001101 -> 00000000010000000000000
+   00001110 -> 00000000100000000000000
+   00001111 -> 00000001000000000000000
+   00010000 -> 00000010000000000000000
+   00010001 -> 00000100000000000000000
+   00010010 -> 00001000000000000000000
+   00010011 -> 00010000000000000000000
+   00010100 -> 00100000000000000000000
+   00010101 -> 01000000000000000000000
+   00010110 -> 10000000000000000000000
+@N:"f:\pstr17r5b\ds3502.v":54:4:54:9|Found counter in view:work.ds3502_ds3502_inst2(verilog) inst bit_count[7:0]
+@N:"f:\pstr17r5b\ds3502.v":54:4:54:9|Found counter in view:work.ds3502_ds3502_inst2(verilog) inst delay_num[31:0]
+Encoding state machine state_cur[22:0] (view:work.ds3502_ds3502_inst3(verilog))
 original code -> new code
-   00000000 -> 0000000001
-   00000001 -> 0000000010
-   00000010 -> 0000000100
-   00000011 -> 0000001000
-   00000100 -> 0000010000
-   00000101 -> 0000100000
-   00000110 -> 0001000000
-   00000111 -> 0010000000
-   00001000 -> 0100000000
-   00001001 -> 1000000000
-@N:"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Found counter in view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog) inst delay_count[15:0]
-@N:"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Found counter in view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog) inst reg_index[7:0]
-@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[3],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[2]
-@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[1],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[0]
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":219:24:219:58|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_0_'
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":220:28:220:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_1_'
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":221:28:221:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_2_'
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":222:28:222:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_3_'
-Encoding state machine fsm_state_cur[8:0] (view:work.parallel_wr_parallel_wr_inst(verilog))
+   00000000 -> 00000000000000000000001
+   00000001 -> 00000000000000000000010
+   00000010 -> 00000000000000000000100
+   00000011 -> 00000000000000000001000
+   00000100 -> 00000000000000000010000
+   00000101 -> 00000000000000000100000
+   00000110 -> 00000000000000001000000
+   00000111 -> 00000000000000010000000
+   00001000 -> 00000000000000100000000
+   00001001 -> 00000000000001000000000
+   00001010 -> 00000000000010000000000
+   00001011 -> 00000000000100000000000
+   00001100 -> 00000000001000000000000
+   00001101 -> 00000000010000000000000
+   00001110 -> 00000000100000000000000
+   00001111 -> 00000001000000000000000
+   00010000 -> 00000010000000000000000
+   00010001 -> 00000100000000000000000
+   00010010 -> 00001000000000000000000
+   00010011 -> 00010000000000000000000
+   00010100 -> 00100000000000000000000
+   00010101 -> 01000000000000000000000
+   00010110 -> 10000000000000000000000
+@N:"f:\pstr17r5b\ds3502.v":54:4:54:9|Found counter in view:work.ds3502_ds3502_inst3(verilog) inst bit_count[7:0]
+@N:"f:\pstr17r5b\ds3502.v":54:4:54:9|Found counter in view:work.ds3502_ds3502_inst3(verilog) inst delay_num[31:0]
+Encoding state machine fsm_state_cur[22:0] (view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog))
+original code -> new code
+   00000000 -> 00000000000000000000001
+   00000001 -> 00000000000000000000010
+   00000010 -> 00000000000000000000100
+   00000011 -> 00000000000000000001000
+   00000100 -> 00000000000000000010000
+   00000101 -> 00000000000000000100000
+   00000110 -> 00000000000000001000000
+   00000111 -> 00000000000000010000000
+   00001000 -> 00000000000000100000000
+   00001001 -> 00000000000001000000000
+   00001010 -> 00000000000010000000000
+   00001011 -> 00000000000100000000000
+   00001100 -> 00000000001000000000000
+   00001101 -> 00000000010000000000000
+   00001110 -> 00000000100000000000000
+   00010001 -> 00000001000000000000000
+   00010010 -> 00000010000000000000000
+   00010011 -> 00000100000000000000000
+   00010100 -> 00001000000000000000000
+   00010101 -> 00010000000000000000000
+   00010110 -> 00100000000000000000000
+   00011001 -> 01000000000000000000000
+   00011010 -> 10000000000000000000000
+@N:"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Found counter in view:work.ad9914_ctrl_ad9914_ctrl_inst1(verilog) inst delay_count[7:0]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[11],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[9],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[8],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[7],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[6],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[5],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[4],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[3],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[2],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[1],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst1.att_reg[10],  because it is equivalent to instance ad9914_ctrl_inst1.att_reg[0]
+Encoding state machine fsm_state_cur[8:0] (view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog))
 original code -> new code
    00000000 -> 000000001
    00000001 -> 000000010
    00000010 -> 000000100
    00000011 -> 000001000
-   00000100 -> 000010000
-   00000101 -> 000100000
-   00000110 -> 001000000
-   00000111 -> 010000000
-   00001000 -> 100000000
-@N:"f:\pstr17r5b\parallel_wr.v":80:4:80:9|Found counter in view:work.parallel_wr_parallel_wr_inst(verilog) inst delay_count[15:0]
-Encoding state machine initsweep_osk_trig_sta[4:0] (view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog))
+   00000101 -> 000010000
+   00000110 -> 000100000
+   00000111 -> 001000000
+   00001000 -> 010000000
+   00001001 -> 100000000
+@N:"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Found counter in view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog) inst reg_index[7:0]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_base_addr_reg[7],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_base_addr_reg[6]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[3],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[2]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[2],  because it is equivalent to instance ad9914_ctrl_inst1.ad9914_reg_wr_inst.reg_byte_num_reg[1]
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":225:24:225:58|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_0_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":226:28:226:62|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_1_'
+@N: BN362 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog) because there are no references to its outputs 
+Encoding state machine fsm_state_cur[6:0] (view:work.parallel_wr_parallel_wr_inst(verilog))
 original code -> new code
-   0000 -> 000
-   0001 -> 001
-   0010 -> 010
-   0011 -> 011
-   0100 -> 100
-Encoding state machine fsm_state_cur[18:0] (view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog))
+   00000000 -> 0000001
+   00000001 -> 0000010
+   00000010 -> 0000100
+   00000011 -> 0001000
+   00000101 -> 0010000
+   00000110 -> 0100000
+   00000111 -> 1000000
+Encoding state machine fsm_state_cur[22:0] (view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog))
 original code -> new code
-   00000000 -> 0000000000000000001
-   00000001 -> 0000000000000000010
-   00000011 -> 0000000000000000100
-   00000100 -> 0000000000000001000
-   00000101 -> 0000000000000010000
-   00000110 -> 0000000000000100000
-   00000111 -> 0000000000001000000
-   00001000 -> 0000000000010000000
-   00001001 -> 0000000000100000000
-   00001010 -> 0000000001000000000
-   00001011 -> 0000000010000000000
-   00001100 -> 0000000100000000000
-   00001101 -> 0000001000000000000
-   00001110 -> 0000010000000000000
-   00001111 -> 0000100000000000000
-   00010000 -> 0001000000000000000
-   00010001 -> 0010000000000000000
-   00010010 -> 0100000000000000000
-   00010011 -> 1000000000000000000
-@N:"f:\pstr17r5b\ad9914_ctrl.v":379:1:379:6|Found counter in view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) inst initsweep_osk_trig_delay_count[7:0]
-@N:"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Found counter in view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) inst delay_count[31:0]
-@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
-@A: BN291 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Boundary register reg_base_addr_reg[6] packed into a complex cell. To disable register packing, set syn_keep=1 on net between register and complex cell. 
-@N: BN362 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Removing sequential instance reg_base_addr_reg[7] of view:UNILIB.FDRE(PRIM) in hierarchy view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) because there are no references to its outputs 
-@A: BN291 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Boundary register reg_base_addr_reg[7] packed into a complex cell. To disable register packing, set syn_keep=1 on net between register and complex cell. 
-Encoding state machine fsm_state_cur[9:0] (view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog))
-original code -> new code
-   00000000 -> 0000000001
-   00000001 -> 0000000010
-   00000010 -> 0000000100
-   00000011 -> 0000001000
-   00000100 -> 0000010000
-   00000101 -> 0000100000
-   00000110 -> 0001000000
-   00000111 -> 0010000000
-   00001000 -> 0100000000
-   00001001 -> 1000000000
-@N:"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Found counter in view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog) inst delay_count[15:0]
-@N:"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Found counter in view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog) inst reg_index[7:0]
-@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[3],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[2]
-@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":114:4:114:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[1],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[0]
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":219:24:219:58|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_0_'
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":220:28:220:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_1_'
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":221:28:221:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_2_'
-@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":222:28:222:62|Found 8 bit by 8 bit '==' comparator, 'un1_reg_wvar_reg_3_'
-Encoding state machine fsm_state_cur[8:0] (view:work.parallel_wr_parallel_wr_inst_0(verilog))
+   00000000 -> 00000000000000000000001
+   00000001 -> 00000000000000000000010
+   00000010 -> 00000000000000000000100
+   00000011 -> 00000000000000000001000
+   00000100 -> 00000000000000000010000
+   00000101 -> 00000000000000000100000
+   00000110 -> 00000000000000001000000
+   00000111 -> 00000000000000010000000
+   00001000 -> 00000000000000100000000
+   00001001 -> 00000000000001000000000
+   00001010 -> 00000000000010000000000
+   00001011 -> 00000000000100000000000
+   00001100 -> 00000000001000000000000
+   00001101 -> 00000000010000000000000
+   00001110 -> 00000000100000000000000
+   00010001 -> 00000001000000000000000
+   00010010 -> 00000010000000000000000
+   00010011 -> 00000100000000000000000
+   00010100 -> 00001000000000000000000
+   00010101 -> 00010000000000000000000
+   00010110 -> 00100000000000000000000
+   00011001 -> 01000000000000000000000
+   00011010 -> 10000000000000000000000
+@N:"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Found counter in view:work.ad9914_ctrl_ad9914_ctrl_inst2(verilog) inst delay_count[7:0]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[11],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[9],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[8],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[7],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[6],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[5],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[4],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[3],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[2],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[1],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[10]
+@W: BN132 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Removing instance ad9914_ctrl_inst2.att_reg[10],  because it is equivalent to instance ad9914_ctrl_inst2.att_reg[0]
+Encoding state machine fsm_state_cur[8:0] (view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog))
 original code -> new code
    00000000 -> 000000001
    00000001 -> 000000010
    00000010 -> 000000100
    00000011 -> 000001000
-   00000100 -> 000010000
-   00000101 -> 000100000
-   00000110 -> 001000000
-   00000111 -> 010000000
-   00001000 -> 100000000
-@N:"f:\pstr17r5b\parallel_wr.v":80:4:80:9|Found counter in view:work.parallel_wr_parallel_wr_inst_0(verilog) inst delay_count[15:0]
-Encoding state machine ct_fsm_sta[3:0] (view:work.work_flow(verilog))
+   00000101 -> 000010000
+   00000110 -> 000100000
+   00000111 -> 001000000
+   00001000 -> 010000000
+   00001001 -> 100000000
+@N:"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Found counter in view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog) inst reg_index[7:0]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_base_addr_reg[7],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_base_addr_reg[6]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[3],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[2]
+@W: BN132 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[2],  because it is equivalent to instance ad9914_ctrl_inst2.ad9914_reg_wr_inst.reg_byte_num_reg[1]
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":225:24:225:58|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_0_'
+@N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":226:28:226:62|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_1_'
+@N: BN362 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog) because there are no references to its outputs 
+@A: BN291 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Boundary register reg_base_addr_reg[6] packed into a complex cell. To disable register packing, set syn_keep=1 on net between register and complex cell. 
+Encoding state machine fsm_state_cur[6:0] (view:work.parallel_wr_parallel_wr_inst_0(verilog))
 original code -> new code
-   000000 -> 00
-   000001 -> 01
-   000010 -> 10
-   000011 -> 11
-@N:"f:\pstr17r5b\work_flow.v":53:4:53:9|Found counter in view:work.work_flow(verilog) inst ct_delay_count[31:0]
-@N: MF179 :"f:\pstr17r5b\work_flow.v":75:23:75:54|Found 32 bit by 32 bit '==' comparator, 'ct_fsm_sta17'
+   00000000 -> 0000001
+   00000001 -> 0000010
+   00000010 -> 0000100
+   00000011 -> 0001000
+   00000101 -> 0010000
+   00000110 -> 0100000
+   00000111 -> 1000000
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[27],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[26]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[26],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[25]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[25],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[24]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[27],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[24]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[26],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[24]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[25],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[24]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.sweep_clock_num_reg[24],  because it is equivalent to instance prf_gen_inst.pulse_clock_num_reg[24]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing instance prf_gen_inst.pulse_clock_num_reg[24],  because it is equivalent to instance prf_gen_inst.ct_clock_num_reg[31]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Removing instance prf_gen_inst.ct_clock_num_reg[31],  because it is equivalent to instance prf_gen_inst.ct_clock_num_reg[30]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Removing instance prf_gen_inst.ct_clock_num_reg[30],  because it is equivalent to instance prf_gen_inst.ct_clock_num_reg[29]
+@W: BN132 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Removing instance prf_gen_inst.ct_clock_num_reg[29],  because it is equivalent to instance prf_gen_inst.ct_clock_num_reg[28]
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[0] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Removing sequential instance prf_gen_inst.ct_clock_num_reg[28] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
 
-Finished factoring (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 158MB peak: 159MB)
+Finished factoring (Real Time elapsed 0h:00m:04s; CPU Time elapsed 0h:00m:04s; Memory used current: 187MB peak: 188MB)
 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[0] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
 
-Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 157MB peak: 159MB)
+Finished gated-clock and generated-clock conversion (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 172MB peak: 188MB)
 
 @N: FX430 |Found 1 global buffers instantiated by user 
 
@@ -239,27 +351,26 @@ Clock Buffers:
   Inserting Clock buffer for port clk,
   Inserting Clock buffer for port clk_2,
 
-@W: FX476 |Clock tree optimization not done on net "ad9914_ctrl_inst1.N_4_iso_i" in work.top(verilog) because of locked or fixed hierarchy constraint
 
-Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:04s; Memory used current: 158MB peak: 159MB)
+Finished generic timing optimizations - Pass 1 (Real Time elapsed 0h:00m:05s; CPU Time elapsed 0h:00m:05s; Memory used current: 165MB peak: 188MB)
 
-@A: BN291 :"f:\pstr17r5b\work_flow.v":53:4:53:9|Boundary register work_flow_inst.ct_delay_count[31:0] packed into a complex cell. To disable register packing, set syn_keep=1 on net between register and complex cell. 
-@A: BN291 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Boundary register ad9914_ctrl_inst2.delay_count[31:0] packed into a complex cell. To disable register packing, set syn_keep=1 on net between register and complex cell. 
+@N: BN362 :"f:\pstr17r5b\work_flow.v":35:4:35:9|Removing sequential instance work_flow_inst.update_cmd of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: FX981 :"f:\pstr17r5b\top.v":198:58:198:58|Latch-throughs are inserted for ternary adder ct_clock_num_0_6[25:8] to improve slice packing. 
+@N: FX981 :"f:\pstr17r5b\top.v":197:51:197:51|Latch-throughs are inserted for ternary adder ys_clock_num_0_6[28:7] to improve slice packing. 
 
-Starting Early Timing Optimization (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 161MB peak: 161MB)
-
-
-Finished Early Timing Optimization (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 161MB peak: 161MB)
+Starting Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:08s; Memory used current: 173MB peak: 188MB)
 
 
-Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:07s; CPU Time elapsed 0h:00m:06s; Memory used current: 160MB peak: 161MB)
-
-@N: BN362 :"f:\pstr17r5b\depack.v":122:4:122:9|Removing sequential instance depack_inst.crc_err_reg of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-
-Finished preparing to map (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 161MB peak: 162MB)
+Finished Early Timing Optimization (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 173MB peak: 188MB)
 
 
-Finished technology mapping (Real Time elapsed 0h:00m:08s; CPU Time elapsed 0h:00m:07s; Memory used current: 160MB peak: 162MB)
+Finished generic timing optimizations - Pass 2 (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 172MB peak: 188MB)
+
+
+Finished preparing to map (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:10s; Memory used current: 174MB peak: 188MB)
+
+
+Finished technology mapping (Real Time elapsed 0h:00m:11s; CPU Time elapsed 0h:00m:11s; Memory used current: 185MB peak: 188MB)
 
 Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
@@ -267,46 +378,64 @@ Pass		 CPU time		Worst Slack		Luts / Registers
 ------------------------------------------------------------
 ------------------------------------------------------------
 
-@N: FX103 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Instance "ad9914_ctrl_inst1.busy_reg_1_sqmuxa_i_i_a2_0_a2" with "145" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\ad9914_ctrl.v":153:1:153:6|Instance "ad9914_ctrl_inst2.busy_reg_1_sqmuxa_i_i_a2_0_a2" with "145" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Instance "pwr_rst_inst.rst_reg" with "242" loads has been replicated "2" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\depack.v":122:4:122:9|Instance "depack_inst.byte_index[3]" with "114" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\depack.v":122:4:122:9|Instance "depack_inst.byte_index[4]" with "148" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\depack.v":122:4:122:9|Instance "depack_inst.byte_index[5]" with "129" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\cmd_update.v":25:10:94:22|Instance "cmd_update_inst.ad9914_load5" with "293" loads has been replicated "2" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Instance "pwr_rst_inst.rst_reg" with "465" loads has been replicated "4" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":126:4:126:9|Instance "depack_inst.byte_index[3]" with "120" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":126:4:126:9|Instance "depack_inst.byte_index[4]" with "173" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":126:4:126:9|Instance "depack_inst.byte_index[5]" with "160" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
 Net buffering Report for view:work.top(verilog):
 Added 0 Buffers
-Added 5 Registers via replication
-Added 4 LUTs via replication
+Added 7 Registers via replication
+Added 6 LUTs via replication
+
+@N: MF322 |Retiming summary: 1 registers retimed to 6 
+
+		#####  BEGIN RETIMING REPORT  #####
+
+Retiming summary : 1 registers retimed to 6
+
+Original and Pipelined registers replaced by retiming :
+		cmd_update_inst.mode_0[1]
+
+New registers created by retiming :
+		cmd_update_inst.mode_ret
+		cmd_update_inst.mode_ret_1
+		cmd_update_inst.mode_ret_3
+		cmd_update_inst.mode_ret_4
+		cmd_update_inst.mode_ret_5
+		work_flow_inst.update_cmd_ret_1
 
 
-Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:08s; Memory used current: 160MB peak: 162MB)
+		#####   END RETIMING REPORT  #####
+
+
+Finished technology timing optimizations and critical path resynthesis (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:12s; Memory used current: 176MB peak: 188MB)
 
 @N: FX164 |The option to pack flops in the IOB has not been specified 
 @N: FX623 |Packing into LUT62
 
-Finished restoring hierarchy (Real Time elapsed 0h:00m:09s; CPU Time elapsed 0h:00m:09s; Memory used current: 162MB peak: 165MB)
+Finished restoring hierarchy (Real Time elapsed 0h:00m:13s; CPU Time elapsed 0h:00m:12s; Memory used current: 177MB peak: 188MB)
 
 
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-3 non-gated/non-generated clock tree(s) driving 2105 clock pin(s) of sequential element(s)
-3 gated/generated clock tree(s) driving 3 clock pin(s) of sequential element(s)
-0 instances converted, 3 sequential instances remain driven by gated/generated clocks
+3 non-gated/non-generated clock tree(s) driving 2434 clock pin(s) of sequential element(s)
+2 gated/generated clock tree(s) driving 2 clock pin(s) of sequential element(s)
+2 @K:conv_instances converted, 2 sequential instances remain driven by gated/generated clocks
 
-===================================================================================== Non-Gated/Non-Generated Clocks =====================================================================================
-Clock Tree ID     Driving Element                                                                                                      Drive Element Type     Fanout     Sample Instance                  
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0004       clk                                                                                                                  port                   1514       main_proc_sta[0]                 
-@K:CKID0005       clk_2                                                                                                                port                   413        ad9914_ctrl_inst2.reg_wvar_reg[0]
-@K:CKID0006       myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG     BUFG                   178        myicon_inst.U0/U_ICON/U_TDO_reg  
-==========================================================================================================================================================================================================
+===================================================================================== Non-Gated/Non-Generated Clocks ======================================================================================
+Clock Tree ID     Driving Element                                                                                                      Drive Element Type     Fanout     Sample Instance                   
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0003       clk                                                                                                                  port                   1884       ad9914_ctrl_inst1.reg_wvar_reg[17]
+@K:CKID0004       clk_2                                                                                                                port                   372        ad9914_ctrl_inst2.delay_count[0]  
+@K:CKID0005       myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG     BUFG                   178        myicon_inst.U0/U_ICON/U_TDO_reg   
+===========================================================================================================================================================================================================
 ================================================================================================================================================================= Gated/Generated Clocks =================================================================================================================================================================
 Clock Tree ID     Driving Element                                                               Drive Element Type     Fanout     Sample Instance                                   Explanation                                                                                                                                                           
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 @K:CKID0001       myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_S6.ISYN.I_USE_SOFTBSCAN_EQ0.U_BS     BSCAN_SPARTAN6         1          myicon_inst.U0/U_ICON/U_iDATA_CMD                 Gating structure creates improper gating logic. See the Gated Clocks description in the user guide for conversion requirements                                        
 @K:CKID0002       myicon_inst.U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[9].U_LCE                      LUT4                   1          myila_inst.U0/I_NO_D.U_ILA/U_STAT/U_DIRTY_LDC     Multiple clocks on instance from nets U0/U_ICON/U_CTRL_OUT/iDATA_VALID, U0/U_ICON/iCOMMAND_SEL[9], U0/U_ICON/iCORE_ID_SEL[0], U0/U_ICON/U_CTRL_OUT/iCOMMAND_GRP_SEL[0]
-@K:CKID0003       ad9914_ctrl_inst1.resweep_state_RNIMDF71_0                                    LUT4                   1          work_flow_inst.tv_reg                             No clocks found on inputs                                                                                                                                             
 ==========================================================================================================================================================================================================================================================================================================================================================
 
 
@@ -314,12 +443,12 @@ Clock Tree ID     Driving Element                                               
 
 Writing Analyst data base F:\PSTR17R5B\top.srm
 
-Finished Writing Netlist Databases (Real Time elapsed 0h:00m:12s; CPU Time elapsed 0h:00m:11s; Memory used current: 159MB peak: 165MB)
+Finished Writing Netlist Databases (Real Time elapsed 0h:00m:16s; CPU Time elapsed 0h:00m:16s; Memory used current: 171MB peak: 188MB)
 
 Writing EDIF Netlist and constraint files
 H-2013.03
 
-Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:14s; CPU Time elapsed 0h:00m:13s; Memory used current: 164MB peak: 167MB)
+Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:18s; CPU Time elapsed 0h:00m:18s; Memory used current: 187MB peak: 191MB)
 
 @W: MT246 :|Blackbox BSCAN_SPARTAN6 is missing a user supplied timing model. This may have a negative effect on timing analysis and optimizations (Quality of Results) 
 @W: MT420 |Found inferred clock top|clk with period 1000.00ns. Please declare a user-defined clock on object "p:clk"
@@ -334,7 +463,7 @@ Finished Writing EDIF Netlist and constraint files (Real Time elapsed 0h:00m:14s
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Wed Oct 21 15:52:40 2020
+# Timing Report written on Fri Nov 13 22:16:18 2020
 #
 
 
@@ -354,16 +483,16 @@ Performance Summary
 *******************
 
 
-Worst slack in design: 991.587
+Worst slack in design: 956.109
 
                                                                  Requested     Estimated     Requested     Estimated                 Clock        Clock              
 Starting Clock                                                   Frequency     Frequency     Period        Period        Slack       Type         Group              
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock     1.0 MHz       118.9 MHz     1000.000      8.414         991.587     inferred     Inferred_clkgroup_1
+myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock     1.0 MHz       118.9 MHz     1000.000      8.414         991.587     inferred     Inferred_clkgroup_0
 myicon|U0/iUPDATE_OUT_inferred_clock                             1.0 MHz       733.6 MHz     1000.000      1.363         998.637     inferred     Inferred_clkgroup_2
-top|clk                                                          1.0 MHz       144.0 MHz     1000.000      6.947         993.053     inferred     Inferred_clkgroup_0
-top|clk_2                                                        1.0 MHz       176.1 MHz     1000.000      5.678         994.322     inferred     Inferred_clkgroup_3
-System                                                           1.0 MHz       645.6 MHz     1000.000      1.549         998.451     system       system_clkgroup    
+top|clk                                                          1.0 MHz       22.8 MHz      1000.000      43.891        956.109     inferred     Inferred_clkgroup_1
+top|clk_2                                                        1.0 MHz       235.3 MHz     1000.000      4.249         995.751     inferred     Inferred_clkgroup_3
+System                                                           1.0 MHz       202.8 MHz     1000.000      4.932         995.068     system       system_clkgroup    
 =====================================================================================================================================================================
 
 
@@ -377,19 +506,17 @@ Clocks                                                                          
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Starting                                                      Ending                                                        |  constraint  slack    |  constraint  slack  |  constraint  slack  |  constraint  slack  
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-System                                                        System                                                        |  1000.000    998.451  |  No paths    -      |  No paths    -      |  No paths    -      
 System                                                        myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  1000.000    995.068  |  No paths    -      |  No paths    -      |  1000.000    995.970
-top|clk                                                       System                                                        |  1000.000    998.534  |  No paths    -      |  No paths    -      |  No paths    -      
-top|clk                                                       top|clk                                                       |  1000.000    993.054  |  No paths    -      |  No paths    -      |  No paths    -      
-top|clk                                                       myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
-top|clk                                                       top|clk_2                                                     |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
 myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  System                                                        |  1000.000    999.030  |  No paths    -      |  No paths    -      |  No paths    -      
-myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  top|clk                                                       |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
 myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  1000.000    991.587  |  No paths    -      |  No paths    -      |  No paths    -      
+myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  top|clk                                                       |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
+top|clk                                                       myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
+top|clk                                                       top|clk                                                       |  1000.000    956.109  |  No paths    -      |  No paths    -      |  No paths    -      
+top|clk                                                       top|clk_2                                                     |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
 myicon|U0/iUPDATE_OUT_inferred_clock                          myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock  |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
 myicon|U0/iUPDATE_OUT_inferred_clock                          myicon|U0/iUPDATE_OUT_inferred_clock                          |  1000.000    998.637  |  No paths    -      |  No paths    -      |  No paths    -      
 top|clk_2                                                     top|clk                                                       |  Diff grp    -        |  No paths    -      |  No paths    -      |  No paths    -      
-top|clk_2                                                     top|clk_2                                                     |  1000.000    994.322  |  No paths    -      |  No paths    -      |  No paths    -      
+top|clk_2                                                     top|clk_2                                                     |  1000.000    995.751  |  No paths    -      |  No paths    -      |  No paths    -      
 ======================================================================================================================================================================================================================
  Note: 'No paths' indicates there are no paths in the design for that pair of clock edges.
        'Diff grp' indicates that paths exist but the starting clock and ending clock are in different clock groups.
@@ -410,19 +537,21 @@ Resource Usage Report for top
 Mapping to part: xc6slx25csg324-2
 Cell usage:
 BSCAN_SPARTAN6  1 use
-DSP48A1         3 uses
-FD              423 uses
-FDC             9 uses
+DSP48A1         8 uses
+FD              552 uses
+FDC             11 uses
 FDCE            16 uses
-FDE             801 uses
+FDE             1101 uses
 FDP             202 uses
-FDR             81 uses
-FDRE            354 uses
-FDS             10 uses
-GND             15 uses
+FDR             68 uses
+FDRE            249 uses
+FDS             20 uses
+FDSE            2 uses
+GND             20 uses
+Latch-Through   31 uses
 LDC             1 use
-MUXCY           12 uses
-MUXCY_L         320 uses
+MUXCY           10 uses
+MUXCY_L         719 uses
 MUXF5           2 uses
 MUXF6           1 use
 MUXF7           73 uses
@@ -430,22 +559,22 @@ MUXF8           34 uses
 RAM64X1S        8 uses
 RAMB16BWER      6 uses
 RAMB8BWER       1 use
-VCC             15 uses
-XORCY           205 uses
-LUT1            159 uses
-LUT2            198 uses
-LUT3            163 uses
-LUT4            223 uses
-LUT5            244 uses
-LUT6            345 uses
-LUT6_2            2 uses
+VCC             20 uses
+XORCY           563 uses
+LUT1            274 uses
+LUT2            506 uses
+LUT3            228 uses
+LUT4            304 uses
+LUT5            395 uses
+LUT6            447 uses
+LUT6_2            7 uses
 
-I/O ports: 122
-I/O primitives: 122
+I/O ports: 132
+I/O primitives: 131
 IBUF           4 uses
 IBUFG          2 uses
-IOBUF          16 uses
-OBUF           100 uses
+IOBUF          34 uses
+OBUF           91 uses
 
 BUFG           3 uses
 
@@ -456,7 +585,7 @@ SRL16          100 uses
 SRL16E         1 use
 
 I/O Register bits:                  0
-Register bits not including I/Os:   1896 (5%)
+Register bits not including I/Os:   2221 (6%)
 Latch bits not including I/Os:      1 (0%)
 
 RAM/ROM usage summary
@@ -464,33 +593,33 @@ Single Port Rams (RAM64X1S): 8
 Occupied Block RAM sites (RAMB36) : 7 of 52 (13%)
 
 
-DSP48s: 3 of 38 (7%)
+DSP48s: 8 of 38 (21%)
 
 Global Clock Buffers: 3 of 16 (18%)
 
 Total load per clock:
-   top|clk: 1514
-   top|clk_2: 413
+   top|clk_2: 372
+   top|clk: 1884
    myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock: 178
    myicon|U0/iUPDATE_OUT_inferred_clock: 1
 
 Mapping Summary:
-Total  LUTs: 1358 (7%)
+Total  LUTs: 2150 (12%)
 
 Distribution of All Consumed LUTs = SRL + RAM + LUT1 + LUT2 + LUT3 + LUT4 + LUT5 + LUT6 + LUT6_2- HLUTNM/2 
-Distribution of All Consumed Luts 1358 = 186 + 8 + 159 + 198 + 163 + 223 + 244 + 345 + 2- 340/2 
+Distribution of All Consumed Luts 2150 = 186 + 8 + 274 + 506 + 228 + 304 + 395 + 447 + 7- 410/2 
 
 
- Number of unique control sets:              133
+ Number of unique control sets:              137
 
 
 Region Summary:
-Other LUTs: 1463 Other Registers: 1897
+Other LUTs: 2290 Other Registers: 2253
 Mapper successful!
 
-At Mapper Exit (Real Time elapsed 0h:00m:17s; CPU Time elapsed 0h:00m:16s; Memory used current: 64MB peak: 167MB)
+At Mapper Exit (Real Time elapsed 0h:00m:21s; CPU Time elapsed 0h:00m:20s; Memory used current: 69MB peak: 191MB)
 
-Process took 0h:00m:17s realtime, 0h:00m:16s cputime
-# Wed Oct 21 15:52:40 2020
+Process took 0h:00m:21s realtime, 0h:00m:20s cputime
+# Fri Nov 13 22:16:18 2020
 
 ###########################################################]

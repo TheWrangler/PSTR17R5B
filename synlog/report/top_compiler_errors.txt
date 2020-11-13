@@ -1,0 +1,4 @@
+@E: CS165 :"F:\PSTR17R5B\top.v":308:12:308:12|Expecting wire for output connection
+@E: CS165 :"F:\PSTR17R5B\top.v":308:12:308:12|Illegal or Unsupported Syntax within black box. Use: // synthesis translate_off {  unsupported Verilog } // synthesis translate_on 
+@E: CS165 :"F:\PSTR17R5B\top.v":308:12:308:12|Alternatively, set the builtin compiler directive IGNORE_VERILOG_BLACKBOX_GUTS in the Verilog tab of the UI or set `define IGNORE_VERILOG_BLACKBOX_GUTS in any Verilog file.
+

@@ -4,8 +4,14 @@ FILE DESCRIPTION
 The file contains the optimization information from mapper to be displayed as part of the summary report.
 *******************************************************************************************-->
 <report_table display_priority="3" name="Optimizations Summary">
+<parameter tooltip="Retiming summary: Registers Before / After retiming" name="Retiming">
+<data>1 / 6</data>
+<report_link name="more">
+<data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_retiming.rpt</data>
+</report_link>
+</parameter>
 <parameter tooltip="Non-gated/non-generated clock trees / Gated/generated clock trees" name="Combined Clock Conversion">
-<data>3 / 3</data>
+<data>3 / 2</data>
 <report_link name="more">
 <data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_combined_clk.rpt</data>
 </report_link>

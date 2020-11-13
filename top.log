@@ -1,15 +1,15 @@
-INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt64)
+INFO:NgdBuild - Release 14.7 edif2ngd P.20131013 (nt)
 INFO:NgdBuild - Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
-WARNING:XdmHelpers:376 - Unexpected value of "6'b001000" found for attribute
+WARNING:XdmHelpers:376 - Unexpected value of "6'b010000" found for attribute
    DATA_WIDTH.  Unable to convert this to the expected numeric value.
-WARNING:XdmHelpers:376 - Unexpected value of "6'b001000" found for attribute
+WARNING:XdmHelpers:376 - Unexpected value of "6'b010000" found for attribute
    DATA_WIDTH.  Unable to convert this to the expected numeric value.
 WARNING:NgdBuild:1403 - edif property 'DATA_WIDTH' of type 'string' on object
    'parallel_wr_parallel_wr_inst_0' is being ignored.  It is recognized property
    but does not have the expected type of 'integer'.
-WARNING:XdmHelpers:376 - Unexpected value of "6'b001000" found for attribute
+WARNING:XdmHelpers:376 - Unexpected value of "6'b010000" found for attribute
    DATA_WIDTH.  Unable to convert this to the expected numeric value.
-WARNING:XdmHelpers:376 - Unexpected value of "6'b001000" found for attribute
+WARNING:XdmHelpers:376 - Unexpected value of "6'b010000" found for attribute
    DATA_WIDTH.  Unable to convert this to the expected numeric value.
 WARNING:NgdBuild:1403 - edif property 'DATA_WIDTH' of type 'string' on object
    'parallel_wr_parallel_wr_inst' is being ignored.  It is recognized property

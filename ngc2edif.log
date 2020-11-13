@@ -9,5 +9,5 @@ WARNING:NetListWriters:306 - Signal bus U0/U_ICON/iCORE_ID_SEL<15 : 0> on block
    myicon is not reconstructed, because there are some missing bus signals.
   finished :Prep
 Writing EDIF netlist file syntmp/myicon..ndf ...
-ngc2edif: Total memory usage is 4318248 kilobytes
+ngc2edif: Total memory usage is 4317392 kilobytes
 
