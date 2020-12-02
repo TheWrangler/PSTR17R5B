@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2020-11-13T22:43:30</DateModified>
+  <DateModified>2020-12-02T18:38:00</DateModified>
   <ModuleName>top</ModuleName>
-  <SummaryTimeStamp>2020-02-25T16:53:01</SummaryTimeStamp>
+  <SummaryTimeStamp>2020-12-02T18:17:59</SummaryTimeStamp>
   <SavedFilePath>F:/PSTR17R5B/iseconfig/top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>F:/PSTR17R5B\</ImplementationReportsDirectory>
   <DateInitialized>2020-02-06T11:24:11</DateInitialized>
@@ -24,7 +24,7 @@
    <view inputState="Translated" program="map" locator="MAP_MODULE_HIERARCHY" contextTags="FPGA_ONLY" type="Module_Utilization" file="top_map.xrpt" label="Module Level Utilization" />
    <view inputState="Mapped" program="par" locator="CONSTRAINT_TABLE" contextTags="FPGA_ONLY" type="ConstraintsData" file="top.ptwx" label="Timing Constraints" translator="ptwxToTableXML.xslt" />
    <view inputState="Mapped" program="par" locator="PAR_PINOUT_BY_PIN_NUMBER" contextTags="FPGA_ONLY" type="PinoutData" file="top_par.xrpt" label="Pinout Report" />
-   <view inputState="Mapped" program="par" locator="PAR_CLOCK_TABLE" contextTags="FPGA_ONLY" type="ClocksData" file="top_par.xrpt" label="Clock Report" />
+   <view inputState="Mapped" program="par" locator="PAR_CLOCK_TABLE" contextTags="FPGA_ONLY" type="ClocksData" file="top_par.xrpt" showConstraints="0" label="Clock Report" />
    <view inputState="Mapped" program="par" contextTags="FPGA_ONLY,EDK_OFF" type="Timing_Analyzer" file="top.twx" label="Static Timing" />
    <view inputState="Translated" program="cpldfit" contextTags="CPLD_ONLY,EDK_OFF" hidden="true" type="EXTERNAL_HTML" file="top_html/fit/report.htm" label="CPLD Fitter Report" />
    <view inputState="Fitted" program="taengine" contextTags="CPLD_ONLY,EDK_OFF" hidden="true" type="EXTERNAL_HTML" file="top_html/tim/report.htm" label="CPLD Timing Report" />

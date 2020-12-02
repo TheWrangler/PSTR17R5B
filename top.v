@@ -170,7 +170,7 @@ module top
     wire [31:0] pulse_clock_num;
     wire [31:0] sweep_clock_num;
     wire [31:0] ys_clock_num;
-    wire [31:0] ct_clock_num;
+    wire [63:0] ct_clock_num;
     wire tr;
     wire [1:0] tr_edge;
     wire prf;
@@ -192,10 +192,10 @@ module top
         .ct(ct)
     );
 
-    assign pulse_clock_num = {16'h0000,depack_pulse_period} * 3400 / 24;
-    assign sweep_clock_num = {16'h0000,depack_resweep_period} * 3400 / 24;
-    assign ys_clock_num = depack_ys_period * 3400 / 24;
-    assign ct_clock_num = depack_ct_period * 3400 * 1000 / 24;
+    assign pulse_clock_num = {16'h0000, depack_pulse_period} * 142;//3400 / 24;
+    assign sweep_clock_num = {16'h0000, depack_resweep_period} * 142;//3400 / 24;
+    assign ys_clock_num = depack_ys_period * 142;//3400 / 24;
+    assign ct_clock_num = {32'd0, depack_ct_period} * 141667;//3400 * 1000 / 24;
     assign trig = tr;
 
     ////////////////////////////////////////////////////////////
@@ -319,45 +319,45 @@ module top
         .sda_io_select(sda_io_select[0])
     );
 
-    ds3502 ds3502_inst2
-    (
-        .clk(clk),
-        .rst(rst),
+    // ds3502 ds3502_inst2
+    // (
+    //     .clk(clk),
+    //     .rst(rst),
 
-        .load(rx_att_load),
-        .r(rx_ch2_att),
-        .busy(),
+    //     .load(rx_att_load),
+    //     .r(rx_ch2_att),
+    //     .busy(),
 
-        .a1(a1[1]),
-        .a0(a0[1]),
+    //     .a1(a1[1]),
+    //     .a0(a0[1]),
 
-        .scl(rx_att_scl[1]),
-        .sda_o(sda_o[1]),
-        .sda_i(sda_i[1]),
-        .sda_io_select(sda_io_select[1])
-    );
+    //     .scl(rx_att_scl[1]),
+    //     .sda_o(sda_o[1]),
+    //     .sda_i(sda_i[1]),
+    //     .sda_io_select(sda_io_select[1])
+    // );
 
-    ds3502 ds3502_inst3
-    (
-        .clk(clk),
-        .rst(rst),
+    // ds3502 ds3502_inst3
+    // (
+    //     .clk(clk),
+    //     .rst(rst),
 
-        .load(rx_att_load),
-        .r(rx_ch3_att),
-        .busy(),
+    //     .load(rx_att_load),
+    //     .r(rx_ch3_att),
+    //     .busy(),
 
-        .a1(a1[2]),
-        .a0(a0[2]),
+    //     .a1(a1[2]),
+    //     .a0(a0[2]),
 
-        .scl(rx_att_scl[2]),
-        .sda_o(sda_o[2]),
-        .sda_i(sda_i[2]),
-        .sda_io_select(sda_io_select[2])
-    );
+    //     .scl(rx_att_scl[2]),
+    //     .sda_o(sda_o[2]),
+    //     .sda_i(sda_i[2]),
+    //     .sda_io_select(sda_io_select[2])
+    // );
 
     genvar i;
     generate 
-        for(i=0;i<2;i=i+1) begin
+        for(i=0;i<3;i=i+1) begin
             IOBUF
             #(
                 .DRIVE(12), // Specify the output drive strength
@@ -448,7 +448,7 @@ module top
     wire [15:0] p_data_out_2;
     wire p_data_tri_select_2;
 
-     ad9914_ctrl ad9914_ctrl_inst2
+    ad9914_ctrl ad9914_ctrl_inst2
 	(
 		.clk(clk_2),
         .rst(rst),
@@ -484,7 +484,7 @@ module top
         .p_data_out(p_data_out_2),
         .p_data_tri_select(p_data_tri_select_2)
 	);
-    assign osk_2 = tr;
+    assign osk_2 = tr & (~ct_switch);
 
     generate 
         for(i=0;i<16;i=i+1) begin

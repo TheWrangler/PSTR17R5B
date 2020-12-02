@@ -26,7 +26,7 @@ module prf_gen
     input [31:0] pulse_clock_num,//脉冲宽度时钟周期数
     input [31:0] sweep_clock_num,//扫频周期时钟周期数
     input [31:0] ys_clock_num,   //触发延时时钟周期数
-    input [31:0] ct_clock_num,   //校准时间时钟周期数
+    input [63:0] ct_clock_num,   //校准时间时钟周期数
 
 	output reg tr,
     output reg [1:0] tr_edge,
@@ -37,7 +37,7 @@ module prf_gen
 
     reg [31:0] pulse_clock_num_reg;//脉冲宽度时钟周期数
     reg [31:0] sweep_clock_num_reg;//扫频周期时钟周期数
-    reg [31:0] ct_clock_num_reg;   //校准时间时钟周期数
+    reg [63:0] ct_clock_num_reg;   //校准时间时钟周期数
     reg [31:0] ys_clock_num_reg;   //触发延时时钟周期数
 
     reg [31:0] prf_delay_count = 32'd0;
@@ -99,24 +99,42 @@ module prf_gen
     end
 
 
-    reg [31:0] ct_delay_count = 32'd0;
+    reg [63:0] ct_delay_count = 64'd0;
     always @ (posedge clk) begin
         if(!rst) begin
             ct <= 1'b0;
-            ct_delay_count <= 32'd0;
+            ct_delay_count <= 64'd0;
         end
         else if(update) begin
             ct_clock_num_reg <= ct_clock_num;
-            ct_delay_count <= 32'd0;
+            ct_delay_count <= 64'd0;
         end
-        else  if(gen_enable) begin
-            if(ct_delay_count < ct_clock_num_reg) begin
+        else if(gen_enable) begin
+            if(ct_delay_count > ct_clock_num_reg)
+                ct <= 1'b0;
+            else begin
                 ct_delay_count <= ct_delay_count + 1;
                 ct <= 1'b1;
             end
-            else ct <= 1'b0;
         end
     end
+
+    // wire [35:0] CONTROL0;
+	// wire [99:0] TRIG0;
+
+	// assign TRIG0[7:0] = {gen_enable,ct,update};
+    // assign TRIG0[43:8] = ct_clock_num_reg;
+    // assign TRIG0[79:44] = ct_delay_count;
+
+	// myila myila_inst (
+	// 	.CONTROL(CONTROL0), // INOUT BUS [35:0]
+	// 	.CLK(clk), // IN
+	// 	.TRIG0(TRIG0) // IN BUS [99:0]
+	// );
+
+	// myicon myicon_inst (
+    // 	.CONTROL0(CONTROL0) // INOUT BUS [35:0]
+	// );
 
 
 endmodule

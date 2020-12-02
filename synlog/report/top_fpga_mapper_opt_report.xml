@@ -5,7 +5,7 @@ The file contains the optimization information from mapper to be displayed as pa
 *******************************************************************************************-->
 <report_table display_priority="3" name="Optimizations Summary">
 <parameter tooltip="Retiming summary: Registers Before / After retiming" name="Retiming">
-<data>1 / 6</data>
+<data>2 / 6</data>
 <report_link name="more">
 <data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_retiming.rpt</data>
 </report_link>

@@ -1,7 +1,7 @@
 
 
 ##### START OF TIMING REPORT #####[
-# Timing Report written on Fri Nov 13 22:16:18 2020
+# Timing Report written on Wed Dec 02 18:15:23 2020
 #
 
 
@@ -28,8 +28,8 @@ Starting Clock                                                   Frequency     F
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock     1.0 MHz       118.9 MHz     1000.000      8.414         991.587     inferred     Inferred_clkgroup_0
 myicon|U0/iUPDATE_OUT_inferred_clock                             1.0 MHz       733.6 MHz     1000.000      1.363         998.637     inferred     Inferred_clkgroup_2
-top|clk                                                          1.0 MHz       22.8 MHz      1000.000      43.891        956.109     inferred     Inferred_clkgroup_1
-top|clk_2                                                        1.0 MHz       235.3 MHz     1000.000      4.249         995.751     inferred     Inferred_clkgroup_3
+top|clk                                                          1.0 MHz       52.5 MHz      1000.000      19.050        980.950     inferred     Inferred_clkgroup_1
+top|clk_2                                                        1.0 MHz       229.4 MHz     1000.000      4.359         995.641     inferred     Inferred_clkgroup_3
 System                                                           1.0 MHz       1.0 MHz       1000.000      1001.453      -1.452      system       system_clkgroup    
 =====================================================================================================================================================================
 

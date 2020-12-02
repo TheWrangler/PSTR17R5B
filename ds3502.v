@@ -24,7 +24,7 @@ module ds3502
     input rst,
 
     input load,
-    input r,
+    input [7:0] r,
     output reg busy,
 
     output a1,
@@ -279,5 +279,24 @@ module ds3502
             end
         endcase
     end
+
+    // wire [35:0] CONTROL0;
+	// wire [99:0] TRIG0;
+
+	// assign TRIG0[7:0] = {sda_io_select,sda_i,sda_o,scl,busy,load};
+    // assign TRIG0[15:8] = r;
+    // assign TRIG0[23:16] = reg_var;
+    // assign TRIG0[31:24] = state_cur;
+    // assign TRIG0[39:32] = bit_count;
+
+	// myila myila_inst (
+	// 	.CONTROL(CONTROL0), // INOUT BUS [35:0]
+	// 	.CLK(clk), // IN
+	// 	.TRIG0(TRIG0) // IN BUS [99:0]
+	// );
+
+	// myicon myicon_inst (
+    // 	.CONTROL0(CONTROL0) // INOUT BUS [35:0]
+	// );
 
 endmodule

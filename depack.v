@@ -31,25 +31,25 @@ module depack
     input load,
     output crc_err,
     output ready,
-    output [31:0] ftw_lower_1,
-    output [31:0] ftw_upper_1,
-    output [31:0] ftw_lower_2,
-    output [31:0] ftw_upper_2,
-    output [31:0] sweep_step,
-    output [15:0] sweep_rate,
-    output [15:0] pulse_period,//us
-    output [23:0] resweep_period,//us
-    output [2:0] mode,
-    output rf_switch,
-    output [5:0] tx_att,
-    output [7:0] rx_ch1_att,
-    output [7:0] rx_ch2_att,
-    output [7:0] rx_ch3_att,
-    output [7:0] rx_ch1_pha,
-    output [7:0] rx_ch2_pha,
-    output [7:0] rx_ch3_pha,
-    output [31:0] ct_period,//ms
-    output [31:0] ys_period //us
+    output reg [31:0] ftw_lower_1,
+    output reg [31:0] ftw_upper_1,
+    output reg [31:0] ftw_lower_2,
+    output reg [31:0] ftw_upper_2,
+    output reg [31:0] sweep_step,
+    output reg [15:0] sweep_rate,
+    output reg [15:0] pulse_period,//us
+    output reg [23:0] resweep_period,//us
+    output reg [2:0] mode,
+    output reg rf_switch,
+    output reg [5:0] tx_att,
+    output reg [7:0] rx_ch1_att,
+    output reg [7:0] rx_ch2_att,
+    output reg [7:0] rx_ch3_att,
+    output reg [7:0] rx_ch1_pha,
+    output reg [7:0] rx_ch2_pha,
+    output reg [7:0] rx_ch3_pha,
+    output reg [31:0] ct_period,//ms
+    output reg [31:0] ys_period //us
 );
 
     localparam cmd_frame_size = 46;
@@ -93,26 +93,6 @@ module depack
     );
 
     reg [7:0] cmd [45:0];
-    
-    assign ftw_lower_1 = {cmd[2],cmd[3],cmd[4],cmd[5]};
-    assign ftw_upper_1 = {cmd[6],cmd[7],cmd[8],cmd[9]};
-    assign ftw_lower_2 = {cmd[10],cmd[11],cmd[12],cmd[13]};
-    assign ftw_upper_2 = {cmd[14],cmd[15],cmd[16],cmd[17]};
-    assign sweep_step = {cmd[18],cmd[19],cmd[20],cmd[21]};
-    assign sweep_rate = {cmd[22],cmd[23]};
-    assign pulse_period = {cmd[24],cmd[25]};
-    assign resweep_period = {cmd[26],cmd[27],cmd[28]};
-    assign mode = cmd[30][2:0];
-    assign rf_switch = cmd[30][3];
-    assign tx_att = cmd[29];
-    assign rx_ch1_att = cmd[31];
-    assign rx_ch2_att = cmd[32];
-    assign rx_ch3_att = cmd[33];
-    assign rx_ch1_pha = cmd[34];
-    assign rx_ch2_pha = cmd[35];
-    assign rx_ch3_pha = cmd[36];
-    assign ct_period = {cmd[37],cmd[38],cmd[39],cmd[40]};
-    assign ys_period = {cmd[41],cmd[42],cmd[43],cmd[44]};
 
     reg crc_err_reg = 0;
     reg ready_reg = 0;
@@ -202,6 +182,25 @@ module depack
                     else sta_cur <= 1;
                 end
                 12 : begin
+                    ftw_lower_1 <= {cmd[2],cmd[3],cmd[4],cmd[5]};
+                    ftw_upper_1 <= {cmd[6],cmd[7],cmd[8],cmd[9]};
+                    ftw_lower_2 <= {cmd[10],cmd[11],cmd[12],cmd[13]};
+                    ftw_upper_2 <= {cmd[14],cmd[15],cmd[16],cmd[17]};
+                    sweep_step <= {cmd[18],cmd[19],cmd[20],cmd[21]};
+                    sweep_rate <= {cmd[22],cmd[23]};
+                    pulse_period <= {cmd[24],cmd[25]};
+                    resweep_period <= {cmd[26],cmd[27],cmd[28]};
+                    mode <= cmd[30][2:0];
+                    rf_switch <= cmd[30][3];
+                    tx_att <= cmd[29];
+                    rx_ch1_att <= cmd[31];
+                    rx_ch2_att <= cmd[32];
+                    rx_ch3_att <= cmd[33];
+                    rx_ch1_pha <= cmd[34];
+                    rx_ch2_pha <= cmd[35];
+                    rx_ch3_pha <= cmd[36];
+                    ct_period <= {cmd[37],cmd[38],cmd[39],cmd[40]};
+                    ys_period <= {cmd[41],cmd[42],cmd[43],cmd[44]};
                     ready_reg <= 1;
                     sta_cur <= 13;
                 end

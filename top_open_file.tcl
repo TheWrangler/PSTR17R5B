@@ -1,2 +1,2 @@
 project -load top.prj
-open_file top.srr
+open_file top.srs

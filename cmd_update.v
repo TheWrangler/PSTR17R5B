@@ -95,7 +95,7 @@ module cmd_update
         end
         else if(update_cmd) begin
             mode <= depack_mode;
-            rf_switch <= depack_rf_switch;
+            rf_switch <= ~depack_rf_switch;
             tx_att <= depack_tx_att;
             rx_ch1_att <= depack_rx_ch1_att;
             rx_ch2_att <= depack_rx_ch2_att;
@@ -159,18 +159,18 @@ module cmd_update
         end
     end
     assign rx_ch_pwr_ctrl = rx_ch_ctrl & rx_ch_pwr_ctrl_temp;
-    assign rf_power = rf_switch & rf_power_temp;
+    assign rf_power = (~rf_switch) & rf_power_temp;
 
     //在tr的下降沿切换tv/th
     always @ (posedge clk) begin
         if(!rst) begin
-            tvh <= 1'b1;
+            tvh <= 1'b0;
         end
         else if(tr_edge == 2'b10) begin
            if(mode == 3'b010) begin
                tvh <= ~tvh;
            end
-           else tvh <= 1'b1;
+           else tvh <= 1'b0;
         end
     end
 

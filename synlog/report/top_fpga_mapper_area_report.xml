@@ -14,7 +14,7 @@ The file contains the area information from mapper to be displayed as part of th
 <data>132</data>
 </parameter>
 <parameter tooltip="Total Non I/O Register bits used" name="Non I/O Register bits">
-<data>2221 (6%)</data>
+<data>2466 (7%)</data>
 </parameter>
 <parameter tooltip="Total I/O Register bits used" name="I/O Register bits">
 <data>0</data>
@@ -26,6 +26,6 @@ The file contains the area information from mapper to be displayed as part of th
 <data>8 (38)</data>
 </parameter>
 <parameter tooltip="Total LUTs used" name="LUTs">
-<data>2150 (12%)</data>
+<data>1580 (9%)</data>
 </parameter>
 </report_table>

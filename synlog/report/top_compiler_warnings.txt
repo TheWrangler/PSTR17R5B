@@ -791,9 +791,6 @@
 @W: CS263 :"F:\PSTR17R5B\top.v":279:20:279:29|Port-width mismatch for port rx_ch1_att. Formal has width 6, Actual 8
 @W: CS263 :"F:\PSTR17R5B\top.v":280:20:280:29|Port-width mismatch for port rx_ch2_att. Formal has width 6, Actual 8
 @W: CS263 :"F:\PSTR17R5B\top.v":281:20:281:29|Port-width mismatch for port rx_ch3_att. Formal has width 6, Actual 8
-@W: CS263 :"F:\PSTR17R5B\top.v":310:11:310:20|Port-width mismatch for port r. Formal has width 1, Actual 8
-@W: CS263 :"F:\PSTR17R5B\top.v":328:11:328:20|Port-width mismatch for port r. Formal has width 1, Actual 8
-@W: CS263 :"F:\PSTR17R5B\top.v":346:11:346:20|Port-width mismatch for port r. Formal has width 1, Actual 8
 @W: CG781 :"F:\PSTR17R5B\top.v":397:22:397:22|Undriven input negitive_step on instance ad9914_ctrl_inst1, tying to 0
 @W: CG781 :"F:\PSTR17R5B\top.v":399:22:399:22|Undriven input negitive_rate on instance ad9914_ctrl_inst1, tying to 0
 @W: CS263 :"F:\PSTR17R5B\top.v":393:20:393:20|Port-width mismatch for port sweep_edge. Formal has width 1, Actual 32
@@ -802,7 +799,13 @@
 @W: CG781 :"F:\PSTR17R5B\top.v":465:22:465:22|Undriven input negitive_rate on instance ad9914_ctrl_inst2, tying to 0
 @W: CS263 :"F:\PSTR17R5B\top.v":459:20:459:20|Port-width mismatch for port sweep_edge. Formal has width 1, Actual 32
 @W: CS263 :"F:\PSTR17R5B\top.v":466:13:466:13|Port-width mismatch for port att. Formal has width 8, Actual 32
-@W: CL156 :"D:\Synopsys\fpga_H201303\lib\xilinx\unisim_m10i.v":1:1:1:2|*Input highz to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[2] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[2] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[1] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[1] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
+@W: CL157 :"F:\PSTR17R5B\top.v":54:17:54:18|*Output a1 has undriven bits -- simulation mismatch possible.
+@W: CL157 :"F:\PSTR17R5B\top.v":55:17:55:18|*Output a0 has undriven bits -- simulation mismatch possible.
+@W: CL157 :"F:\PSTR17R5B\top.v":56:17:56:26|*Output rx_att_scl has undriven bits -- simulation mismatch possible.
 @W: CL249 :"F:\PSTR17R5B\ad9914_ctrl.v":154:1:154:6|Initial value is not supported on state machine fsm_state_cur
 @W: CL246 :"F:\PSTR17R5B\ad9914_ctrl.v":42:13:42:15|Input port bits 7 to 6 of att[7:0] are unused
 @W: CL159 :"F:\PSTR17R5B\ad9914_ctrl.v":47:7:47:11|Input dover is unused
@@ -830,15 +833,12 @@
 @W: CL249 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Initial value is not supported on state machine fsm_state_cur
 @W: CL138 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Removing register 'slave_dev_w_addr' because it is only assigned 0 or its original value.
 @W: CL249 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Initial value is not supported on state machine state_cur
-@W: CL279 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Pruning register bits 7 to 2 of reg_var[7:0] 
-@W: CL257 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit 1 always 0, optimizing ...
-@W: CL260 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Pruning register bit 1 of reg_var[1:0] 
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":41:16:41:32|Input port bits 7 to 6 of depack_rx_ch1_att[7:0] are unused
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":42:16:42:32|Input port bits 7 to 6 of depack_rx_ch2_att[7:0] are unused
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":43:16:43:32|Input port bits 7 to 6 of depack_rx_ch3_att[7:0] are unused
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":44:16:44:32|Input port bits 7 to 6 of depack_rx_ch1_pha[7:0] are unused
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":45:16:45:32|Input port bits 7 to 6 of depack_rx_ch2_pha[7:0] are unused
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":46:16:46:32|Input port bits 7 to 6 of depack_rx_ch3_pha[7:0] are unused
-@W: CL249 :"F:\PSTR17R5B\depack.v":126:4:126:9|Initial value is not supported on state machine sta_cur
+@W: CL249 :"F:\PSTR17R5B\depack.v":106:4:106:9|Initial value is not supported on state machine sta_cur
 @W: CL249 :"F:\PSTR17R5B\spi_slave_r.v":37:1:37:6|Initial value is not supported on state machine sta_cur
 

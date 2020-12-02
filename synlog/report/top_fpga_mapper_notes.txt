@@ -31,41 +31,132 @@
 @N: FX493 |Applying initial value "01000001111000011110000111100001" on instance ad9914_ctrl_inst2.lower_limit_reg[31:0] 
 @N: FX493 |Applying initial value "00000000000000010000000000000001" on instance ad9914_ctrl_inst2.rate_reg[31:0] 
 @N: FX493 |Applying initial value "000" on instance cmd_update_inst.rx_ch_pwr_ctrl_temp[2:0] 
-@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance reg_temp[7:0] of view:PrimLib.dffe(prim) in hierarchy view:work.ds3502_ds3502_inst3(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance reg_var[0] of view:PrimLib.dffe(prim) in hierarchy view:work.ds3502_ds3502_inst3(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[3] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[4] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch2_att[5] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[3] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[4] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[5] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: MF179 :"f:\pstr17r5b\depack.v":180:27:180:59|Found 8 bit by 8 bit '==' comparator, 'un1_cmd\[45\]'
-@N: BN362 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Removing sequential instance pulse_clock_num_reg[28] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.prf_gen(verilog) because there are no references to its outputs 
+@N: MF179 :"f:\pstr17r5b\depack.v":160:27:160:59|Found 8 bit by 8 bit '==' comparator, 'un1_cmd\[45\]'
+@N: BN362 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Removing sequential instance ct_clock_num_reg[50] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.prf_gen(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance reg_var[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.ds3502(verilog) because there are no references to its outputs 
 @N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":225:24:225:58|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_0_'
 @N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":226:28:226:62|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_1_'
 @N: BN362 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.ad9914_reg_wr_ad9914_reg_wr_inst(verilog) because there are no references to its outputs 
 @N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":225:24:225:58|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_0_'
 @N: MF179 :"f:\pstr17r5b\ad9914_reg_wr.v":226:28:226:62|Found 16 bit by 16 bit '==' comparator, 'un1_reg_wvar_reg_1_'
 @N: BN362 :"f:\pstr17r5b\ad9914_reg_wr.v":115:4:115:9|Removing sequential instance reg_base_addr_reg[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.ad9914_reg_wr_ad9914_reg_wr_inst_0(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.rx_ch3_att[0] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Removing sequential instance prf_gen_inst.ct_clock_num_reg[28] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[16] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[17] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[18] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[19] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[20] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[21] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[22] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.resweep_period[23] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch1_att[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch1_att[7] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[0] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[3] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[4] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[5] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_att[7] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[0] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[3] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[4] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[5] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_att[7] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch1_pha[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch1_pha[7] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_pha[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch2_pha[7] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_pha[6] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.rx_ch3_pha[7] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\depack.v":106:4:106:9|Removing sequential instance depack_inst.ys_period[31] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
 @N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[2] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
 @N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[0] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance cmd_update_inst.mode[1] of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
 @N: FX430 |Found 1 global buffers instantiated by user 
-@N: BN362 :"f:\pstr17r5b\work_flow.v":35:4:35:9|Removing sequential instance work_flow_inst.update_cmd of view:UNILIB.FDCPE(PRIM) in hierarchy view:work.top(verilog) because there are no references to its outputs 
-@N: FX981 :"f:\pstr17r5b\top.v":198:58:198:58|Latch-throughs are inserted for ternary adder ct_clock_num_0_6[25:8] to improve slice packing. 
-@N: FX981 :"f:\pstr17r5b\top.v":197:51:197:51|Latch-throughs are inserted for ternary adder ys_clock_num_0_6[28:7] to improve slice packing. 
-@N: FX103 :"f:\pstr17r5b\cmd_update.v":25:10:94:22|Instance "cmd_update_inst.ad9914_load5" with "293" loads has been replicated "2" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Instance "pwr_rst_inst.rst_reg" with "465" loads has been replicated "4" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\depack.v":126:4:126:9|Instance "depack_inst.byte_index[3]" with "120" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\depack.v":126:4:126:9|Instance "depack_inst.byte_index[4]" with "173" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: FX103 :"f:\pstr17r5b\depack.v":126:4:126:9|Instance "depack_inst.byte_index[5]" with "160" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
-@N: MF322 |Retiming summary: 1 registers retimed to 6 
+@N: FA113 :"f:\pstr17r5b\top.v":198:27:198:60|Pipelining module un1_depack_ct_period[49:0]
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register ct_period[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[38\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[37\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\prf_gen.v":103:4:103:9|Register ct_clock_num_reg[63:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[40\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[39\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[6\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[44\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[42\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[36\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[34\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[32\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[30\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[28\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[26\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[24\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[22\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[20\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[18\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[16\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[14\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[12\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[10\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[8\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[4\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[2\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[0\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[5\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[43\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[41\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[35\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[33\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[31\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[29\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[27\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[25\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[23\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[21\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[19\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[17\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[15\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[13\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[11\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[9\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[7\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[3\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[1\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register ftw_upper_1[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register ys_period[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register rx_ch3_pha[7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register rx_ch1_pha[7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register mode[2:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register resweep_period[23:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register pulse_period[15:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register sweep_rate[15:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register sweep_step[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register ftw_upper_2[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register ftw_lower_2[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register ftw_lower_1[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register sta_cur[13:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register rf_switch pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register rx_ch2_pha[7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register rx_ch1_att[7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register tx_att[5:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Register rx_ch1_att[5:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\depack.v":106:4:106:9|Register cmd\[45\][7:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Register upper_limit_reg[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Register sweep_clock_num_reg[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\prf_gen.v":46:4:46:9|Register pulse_clock_num_reg[31:0] pushed in.
+@N: MF169 :"f:\pstr17r5b\ad9914_ctrl.v":154:1:154:6|Register lower_limit_reg[31:0] pushed in.
+@N: MF169 :|Register NoName pushed in.
+@N: FX981 :"f:\pstr17r5b\top.v":197:26:197:48|Latch-throughs are inserted for ternary adder ys_clock_num_0[30:3] to improve slice packing. 
+@N: FX103 :"f:\pstr17r5b\top.v":134:11:134:21|Instance "depack_inst.m3" with "278" loads has been replicated "2" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\cmd_update.v":25:10:94:22|Instance "cmd_update_inst.ad9914_load5" with "268" loads has been replicated "2" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\work_flow.v":35:4:35:9|Instance "work_flow_inst.update_cmd" with "113" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Instance "pwr_rst_inst.rst_reg" with "326" loads has been replicated "3" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":106:4:106:9|Instance "depack_inst.byte_index[4]" with "157" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: FX103 :"f:\pstr17r5b\depack.v":106:4:106:9|Instance "depack_inst.byte_index[5]" with "161" loads has been replicated "1" time(s) due to a soft fanout limit of "100" 
+@N: MF322 |Retiming summary: 2 registers retimed to 6 
 @N: FX164 |The option to pack flops in the IOB has not been specified 
 @N: FX623 |Packing into LUT62
 @N: MT535 |Writing timing correlation to file F:\PSTR17R5B\top_ctd.txt 

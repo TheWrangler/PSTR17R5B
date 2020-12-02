@@ -22,7 +22,7 @@ NET "rf_power_n" LOC = T15;
 NET "rf_power_p" IOSTANDARD = LVCMOS33;
 NET "rf_power_n" IOSTANDARD = LVCMOS33;
 
-NET "rf_switch" LOC = V14;
+NET "rf_switch" LOC = T11;
 NET "rf_switch" IOSTANDARD = LVCMOS33;
 
 #########################################################

@@ -30,8 +30,8 @@
 @N: CL201 :"F:\PSTR17R5B\ad9914_reg_wr.v":115:4:115:9|Trying to extract state machine for register fsm_state_cur
 @N: CL201 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Trying to extract state machine for register fsm_state_cur
 @N: CL201 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Trying to extract state machine for register state_cur
-@N: CL134 :"F:\PSTR17R5B\depack.v":126:4:126:9|Found RAM cmd[0], depth=46, width=8
-@N: CL201 :"F:\PSTR17R5B\depack.v":126:4:126:9|Trying to extract state machine for register sta_cur
+@N: CL134 :"F:\PSTR17R5B\depack.v":106:4:106:9|Found RAM cmd[0], depth=46, width=8
+@N: CL201 :"F:\PSTR17R5B\depack.v":106:4:106:9|Trying to extract state machine for register sta_cur
 @N: CL201 :"F:\PSTR17R5B\spi_slave_r.v":37:1:37:6|Trying to extract state machine for register sta_cur
 @N|Running in 64-bit mode
 
