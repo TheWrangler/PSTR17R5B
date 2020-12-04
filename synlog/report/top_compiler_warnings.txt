@@ -1,9 +1,7 @@
-@W: CG104 :"F:\PSTR17R5B\ds3502.v":70:62:70:62|Unsized number in concatination is 32 bits
-@W: CG104 :"F:\PSTR17R5B\ds3502.v":70:62:70:62|Unsized number in concatination is 32 bits
 @W: CG146 :"F:\PSTR17R5B\ipcore_dir\myfifo.v":39:7:39:12|Creating black box for empty module myfifo
 @W: CL169 :"F:\PSTR17R5B\prf_gen.v":46:4:46:9|Pruning register ys_clock_num_reg[31:0] 
-@W: CL208 :"F:\PSTR17R5B\cmd_update.v":122:8:122:9|All reachable assignments to bit 0 of rx_ch_ctrl[2:0] assign 1, register removed by optimization.
-@W: CL118 :"F:\PSTR17R5B\cmd_update.v":122:8:122:9|Latch generated from always block for signal rx_ch_ctrl[2:0]; possible missing assignment in an if or case statement.
+@W: CL208 :"F:\PSTR17R5B\cmd_update.v":126:8:126:9|All reachable assignments to bit 0 of rx_ch_ctrl_reg[2:0] assign 1, register removed by optimization.
+@W: CL118 :"F:\PSTR17R5B\cmd_update.v":126:8:126:9|Latch generated from always block for signal rx_ch_ctrl_reg[2:0]; possible missing assignment in an if or case statement.
 @W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":154:1:154:6|Register bit att_factor_reg_0_[0] is always 1, optimizing ...
 @W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":154:1:154:6|Register bit att_factor_reg_0_[1] is always 1, optimizing ...
 @W: CL189 :"F:\PSTR17R5B\ad9914_ctrl.v":154:1:154:6|Register bit att_factor_reg_0_[2] is always 1, optimizing ...
@@ -799,13 +797,6 @@
 @W: CG781 :"F:\PSTR17R5B\top.v":465:22:465:22|Undriven input negitive_rate on instance ad9914_ctrl_inst2, tying to 0
 @W: CS263 :"F:\PSTR17R5B\top.v":459:20:459:20|Port-width mismatch for port sweep_edge. Formal has width 1, Actual 32
 @W: CS263 :"F:\PSTR17R5B\top.v":466:13:466:13|Port-width mismatch for port att. Formal has width 8, Actual 32
-@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[2] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
-@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[2] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
-@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[1] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
-@W: CL156 :"F:\PSTR17R5B\top.v":319:23:319:39|*Input sda_io_select[1] to expression [instance] has undriven bits that are tied to 0 -- simulation mismatch possible.
-@W: CL157 :"F:\PSTR17R5B\top.v":54:17:54:18|*Output a1 has undriven bits -- simulation mismatch possible.
-@W: CL157 :"F:\PSTR17R5B\top.v":55:17:55:18|*Output a0 has undriven bits -- simulation mismatch possible.
-@W: CL157 :"F:\PSTR17R5B\top.v":56:17:56:26|*Output rx_att_scl has undriven bits -- simulation mismatch possible.
 @W: CL249 :"F:\PSTR17R5B\ad9914_ctrl.v":154:1:154:6|Initial value is not supported on state machine fsm_state_cur
 @W: CL246 :"F:\PSTR17R5B\ad9914_ctrl.v":42:13:42:15|Input port bits 7 to 6 of att[7:0] are unused
 @W: CL159 :"F:\PSTR17R5B\ad9914_ctrl.v":47:7:47:11|Input dover is unused
@@ -831,7 +822,14 @@
 @W: CL189 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Register bit delay_count[15] is always 0, optimizing ...
 @W: CL279 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Pruning register bits 15 to 1 of delay_count[15:0] 
 @W: CL249 :"F:\PSTR17R5B\parallel_wr.v":80:4:80:9|Initial value is not supported on state machine fsm_state_cur
-@W: CL138 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Removing register 'slave_dev_w_addr' because it is only assigned 0 or its original value.
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[0] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[1] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[2] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[3] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[4] is always 1, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[5] is always 0, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[6] is always 1, optimizing ...
+@W: CL189 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Register bit slave_dev_w_addr[7] is always 0, optimizing ...
 @W: CL249 :"F:\PSTR17R5B\ds3502.v":54:4:54:9|Initial value is not supported on state machine state_cur
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":41:16:41:32|Input port bits 7 to 6 of depack_rx_ch1_att[7:0] are unused
 @W: CL246 :"F:\PSTR17R5B\cmd_update.v":42:16:42:32|Input port bits 7 to 6 of depack_rx_ch2_att[7:0] are unused

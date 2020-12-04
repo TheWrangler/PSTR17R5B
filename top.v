@@ -319,41 +319,41 @@ module top
         .sda_io_select(sda_io_select[0])
     );
 
-    // ds3502 ds3502_inst2
-    // (
-    //     .clk(clk),
-    //     .rst(rst),
+    ds3502 ds3502_inst2
+    (
+        .clk(clk),
+        .rst(rst),
 
-    //     .load(rx_att_load),
-    //     .r(rx_ch2_att),
-    //     .busy(),
+        .load(rx_att_load),
+        .r(rx_ch2_att),
+        .busy(),
 
-    //     .a1(a1[1]),
-    //     .a0(a0[1]),
+        .a1(a1[1]),
+        .a0(a0[1]),
 
-    //     .scl(rx_att_scl[1]),
-    //     .sda_o(sda_o[1]),
-    //     .sda_i(sda_i[1]),
-    //     .sda_io_select(sda_io_select[1])
-    // );
+        .scl(rx_att_scl[1]),
+        .sda_o(sda_o[1]),
+        .sda_i(sda_i[1]),
+        .sda_io_select(sda_io_select[1])
+    );
 
-    // ds3502 ds3502_inst3
-    // (
-    //     .clk(clk),
-    //     .rst(rst),
+    ds3502 ds3502_inst3
+    (
+        .clk(clk),
+        .rst(rst),
 
-    //     .load(rx_att_load),
-    //     .r(rx_ch3_att),
-    //     .busy(),
+        .load(rx_att_load),
+        .r(rx_ch3_att),
+        .busy(),
 
-    //     .a1(a1[2]),
-    //     .a0(a0[2]),
+        .a1(a1[2]),
+        .a0(a0[2]),
 
-    //     .scl(rx_att_scl[2]),
-    //     .sda_o(sda_o[2]),
-    //     .sda_i(sda_i[2]),
-    //     .sda_io_select(sda_io_select[2])
-    // );
+        .scl(rx_att_scl[2]),
+        .sda_o(sda_o[2]),
+        .sda_i(sda_i[2]),
+        .sda_io_select(sda_io_select[2])
+    );
 
     genvar i;
     generate 
@@ -511,7 +511,7 @@ module top
     wire [35:0] CONTROL0;
 	wire [99:0] TRIG0;
 
-	assign TRIG0[7:0] = {ct,prf,tr,update_cmd,depack_crc_err,depack_load,depack_ready};
+	assign TRIG0[7:0] = {rx_att_load,ct,prf,tr,update_cmd,depack_crc_err,depack_load,depack_ready};
     assign TRIG0[14:8] = {rx_ch_ctrl,rf_power_p,rf_switch,ct_switch,tvh};
     assign TRIG0[20:15] = {ad9914_finish_2,ad9914_finish_1,ad9914_busy_2,ad9914_busy_1,ad9914_sweep,ad9914_load};
     assign TRIG0[28:21] = {dctrl_2,io_update_2,dover_2,osk_2,dctrl_1,io_update_1,dover_1,osk_1};

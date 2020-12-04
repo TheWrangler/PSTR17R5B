@@ -12,13 +12,13 @@ The file contains the job information from mapper to be displayed as part of the
 </job_status>
 <job_info>
 <info name="Notes">
-<data>166</data>
+<data>159</data>
 <report_link name="more">
 <data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_notes.txt</data>
 </report_link>
 </info>
 <info name="Warnings">
-<data>74</data>
+<data>69</data>
 <report_link name="more">
 <data>F:\PSTR17R5B\synlog\report\top_fpga_mapper_warnings.txt</data>
 </report_link>
@@ -33,13 +33,13 @@ The file contains the job information from mapper to be displayed as part of the
 <data>0h:00m:24s</data>
 </info>
 <info name="Real Time">
-<data>0h:00m:25s</data>
+<data>0h:00m:24s</data>
 </info>
 <info name="Peak Memory">
-<data>194MB</data>
+<data>197MB</data>
 </info>
 <info name="Date &amp; Time">
-<data type="timestamp">1606904123</data>
+<data type="timestamp">1607074191</data>
 </info>
 </job_info>
 </job_run_status>

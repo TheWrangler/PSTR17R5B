@@ -1,0 +1,59 @@
+ISim log file
+Running: F:\PSTR17R5B\tb_ds3502_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb F:/PSTR17R5B/tb_ds3502_isim_beh.wdb 
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 5000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+# run 5000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 391473551 ns : File "F:/PSTR17R5B/tb_ds3502.v" Line 54
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 126143339 ns : File "F:/PSTR17R5B/ds3502.v" Line 54
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+# run 5000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 131114473 ns : File "F:/PSTR17R5B/ds3502.v" Line 54
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+# run 5000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# restart
+# restart
+# restart
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 143266949 ns : File "F:/PSTR17R5B/tb_ds3502.v" Line 54
+ISim P.20131013 (signature 0x7708f090)
+This is a Full version of ISim.
+# run 5000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+# restart
+# run all
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+Stopped at time : 248727920 ns : File "F:/PSTR17R5B/tb_ds3502.v" Line 46

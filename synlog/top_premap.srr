@@ -24,12 +24,12 @@ Finished loading timing files (Real Time elapsed 0h:00m:00s; CPU Time elapsed 0h
 Reading Xilinx I/O pad type table from file <D:\Synopsys\fpga_H201303\lib\xilinx\x_io_tbl.txt> 
 Reading Xilinx Rocket I/O parameter type table from file <D:\Synopsys\fpga_H201303\lib\xilinx\gttype.txt> 
 @W: FX474 |User-specified initial value defined for some sequential elements which can prevent optimum synthesis results from being achieved. 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance rx_ch2_att[5:0] of view:PrimLib.dffe(prim) in hierarchy view:work.cmd_update(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\cmd_update.v":91:4:91:9|Removing sequential instance rx_ch3_att[5:0] of view:PrimLib.dffe(prim) in hierarchy view:work.cmd_update(verilog) because there are no references to its outputs 
-@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance busy of view:PrimLib.sdffse(prim) in hierarchy view:work.ds3502(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance busy of view:PrimLib.sdffse(prim) in hierarchy view:work.ds3502_ds3502_inst1(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance busy of view:PrimLib.sdffse(prim) in hierarchy view:work.ds3502_ds3502_inst2(verilog) because there are no references to its outputs 
+@N: BN362 :"f:\pstr17r5b\ds3502.v":54:4:54:9|Removing sequential instance busy of view:PrimLib.sdffse(prim) in hierarchy view:work.ds3502_ds3502_inst3(verilog) because there are no references to its outputs 
 @W: MT462 :|Net myicon_inst.CONTROL0[13] appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"f:\pstr17r5b\cmd_update.v":122:11:126:30|Net cmd_update_inst.rx_ch_ctrl10 appears to be an unidentified clock source. Assuming default frequency. 
-@W: MT462 :"f:\pstr17r5b\cmd_update.v":122:11:126:30|Net cmd_update_inst.un1_rx_ch_ctrl8_1 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"f:\pstr17r5b\cmd_update.v":126:11:130:30|Net cmd_update_inst.un1_rx_ch_ctrl_reg7_1 appears to be an unidentified clock source. Assuming default frequency. 
+@W: MT462 :"f:\pstr17r5b\cmd_update.v":126:11:130:30|Net cmd_update_inst.rx_ch_ctrl_reg9 appears to be an unidentified clock source. Assuming default frequency. 
 
 
 Clock Summary
@@ -45,25 +45,19 @@ myicon|U0/iUPDATE_OUT_inferred_clock                             1.0 MHz       1
 top|clk_2                                                        1.0 MHz       1000.000      inferred     Inferred_clkgroup_3
 =============================================================================================================================
 
-@W: MT531 :"f:\pstr17r5b\cmd_update.v":122:8:122:9|Found signal identified as System clock which controls 2 sequential elements including cmd_update_inst.rx_ch_ctrl_1[1].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
+@W: MT531 :"f:\pstr17r5b\cmd_update.v":126:8:126:9|Found signal identified as System clock which controls 2 sequential elements including cmd_update_inst.rx_ch_ctrl_reg[2].  Using this clock, which has no specified timing constraint, can prevent conversion of gated or generated clocks and can adversely impact design performance. 
 @W: MT529 :|Found inferred clock myicon|U0/U_ICON/I_YES_BSCAN_U_BS/iDRCK_LOCAL_inferred_clock which controls 0 sequential elements including myicon_inst.U0/U_ICON/U_SYNC/G_SYNC_WORD\[6\]\.I_EQ0\.U_FDR. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
-@W: MT529 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Found inferred clock top|clk which controls 1785 sequential elements including pwr_rst_inst.rst_reg. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
+@W: MT529 :"f:\pstr17r5b\pwr_rst.v":37:1:37:6|Found inferred clock top|clk which controls 1967 sequential elements including pwr_rst_inst.rst_reg. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 @W: MT529 :|Found inferred clock myicon|U0/iUPDATE_OUT_inferred_clock which controls 0 sequential elements including myicon_inst.U0/U_ICON/U_iDATA_CMD. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 @W: MT529 :"f:\pstr17r5b\parallel_wr.v":80:4:80:9|Found inferred clock top|clk_2 which controls 420 sequential elements including ad9914_ctrl_inst2.ad9914_reg_wr_inst.parallel_wr_inst.rd_reg. This clock has no specified timing constraint which may prevent conversion of gated or generated clocks and may adversely impact design performance. 
 
 syn_allowed_resources : blockrams=104,dsps=38  set on top level netlist top
-Finished Pre Mapping Phase.@W: MO111 :"f:\pstr17r5b\top.v":316:13:316:26|Tristate driver rx_att_scl_2 on net rx_att_scl[1] has its enable tied to GND (module top) 
-@W: MO111 :"f:\pstr17r5b\top.v":316:13:316:26|Tristate driver rx_att_scl_1 on net rx_att_scl[2] has its enable tied to GND (module top) 
-@W: MO111 :"f:\pstr17r5b\top.v":313:12:313:17|Tristate driver a1_2 on net a1[1] has its enable tied to GND (module top) 
-@W: MO111 :"f:\pstr17r5b\top.v":313:12:313:17|Tristate driver a1_1 on net a1[2] has its enable tied to GND (module top) 
-@W: MO111 :"f:\pstr17r5b\top.v":314:12:314:17|Tristate driver a0_2 on net a0[1] has its enable tied to GND (module top) 
-@W: MO111 :"f:\pstr17r5b\top.v":314:12:314:17|Tristate driver a0_1 on net a0[2] has its enable tied to GND (module top) 
-@N: BN225 |Writing default property annotation file F:\PSTR17R5B\top.sap.
+Finished Pre Mapping Phase.@N: BN225 |Writing default property annotation file F:\PSTR17R5B\top.sap.
 Pre-mapping successful!
 
 At Mapper Exit (Real Time elapsed 0h:00m:01s; CPU Time elapsed 0h:00m:01s; Memory used current: 82MB peak: 146MB)
 
 Process took 0h:00m:01s realtime, 0h:00m:01s cputime
-# Wed Dec 02 18:14:57 2020
+# Fri Dec 04 17:29:26 2020
 
 ###########################################################]

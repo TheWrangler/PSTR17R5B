@@ -51,7 +51,7 @@ module cmd_update
     output reg ad9914_sweep,
 
     //控制发射开关和供电开关
-    output reg rf_switch,
+    output rf_switch,
     output rf_power,
     
     //空馈/校准控制，0-校准，1-空馈
@@ -62,7 +62,7 @@ module cmd_update
 
     //接收通道供电控制
     output [2:0] rx_ch_pwr_ctrl,
-    output reg [2:0] rx_ch_ctrl,
+    output [2:0] rx_ch_ctrl,
 
     //发射衰减
     output reg [5:0] tx_att,
@@ -87,7 +87,7 @@ module cmd_update
 );
 
     reg [2:0] mode;
-
+    reg rf_switch_reg = 1'b1;
     always @ (posedge clk) begin
         if(!rst) begin
             ad9914_load <= 1'b0;
@@ -95,7 +95,7 @@ module cmd_update
         end
         else if(update_cmd) begin
             mode <= depack_mode;
-            rf_switch <= ~depack_rf_switch;
+            rf_switch_reg <= ~depack_rf_switch;
             tx_att <= depack_tx_att;
             rx_ch1_att <= depack_rx_ch1_att;
             rx_ch2_att <= depack_rx_ch2_att;
@@ -118,14 +118,21 @@ module cmd_update
         end
     end
 
+    assign rf_switch = ct_switch ? rf_switch_reg : 1'b1;//校准时关闭控制发射开关
+
+    //接收通道控制和供电控制
+    reg [2:0] rx_ch_ctrl_reg = 3'b001;
     always @ (mode) begin
         if(mode == 3'b000)
-            rx_ch_ctrl <= 3'b001;
+            rx_ch_ctrl_reg <= 3'b001;
         else if(mode == 3'b010 || mode == 3'b011)
-            rx_ch_ctrl <= 3'b011;
+            rx_ch_ctrl_reg <= 3'b011;
         else if(mode == 3'b100)
-            rx_ch_ctrl <= 3'b111;
+            rx_ch_ctrl_reg <= 3'b111;
     end
+    assign rx_ch_pwr_ctrl = rx_ch_ctrl_reg;
+    assign rx_ch_ctrl = ct_switch ? rx_ch_ctrl_reg : 3'b000;
+
 
 
     //在prf上升沿启动扫频
@@ -141,25 +148,20 @@ module cmd_update
         end
     end
 
-    //在prf上升沿启动发射和接收供电开关
-    reg [2:0] rx_ch_pwr_ctrl_temp = 3'b000;
+    //在prf上升沿启动发射供电开关
     reg rf_power_temp = 1'b0;
     always @ (posedge clk) begin
         if(!rst) begin
             rf_power_temp <= 1'b0;
-            rx_ch_pwr_ctrl_temp <= 3'b000;
         end
         else if(prf_edge == 2'b01) begin
             rf_power_temp <= 1'b1;
-            rx_ch_pwr_ctrl_temp <= 3'b111;
         end
         else if(tr_edge == 2'b10) begin
             rf_power_temp <= 1'b0;
-            rx_ch_pwr_ctrl_temp <= 3'b000;
         end
     end
-    assign rx_ch_pwr_ctrl = rx_ch_ctrl & rx_ch_pwr_ctrl_temp;
-    assign rf_power = (~rf_switch) & rf_power_temp;
+    assign rf_power = (~rf_switch_reg) & rf_power_temp;
 
     //在tr的下降沿切换tv/th
     always @ (posedge clk) begin

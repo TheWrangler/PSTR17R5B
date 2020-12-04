@@ -67,7 +67,7 @@ module ds3502
                     sda_o <= 1'b0;
                     sda_io_select <= 1'b0;
                     delay_num <= 32'd0;
-                    slave_dev_w_addr <= {SLAVE_DEV_ADDR,a1,a0,0};
+                    slave_dev_w_addr <= {SLAVE_DEV_ADDR,a1,a0,1'b0};
                     busy <= 1'b1;
                     state_cur <= 8'd1;
                 end
@@ -110,27 +110,34 @@ module ds3502
                     else state_cur <= 8'd5;
                 end
             end
-            5 : begin//ACK
+            5 : begin
                 delay_num <= delay_num + 32'd1;
-                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
-                    delay_num <= 32'd0;
-                    scl <= 1'b1;
+                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
+                    sda_o <= 1'b0;
                     sda_io_select <= 1'b1;
                     state_cur <= 8'd6;
                 end
             end
-            6 : begin
+            6 : begin//ACK
+                delay_num <= delay_num + 32'd1;
+                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
+                    delay_num <= 32'd0;
+                    scl <= 1'b1;
+                    state_cur <= 8'd7;
+                end
+            end
+            7 : begin
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
                     if(sda_i == 0) begin
-                        state_cur <= 8'd7;
+                        state_cur <= 8'd8;
                     end
                     else begin
-                        state_cur <= 8'd19;
+                        state_cur <= 8'd22;
                     end
                 end
             end
-            7 : begin//REG ADDR
+            8 : begin//REG ADDR
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
@@ -138,23 +145,15 @@ module ds3502
                     reg_temp <= WR_REG_ADDR;
                     sda_io_select <= 1'b0;
                     bit_count <= 8'd0;
-                    state_cur <= 8'd8;
-                end
-            end
-            8 : begin
-                delay_num <= delay_num + 32'd1;
-                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
-                    sda_o <= reg_temp[7];
-                    reg_temp <= {reg_temp[6:0],1'b0};
-                    bit_count <= bit_count + 8'd1;
                     state_cur <= 8'd9;
                 end
             end
             9 : begin
                 delay_num <= delay_num + 32'd1;
-                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
-                    delay_num <= 32'd0;
-                    scl <= 1'b1;
+                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
+                    sda_o <= reg_temp[7];
+                    reg_temp <= {reg_temp[6:0],1'b0};
+                    bit_count <= bit_count + 8'd1;
                     state_cur <= 8'd10;
                 end
             end
@@ -162,33 +161,48 @@ module ds3502
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
-                    scl <= 1'b0;
-                    if(bit_count < 8'd8)
-                        state_cur <= 8'd8;
-                    else state_cur <= 8'd11;
+                    scl <= 1'b1;
+                    state_cur <= 8'd11;
                 end
             end
-            11 : begin//ACK
+            11 : begin
+                delay_num <= delay_num + 32'd1;
+                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
+                    delay_num <= 32'd0;
+                    scl <= 1'b0;
+                    if(bit_count < 8'd8)
+                        state_cur <= 8'd9;
+                    else state_cur <= 8'd12;
+                end
+            end
+            12 : begin
+                delay_num <= delay_num + 32'd1;
+                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
+                    sda_o <= 1'b0;
+                    sda_io_select <= 1'b1;
+                    state_cur <= 8'd13;
+                end
+            end
+            13 : begin//ACK
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
                     scl <= 1'b1;
-                    sda_io_select <= 1'b1;
-                    state_cur <= 8'd12;
+                    state_cur <= 8'd14;
                 end
              end
-            12 : begin
+            14 : begin
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
                     if(sda_i == 0) begin
-                        state_cur <= 8'd13;
+                        state_cur <= 8'd15;
                     end
                     else begin
-                        state_cur <= 8'd19;
+                        state_cur <= 8'd22;
                     end
                 end
             end
-            13 : begin//REG VAR
+            15 : begin//REG VAR
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
@@ -196,81 +210,88 @@ module ds3502
                     reg_temp <= reg_var;
                     sda_io_select <= 1'b0;
                     bit_count <= 8'd0;
-                    state_cur <= 8'd14;
-                end
-            end
-            14 : begin
-                delay_num <= delay_num + 32'd1;
-                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
-                    sda_o <= reg_temp[7];
-                    reg_temp <= {reg_temp[6:0],1'b0};
-                    bit_count <= bit_count + 8'd1;
-                    state_cur <= 8'd15;
-                end
-            end
-            15 : begin
-                delay_num <= delay_num + 32'd1;
-                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
-                    delay_num <= 32'd0;
-                    scl <= 1'b1;
                     state_cur <= 8'd16;
                 end
             end
             16 : begin
                 delay_num <= delay_num + 32'd1;
-                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
-                    delay_num <= 32'd0;
-                    scl <= 1'b0;
-                    if(bit_count < 8'd8)
-                        state_cur <= 8'd17;
-                    else state_cur <= 8'd14;
+                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
+                    sda_o <= reg_temp[7];
+                    reg_temp <= {reg_temp[6:0],1'b0};
+                    bit_count <= bit_count + 8'd1;
+                    state_cur <= 8'd17;
                 end
             end
-            17 : begin//ACK
+            17 : begin
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
                     scl <= 1'b1;
-                    sda_io_select <= 1'b1;
                     state_cur <= 8'd18;
                 end
             end
             18 : begin
                 delay_num <= delay_num + 32'd1;
+                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
+                    delay_num <= 32'd0;
+                    scl <= 1'b0;
+                    if(bit_count < 8'd8)
+                        state_cur <= 8'd16;
+                    else state_cur <= 8'd19;
+                end
+            end
+            19 : begin
+                delay_num <= delay_num + 32'd1;
+                if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
+                    sda_o <= 1'b0;
+                    sda_io_select <= 1'b1;
+                    state_cur <= 8'd20;
+                end
+            end
+            20 : begin//ACK
+                delay_num <= delay_num + 32'd1;
+                if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
+                    delay_num <= 32'd0;
+                    scl <= 1'b1;
+                    state_cur <= 8'd21;
+                end
+            end
+            21 : begin
+                delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
                     if(sda_i == 0) begin
-                        state_cur <= 8'd19;
+                        state_cur <= 8'd22;
                     end
                     else begin
-                        state_cur <= 8'd19;
+                        state_cur <= 8'd22;
                     end
                 end
             end
-            19 : begin//STOP
+            22 : begin//STOP
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
                     scl <= 1'b0;
                     sda_io_select <= 1'b0;
-                    state_cur <= 8'd20;
+                    state_cur <= 8'd23;
                 end 
             end
-            20 : begin
+            23 : begin
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_HALF_PERIOD_CLOCK_NUM) begin
                     sda_o <= 1'b0;
-                    state_cur <= 8'd21;
+                    state_cur <= 8'd24;
                 end 
             end
-            21 : begin
+            24 : begin
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     delay_num <= 32'd0;
                     scl <= 1'b1;
-                    state_cur <= 8'd22;
+                    state_cur <= 8'd25;
                 end 
             end
-            22 : begin
+            25 : begin
                 delay_num <= delay_num + 32'd1;
                 if(delay_num == SCL_PERIOD_CLOCK_NUM) begin
                     sda_o <= 1'b1;
@@ -288,6 +309,8 @@ module ds3502
     // assign TRIG0[23:16] = reg_var;
     // assign TRIG0[31:24] = state_cur;
     // assign TRIG0[39:32] = bit_count;
+    // assign TRIG0[47:40] = reg_temp;
+    // assign TRIG0[55:48] = slave_dev_w_addr;
 
 	// myila myila_inst (
 	// 	.CONTROL(CONTROL0), // INOUT BUS [35:0]

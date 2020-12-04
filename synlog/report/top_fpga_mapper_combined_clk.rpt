@@ -2,17 +2,17 @@
 
 #### START OF CLOCK OPTIMIZATION REPORT #####[
 
-3 non-gated/non-generated clock tree(s) driving 2681 clock pin(s) of sequential element(s)
+3 non-gated/non-generated clock tree(s) driving 2789 clock pin(s) of sequential element(s)
 2 gated/generated clock tree(s) driving 2 clock pin(s) of sequential element(s)
 2 instances converted, 2 sequential instances remain driven by gated/generated clocks
 
-==================================================================================== Non-Gated/Non-Generated Clocks =====================================================================================
-Clock Tree ID     Driving Element                                                                                                      Drive Element Type     Fanout     Sample Instance                 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-@K:CKID0003       clk                                                                                                                  port                   2139       un1_depack_ct_period_1_1[33:0]  
-@K:CKID0004       clk_2                                                                                                                port                   364        ad9914_ctrl_inst2.delay_count[0]
-@K:CKID0005       myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG     BUFG                   178        myicon_inst.U0/U_ICON/U_TDO_reg 
-=========================================================================================================================================================================================================
+===================================================================================== Non-Gated/Non-Generated Clocks ======================================================================================
+Clock Tree ID     Driving Element                                                                                                      Drive Element Type     Fanout     Sample Instance                   
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+@K:CKID0003       clk                                                                                                                  port                   2254       un1_depack_ct_period_1_1[33:0]    
+@K:CKID0004       clk_2                                                                                                                port                   357        ad9914_ctrl_inst2.reg_wvar_reg[17]
+@K:CKID0005       myicon_inst.U0/U_ICON/I_YES_BSCAN.U_BS/I_USE_SOFTBSCAN_EQ0.I_USE_XST_TCK_WORKAROUND_EQ1.U_ICON_BSCAN_BUFG/U_BUFG     BUFG                   178        myicon_inst.U0/U_ICON/U_TDO_reg   
+===========================================================================================================================================================================================================
 ================================================================================================================================================================= Gated/Generated Clocks =================================================================================================================================================================
 Clock Tree ID     Driving Element                                                               Drive Element Type     Fanout     Sample Instance                                   Explanation                                                                                                                                                           
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

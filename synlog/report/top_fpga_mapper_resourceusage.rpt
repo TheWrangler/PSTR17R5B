@@ -4,45 +4,44 @@ Resource Usage Report for top
 Mapping to part: xc6slx25csg324-2
 Cell usage:
 BSCAN_SPARTAN6  1 use
-DSP48A1         8 uses
-FD              486 uses
+DSP48A1         10 uses
+FD              567 uses
 FDC             11 uses
 FDCE            16 uses
-FDE             1323 uses
+FDE             1349 uses
 FDP             202 uses
 FDR             72 uses
-FDRE            340 uses
-FDS             15 uses
-FDSE            1 use
-GND             18 uses
+FDRE            333 uses
+FDS             19 uses
+FDSE            3 uses
+GND             20 uses
 Latch-Through   23 uses
 LDC             1 use
 MUXCY           10 uses
-MUXCY_L         478 uses
+MUXCY_L         492 uses
 MUXF5           2 uses
 MUXF6           1 use
-MUXF7           60 uses
-MUXF8           27 uses
+MUXF7           46 uses
+MUXF8           20 uses
 RAM64X1S        8 uses
 RAMB16BWER      6 uses
 RAMB8BWER       1 use
-VCC             18 uses
-XORCY           307 uses
-LUT1            148 uses
-LUT2            260 uses
-LUT3            196 uses
-LUT4            299 uses
-LUT5            322 uses
-LUT6            396 uses
-LUT6_2            3 uses
+VCC             20 uses
+XORCY           322 uses
+LUT1            163 uses
+LUT2            278 uses
+LUT3            172 uses
+LUT4            318 uses
+LUT5            429 uses
+LUT6            417 uses
+LUT6_2            5 uses
 
 I/O ports: 132
 I/O primitives: 132
 IBUF           4 uses
 IBUFG          2 uses
 IOBUF          35 uses
-OBUF           85 uses
-OBUFT          6 uses
+OBUF           91 uses
 
 BUFG           3 uses
 
@@ -53,7 +52,7 @@ SRL16          100 uses
 SRL16E         1 use
 
 I/O Register bits:                  0
-Register bits not including I/Os:   2466 (7%)
+Register bits not including I/Os:   2572 (7%)
 Latch bits not including I/Os:      1 (0%)
 
 RAM/ROM usage summary
@@ -61,17 +60,17 @@ Single Port Rams (RAM64X1S): 8
 Occupied Block RAM sites (RAMB36) : 7 of 52 (13%)
 
 
-DSP48s: 8 of 38 (21%)
+DSP48s: 10 of 38 (26%)
 
 Global Clock Buffers: 3 of 16 (18%)
 
 
 Mapping Summary:
-Total  LUTs: 1580 (9%)
+Total  LUTs: 1737 (10%)
 
 Distribution of All Consumed LUTs = SRL + RAM + LUT1 + LUT2 + LUT3 + LUT4 + LUT5 + LUT6 + LUT6_2- HLUTNM/2 
-Distribution of All Consumed Luts 1580 = 186 + 8 + 148 + 260 + 196 + 299 + 322 + 396 + 3- 476/2 
+Distribution of All Consumed Luts 1737 = 186 + 8 + 163 + 278 + 172 + 318 + 429 + 417 + 5- 478/2 
 
 
- Number of unique control sets:              139
+ Number of unique control sets:              147
 

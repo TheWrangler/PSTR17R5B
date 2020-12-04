@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="F:/PSTR17R5B/tb_ds3502_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_ds3502" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="14" />
+   <wvobject fp_name="/tb_ds3502/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/load" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">load</obj_property>
+      <obj_property name="ObjectShortName">load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/ds3502_inst/delay_num" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">delay_num[31:0]</obj_property>
+      <obj_property name="ObjectShortName">delay_num[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/ds3502_inst/state_cur" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">state_cur[7:0]</obj_property>
+      <obj_property name="ObjectShortName">state_cur[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/ds3502_inst/bit_count" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">bit_count[7:0]</obj_property>
+      <obj_property name="ObjectShortName">bit_count[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/scl" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">scl</obj_property>
+      <obj_property name="ObjectShortName">scl</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/sda_o" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sda_o</obj_property>
+      <obj_property name="ObjectShortName">sda_o</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/sda_io_select" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sda_io_select</obj_property>
+      <obj_property name="ObjectShortName">sda_io_select</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/a1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">a1</obj_property>
+      <obj_property name="ObjectShortName">a1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/a0" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">a0</obj_property>
+      <obj_property name="ObjectShortName">a0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">r[7:0]</obj_property>
+      <obj_property name="ObjectShortName">r[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/sda_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sda_i</obj_property>
+      <obj_property name="ObjectShortName">sda_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_ds3502/busy" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">busy</obj_property>
+      <obj_property name="ObjectShortName">busy</obj_property>
+   </wvobject>
+</wave_config>
